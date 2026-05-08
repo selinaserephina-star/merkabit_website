@@ -66,7 +66,7 @@
               <li><a href="journey.html#origin">Origin</a></li>
               <li><a href="genesis.html">Genesis Sequence</a></li>
               <li><a href="journey.html#book">Scaling Buddha</a></li>
-              <li><a href="journey.html#collaboration">Collaboration</a></li>
+              <li><a href="collaboration.html">Collaboration</a></li>
             </ul>
           </div>
           <div>
