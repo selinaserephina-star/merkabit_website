@@ -57,24 +57,14 @@
     .ev .what { font-size: 17px; color: var(--ink); line-height: 1.55; }
     .ev .what em { color: var(--ink-mid); font-style: normal; display: block; font-size: 14px; margin-top: 4px; }
 
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 64px 0; }
-    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 64px 0; }
+    @media (max-width: 1000px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
     .ch { padding: 28px; border: 1px solid var(--line); display:flex; flex-direction:column; gap: 14px; min-height: 220px; }
     .ch .lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
-    .ch h3 { font-size: 24px; }
-    .ch p { font-size: 15px; color: var(--ink-mid); line-height: 1.55; margin: 0; }
-    .ch a.value { font-family: var(--font-mono); font-size: 14px; color: var(--gold); margin-top: auto; }
-
-    .form { display: grid; gap: 16px; }
-    .form .field { display: grid; gap: 6px; }
-    .form label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
-    .form input, .form select, .form textarea {
-      background: var(--bg); border: 1px solid var(--line); color: var(--ink);
-      padding: 12px 14px; font-family: var(--font-body); font-size: 15px; border-radius: 0;
-    }
-    .form input:focus, .form select:focus, .form textarea:focus {
-      outline: 0; border-color: var(--gold);
-    }
+    .ch h3 { font-size: 22px; }
+    .ch p { font-size: 14.5px; color: var(--ink-mid); line-height: 1.55; margin: 0; }
+    .ch a.value { font-family: var(--font-mono); font-size: 13px; color: var(--gold); margin-top: auto; word-break: break-word; }
   </style>
 </head>
 <body data-nav="about" data-screen-label="11 About">
@@ -189,63 +179,35 @@
           </div>
         </div>
         <div class="contact-grid">
-          <div style="display:flex; flex-direction:column; gap:16px;">
-            <div class="ch">
-              <span class="lbl">For engagements</span>
-              <h3>Talks, workshops, advisory.</h3>
-              <p>Tell us about the work. Lead times are typically four to eight weeks. We come back within five working days.</p>
-              <a class="value" href="mailto:selina@exoreaction.com">selina@exoreaction.com</a>
-            </div>
-            <div class="ch">
-              <span class="lbl">For science</span>
-              <h3>Papers, falsifiability, replication.</h3>
-              <p>For collaboration on hardware tests, lattice replication, and questions about the constants.</p>
-              <a class="value" href="mailto:selina@exoreaction.com?subject=Science%20%E2%80%93%20Merkabit">selina@exoreaction.com</a>
-            </div>
-            <div class="ch">
-              <span class="lbl">For press</span>
-              <h3>Interviews and feature requests.</h3>
-              <p>Selectively considered. Briefing pack available on request.</p>
-              <a class="value" href="mailto:selina@exoreaction.com?subject=Press%20%E2%80%93%20Merkabit">selina@exoreaction.com</a>
-            </div>
-            <div class="ch">
-              <span class="lbl">For code</span>
-              <h3>Repositories, replication, source.</h3>
-              <p>Companion code for the Genesis Sequence, hardware-confirmation notebooks, and other working repositories.</p>
-              <a class="value" href="https://github.com/SelinaAliens?tab=repositories" target="_blank" rel="noopener">github.com/SelinaAliens ↗</a>
-            </div>
-            <div class="ch">
-              <span class="lbl">Elsewhere</span>
-              <h3>LinkedIn.</h3>
-              <p>Professional background, prior work, and a slower public-facing channel.</p>
-              <a class="value" href="https://www.linkedin.com/in/selinas/" target="_blank" rel="noopener">linkedin.com/in/selinas ↗</a>
-            </div>
+          <div class="ch">
+            <span class="lbl">For engagements</span>
+            <h3>Talks, workshops, advisory.</h3>
+            <p>Tell us about the work. Lead times are typically four to eight weeks. We come back within five working days.</p>
+            <a class="value" href="mailto:selina@exoreaction.com">selina@exoreaction.com</a>
           </div>
-          <div>
-            <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Sent.'; this.querySelector('button').setAttribute('disabled', 'true');">
-              <div class="field">
-                <label>Your name</label>
-                <input placeholder="" required/>
-              </div>
-              <div class="field">
-                <label>Email</label>
-                <input type="email" placeholder="" required/>
-              </div>
-              <div class="field">
-                <label>Reason</label>
-                <select>
-                  <option>Engagement enquiry</option>
-                  <option>Science / collaboration</option>
-                  <option>Press</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="field">
-                <label>What you're working on</label>
-                <textarea rows="6" placeholder="Tell us briefly about the situation. We read every message."></textarea>
-              </div>
-              <button class="btn btn--solid" type="submit">Send →</button>
-            </form>
+          <div class="ch">
+            <span class="lbl">For science</span>
+            <h3>Papers, falsifiability, replication.</h3>
+            <p>For collaboration on hardware tests, lattice replication, and questions about the constants.</p>
+            <a class="value" href="mailto:selina@exoreaction.com?subject=Science%20%E2%80%93%20Merkabit">selina@exoreaction.com</a>
+          </div>
+          <div class="ch">
+            <span class="lbl">For press</span>
+            <h3>Interviews and feature requests.</h3>
+            <p>Selectively considered. Briefing pack available on request.</p>
+            <a class="value" href="mailto:selina@exoreaction.com?subject=Press%20%E2%80%93%20Merkabit">selina@exoreaction.com</a>
+          </div>
+          <div class="ch">
+            <span class="lbl">For code</span>
+            <h3>Repositories, replication, source.</h3>
+            <p>Companion code for the Genesis Sequence, hardware-confirmation notebooks, and other working repositories.</p>
+            <a class="value" href="https://github.com/SelinaAliens?tab=repositories" target="_blank" rel="noopener">github.com/SelinaAliens ↗</a>
+          </div>
+          <div class="ch">
+            <span class="lbl">Elsewhere</span>
+            <h3>LinkedIn.</h3>
+            <p>Professional background, prior work, and a slower public-facing channel.</p>
+            <a class="value" href="https://www.linkedin.com/in/selinas/" target="_blank" rel="noopener">linkedin.com/in/selinas ↗</a>
           </div>
         </div>
       </div>
