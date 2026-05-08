@@ -107,7 +107,7 @@
       {"num":0,"isBase":true,"authors":"Stenberg, S.","title":"The Merkabit — A Ternary Computational Unit on the Eisenstein Lattice","doi":"10.5281/zenodo.18925475","forthcoming":false,"version":"v4 · March 2026","tags":["base","merkabit","eisenstein-lattice","ternary"],"summary":"The base document. Defines the merkabit as a ternary computational unit on the Eisenstein lattice with E₆ Coxeter symmetry — the foundational substrate from which the thirty-four companion papers each develop one consequence."},
       {"num":1,"authors":"Stenberg, S.","title":"α = 4/3 in Driven Coherent Systems Near Cooperative Threshold","doi":"10.5281/zenodo.18980026","forthcoming":false,"tags":["fine-structure","coherence"],"summary":"α = 4/3 emerges as a structural constant in driven coherent systems crossing cooperative threshold."},
       {"num":2,"authors":"Stenberg, S.","title":"A Single Geometric Constant Generates the Fine Structure Hierarchy","doi":"10.5281/zenodo.18981288","forthcoming":false,"tags":["fine-structure","geometry"],"summary":"A single geometric constant generates the entire fine structure hierarchy without free parameters."},
-      {"num":3,"authors":"Stenberg, S.","title":"The Rotation Gap Is Not An Error: Ternary Structure in IBM Quantum Hardware","doi":"10.5281/zenodo.19438935","forthcoming":false,"tags":["hardware","ternary"],"summary":"The rotation gap observed on IBM quantum hardware is identified as ternary structure, not noise."},
+      {"num":3,"authors":"Stenberg, S.","title":"The Rotation Gap Is Not An Error: Ternary Structure in IBM Quantum Hardware","doi":"10.5281/zenodo.19438935","arxiv":"2604.11963","forthcoming":false,"tags":["hardware","ternary"],"summary":"The rotation gap observed on IBM quantum hardware is identified as ternary structure, not noise."},
       {"num":4,"authors":"Stenberg, S.","title":"What Can Quantum Computing Learn from Enzymes?","doi":null,"forthcoming":true,"tags":["quantum-computing","biology"],"summary":"Lessons quantum computing can take from enzymatic catalysis."},
       {"num":5,"authors":"Stenberg, S.","title":"Fusion Ignition from E6 Geometry: The Lawson Criterion, the F-gate Mechanism, and the Universal Confinement Ratio","doi":"10.5281/zenodo.18984593","forthcoming":false,"tags":["fusion","E6"],"summary":"Lawson criterion, F-gate mechanism, and a universal confinement ratio derived from E₆ geometry."},
       {"num":6,"authors":"Stenberg, S.","title":"Geometric Operator on the Eisenstein Lattice: GUE Classification, Bounded Spectrum, and the Merkabit as Irreducible Unit","doi":"10.5281/zenodo.19075162","forthcoming":false,"tags":["lattice","spectral"],"summary":"A geometric operator on the Eisenstein lattice yields GUE classification and the Merkabit as irreducible unit."},
@@ -192,6 +192,7 @@
           </div>
           <div class="doi">
             ${p.doi ? `<a href="https://doi.org/${p.doi}" target="_blank" rel="noopener">${p.doi} ↗</a>
+              ${p.arxiv ? `<a href="https://arxiv.org/abs/${p.arxiv}" target="_blank" rel="noopener">arXiv:${p.arxiv} ↗</a>` : ''}
               <span class="pill pill--confirmed">${p.authors}</span>` :
               `<span class="pill pill--open">Forthcoming</span>
                <span class="pill">${p.authors}</span>`}

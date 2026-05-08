@@ -165,16 +165,40 @@
       </div>
     </section>
 
-    <section id="book">
+    <section id="books">
       <div class="wrap wrap--wide">
-        <div class="svc">
+        <div class="svc" id="book-merkabit">
           <div>
-            <div class="meta">04 · The book</div>
+            <div class="meta">04 · Book one · Available now</div>
+            <div class="visual" id="vis-4a"></div>
+          </div>
+          <div>
+            <h2>Introducing the Merkabit.</h2>
+            <p class="body"><em>A Coherence-Based Model of Reality.</em> The first book — the formal architecture, written in the months when the geometry first resolved into a framework. Defines the Merkabit as the smallest self-contained unit of coherence and walks the reader through the structural principles, the geometry, and the early derivations.</p>
+            <ul>
+              <li>Available now in paperback and hardcover via Amazon.</li>
+              <li>ISBN 979-8279056118.</li>
+              <li>Foundational reading for anyone who wants to understand the framework's geometric ground before reading the papers.</li>
+            </ul>
+          </div>
+          <div class="enquire-card">
+            <span class="lbl">Edition</span>
+            <div class="head">Published</div>
+            <div class="row"><span class="k">Format</span><span class="v">Paperback · Hardcover</span></div>
+            <div class="row"><span class="k">ISBN</span><span class="v">979-8279056118</span></div>
+            <div class="row"><span class="k">Pages</span><span class="v">~ 320</span></div>
+            <a class="btn btn--solid" href="https://www.amazon.co.uk/dp/B0GBKBNZLP" target="_blank" rel="noopener">Buy on Amazon →</a>
+          </div>
+        </div>
+
+        <div class="svc" id="book">
+          <div>
+            <div class="meta">05 · Book two · Forthcoming</div>
             <div class="visual" id="vis-5"></div>
           </div>
           <div>
             <h2>Scaling Buddha — first edition, forthcoming.</h2>
-            <p class="body">A book about contemplative practice and frontier knowledge work, written from inside the year that produced the framework. The human translation of the Merkabit framework — moving from phase space into lived experience.</p>
+            <p class="body">The human companion to the framework. A book about contemplative practice and frontier knowledge work, written from inside the year that produced the architecture. Moves from phase space into lived experience — what it means to live inside a coherence system, the algebra of family, the descent from octonions to matter, and the human–AI partnership that produced the work.</p>
             <ul>
               <li>First edition forthcoming in 2026 — hardcover, paperback, and a numbered edition of 168.</li>
               <li>The numbered edition is signed, with a geometric foil cover and a print of the Genesis Sequence.</li>
@@ -182,7 +206,7 @@
             </ul>
           </div>
           <div class="enquire-card">
-            <span class="lbl">Editions</span>
+            <span class="lbl">Edition</span>
             <div class="head">Forthcoming, 2026</div>
             <div class="row"><span class="k">Hardcover</span><span class="v">Amazon · IngramSpark</span></div>
             <div class="row"><span class="k">Numbered ed.</span><span class="v">168 copies, signed</span></div>
@@ -241,6 +265,7 @@
     document.getElementById('vis-1').innerHTML = MerkabitGeo.merkabit3D({ size: 200 });
     document.getElementById('vis-2').innerHTML = MerkabitGeo.fano({ size: 200 });
     document.getElementById('vis-3').innerHTML = MerkabitGeo.pentachoron({ size: 200 });
+    document.getElementById('vis-4a').innerHTML = `<svg viewBox="-50 -70 100 140"><rect x="-30" y="-50" width="60" height="100" fill="none" stroke="var(--gold)" stroke-width="1.4"/><circle cx="0" cy="-15" r="14" fill="none" stroke="var(--gold)" stroke-width="1"/><polygon points="0,-26 12.1,-8 -12.1,-8" fill="none" stroke="var(--gold)" stroke-width="0.8"/><polygon points="0,-4 -12.1,-22 12.1,-22" fill="none" stroke="var(--copper)" stroke-width="0.8"/><line x1="-20" y1="14" x2="20" y2="14" stroke="var(--gold)" stroke-width="0.6"/><text x="0" y="28" font-family="JetBrains Mono" font-size="5" letter-spacing="1" fill="var(--ink-dim)" text-anchor="middle">INTRODUCING</text><text x="0" y="38" font-family="JetBrains Mono" font-size="6" letter-spacing="1.2" fill="var(--gold)" text-anchor="middle">THE MERKABIT</text></svg>`;
     document.getElementById('vis-5').innerHTML = `<svg viewBox="-50 -70 100 140"><rect x="-30" y="-50" width="60" height="100" fill="none" stroke="var(--gold)" stroke-width="1.4"/><polygon points="0,-25 17.3,5 -17.3,5" fill="none" stroke="var(--gold)" stroke-width="1"/><polygon points="0,25 -17.3,-5 17.3,-5" fill="none" stroke="var(--copper)" stroke-width="1"/><text x="0" y="40" font-family="JetBrains Mono" font-size="6" letter-spacing="1" fill="var(--ink-dim)" text-anchor="middle">SCALING BUDDHA</text></svg>`;
     document.getElementById('vis-6').innerHTML = MerkabitGeo.cell24({ size: 200 });
   </script>
