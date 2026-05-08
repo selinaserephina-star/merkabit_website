@@ -129,8 +129,8 @@
       time: '2026-Q1 → Q2 (February – May)',
       datetime: '2026-02',
       head: 'Thirty-five papers and hardware confirmation.',
-      bodyHtml: 'Thirty-five companion papers drafted across the framework\u2019s full breadth — Standard Model, gravity, cosmological constant, black holes, fusion ignition, the Riemann zeros, matter–antimatter asymmetry. First successful hardware tests on IBM Eagle r3: <strong>five out of five pre-registered predictions confirmed</strong>. The Pentachoric Verification Protocol is pre-registered for Google Willow Phase 2. The Capstone paper integrates the full architecture. The first edition of <em>Scaling Buddha</em> — the human translation companion — is drafted, forthcoming in 2026.',
-      compact: 'Thirty-five papers drafted. IBM Eagle r3 confirms <strong>5/5 pre-registered predictions</strong>. Capstone integrated; <em>Scaling Buddha</em> first edition forthcoming.',
+      bodyHtml: 'Thirty-four companion papers drafted across the framework\u2019s full breadth — Standard Model, gravity, cosmological constant, black holes, fusion ignition, the Riemann zeros, matter–antimatter asymmetry. First successful hardware tests on IBM Eagle r3: <strong>five out of five pre-registered predictions confirmed</strong>. The Pentachoric Verification Protocol is pre-registered for Google Willow Phase 2. The Capstone paper integrates the full architecture. The first edition of <em>Scaling Buddha</em> — the human translation companion — is drafted, forthcoming in 2026.',
+      compact: 'Thirty-four companion papers drafted. IBM Eagle r3 confirms <strong>5/5 pre-registered predictions</strong>. Capstone integrated; <em>Scaling Buddha</em> first edition forthcoming.',
       icon: 'fano',
     },
     {
