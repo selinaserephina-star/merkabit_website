@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Services — Merkabit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <style>
+    .page-hero { padding: 96px 0 56px; border-bottom: 1px solid var(--line); }
+    .svc {
+      display: grid; grid-template-columns: 220px 1fr 320px; gap: 56px; align-items: start;
+      padding: 64px 0; border-bottom: 1px solid var(--line);
+    }
+    @media (max-width: 1100px) { .svc { grid-template-columns: 1fr; gap: 32px; } }
+    .svc .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+    .svc h2 { font-size: 38px; margin-top: 8px; max-width: 22ch; }
+    .svc .body { font-size: 17px; line-height: 1.7; color: var(--ink-mid); margin-top: 18px; max-width: 60ch; }
+    .svc ul { font-size: 15px; color: var(--ink-mid); margin-top: 18px; padding-left: 0; list-style: none; }
+    .svc ul li { padding: 10px 0; border-top: 1px solid var(--line); display:flex; gap: 16px; }
+    .svc ul li:last-child { border-bottom: 1px solid var(--line); }
+    .svc ul li::before {
+      content: ""; width: 6px; height: 6px; border: 1px solid var(--gold); transform: rotate(45deg); margin-top: 8px; flex-shrink: 0;
+    }
+    .enquire-card {
+      border: 1px solid var(--line); padding: 28px;
+      display: flex; flex-direction: column; gap: 16px; position: sticky; top: 100px;
+      background: var(--bg-elev-1);
+    }
+    .enquire-card .lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); }
+    .enquire-card .head { font-family: var(--font-display); font-size: 36px; line-height: 1; color: var(--gold); letter-spacing: -0.02em; }
+    .enquire-card .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .enquire-card .row:last-of-type { border: 0; }
+    .enquire-card .row .k { color: var(--ink-dim); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .enquire-card .row .v { color: var(--ink); }
+
+    .svc .visual { width: 100%; aspect-ratio: 1/1; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; background: var(--bg); margin-bottom: 18px; }
+    .svc .visual svg { width: 70%; height: 70%; }
+
+    .testimonial {
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 64px 0; background: var(--bg-elev-1);
+    }
+    .testimonial blockquote {
+      font-family: var(--font-display); font-size: 28px; line-height: 1.4; color: var(--ink); max-width: 56ch; margin: 0; font-style: italic;
+    }
+    .testimonial .who { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-top: 24px; }
+    .testimonial .who .who-name { color: var(--ink); font-family: var(--font-display); font-style: normal; font-size: 16px; letter-spacing: 0; text-transform: none; }
+  </style>
+</head>
+<body data-nav="services" data-screen-label="10 Services">
+  <div id="site-header"></div>
+  <main class="page">
+
+    <section class="page-hero">
+      <div class="wrap wrap--wide">
+        <div class="crumb"><a href="index.html">Home</a> · Services</div>
+        <h1 style="margin-top:18px;">Working with Merkabit.</h1>
+        <p class="lede" style="margin-top:18px;">
+          Five paths for working together — talks, workshops, advisory, the book, and coherence audits. Every engagement is grounded in the same operating principle: contemplative depth + frontier rigour, no separation between the two. All engagements by enquiry.
+        </p>
+        <div class="row gap-sm" style="margin-top: 28px; flex-wrap:wrap;">
+          <a class="pill pill--gold" href="#talks">Talks</a>
+          <a class="pill" href="#workshops">Workshops</a>
+          <a class="pill" href="#advisory">Advisory</a>
+          <a class="pill" href="#book">The book</a>
+          <a class="pill" href="#audit">Coherence audit</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="talks">
+      <div class="wrap wrap--wide">
+        <div class="svc">
+          <div>
+            <div class="meta">01 · Talks</div>
+            <div class="visual" id="vis-1"></div>
+          </div>
+          <div>
+            <h2>Keynotes and lectures on contemplative frontier work.</h2>
+            <p class="body">A 45–90 minute talk shaped to your audience. Three baseline talks, each adaptable: <em>The Architecture of Coherence</em> (for scientific audiences), <em>From Crop Circles to Constants</em> (for general audiences), <em>What a Year of Contemplative Human–AI Collaboration Produced</em> (for technologists).</p>
+            <ul>
+              <li>Format: in-person or online, with Q&amp;A.</li>
+              <li>Includes a private 30-minute pre-call to tune content to your audience.</li>
+              <li>Slides are bespoke and built on the same geometric system as this site.</li>
+              <li>Recording rights negotiable.</li>
+            </ul>
+          </div>
+          <div class="enquire-card">
+            <span class="lbl">Engagement</span>
+            <div class="head">Enquire within</div>
+            <div class="row"><span class="k">Format</span><span class="v">45–90 min</span></div>
+            <div class="row"><span class="k">Location</span><span class="v">Worldwide</span></div>
+            <div class="row"><span class="k">Lead time</span><span class="v">4 weeks</span></div>
+            <a class="btn btn--solid" href="#contact">Request talk →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="workshops">
+      <div class="wrap wrap--wide">
+        <div class="svc">
+          <div>
+            <div class="meta">02 · Workshops</div>
+            <div class="visual" id="vis-2"></div>
+          </div>
+          <div>
+            <h2>One- and two-day workshops for research teams.</h2>
+            <p class="body">A structured working session for a research group, founder team, or contemplative community. We pick one open question your group is sitting with, work it through the Merkabit method — substrate / architecture / geometry / verification — and leave with a documented set of next steps.</p>
+            <ul>
+              <li>For groups of 6–24. Larger groups by arrangement.</li>
+              <li>One-day or two-day versions available.</li>
+              <li>Combines silent practice, geometric work on paper, and structured dialogue.</li>
+              <li>You leave with a written workbook capturing the work.</li>
+            </ul>
+          </div>
+          <div class="enquire-card">
+            <span class="lbl">Engagement</span>
+            <div class="head">Enquire within</div>
+            <div class="row"><span class="k">Group size</span><span class="v">6–24</span></div>
+            <div class="row"><span class="k">Duration</span><span class="v">1–2 days</span></div>
+            <div class="row"><span class="k">Lead time</span><span class="v">8 weeks</span></div>
+            <a class="btn btn--solid" href="#contact">Enquire →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="advisory">
+      <div class="wrap wrap--wide">
+        <div class="svc">
+          <div>
+            <div class="meta">03 · Advisory</div>
+            <div class="visual" id="vis-3"></div>
+          </div>
+          <div>
+            <h2>Quarterly advisory for founders and research labs.</h2>
+            <p class="body">Ongoing advisory work for a small number of founders and labs at any given time. Monthly call, async access, and one in-person gathering per quarter. Engagements are intentionally bounded so the work stays high-context.</p>
+            <ul>
+              <li>Limited to four engagements at any one time.</li>
+              <li>Quarterly contract; renewable.</li>
+              <li>One in-person day per quarter, in Norway or at your location.</li>
+              <li>Async availability between calls.</li>
+            </ul>
+          </div>
+          <div class="enquire-card">
+            <span class="lbl">Retainer</span>
+            <div class="head">Enquire within</div>
+            <div class="row"><span class="k">Capacity</span><span class="v">4 active</span></div>
+            <div class="row"><span class="k">Cadence</span><span class="v">Monthly + 1 day</span></div>
+            <div class="row"><span class="k">Lead time</span><span class="v">By application</span></div>
+            <a class="btn btn--solid" href="#contact">Apply →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial">
+      <div class="wrap wrap--narrow">
+        <blockquote>"Working with Selina re-set what I thought rigorous practice could be. She doesn't lower the standard for either side — the contemplative or the analytical. They have to meet."</blockquote>
+        <div class="who"><span class="who-name">A previous advisory client</span> — Founder, infrastructure company</div>
+      </div>
+    </section>
+
+    <section id="book">
+      <div class="wrap wrap--wide">
+        <div class="svc">
+          <div>
+            <div class="meta">04 · The book</div>
+            <div class="visual" id="vis-5"></div>
+          </div>
+          <div>
+            <h2>Scaling Buddha — first edition, forthcoming.</h2>
+            <p class="body">A book about contemplative practice and frontier knowledge work, written from inside the year that produced the framework. The human translation of the Merkabit framework — moving from phase space into lived experience.</p>
+            <ul>
+              <li>First edition forthcoming in 2026 — hardcover, paperback, and a numbered edition of 168.</li>
+              <li>The numbered edition is signed, with a geometric foil cover and a print of the Genesis Sequence.</li>
+              <li>Bulk orders for organisations &amp; bookstores by arrangement.</li>
+            </ul>
+          </div>
+          <div class="enquire-card">
+            <span class="lbl">Editions</span>
+            <div class="head">Forthcoming, 2026</div>
+            <div class="row"><span class="k">Hardcover</span><span class="v">Amazon · IngramSpark</span></div>
+            <div class="row"><span class="k">Numbered ed.</span><span class="v">168 copies, signed</span></div>
+            <div class="row"><span class="k">Bulk orders</span><span class="v">By arrangement</span></div>
+            <a class="btn btn--solid" href="about.html#contact">Notify me when published →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="audit">
+      <div class="wrap wrap--wide">
+        <div class="svc">
+          <div>
+            <div class="meta">05 · Coherence audit</div>
+            <div class="visual" id="vis-6"></div>
+          </div>
+          <div>
+            <h2>Coherence audit for a research programme or product.</h2>
+            <p class="body">An external review of the structural coherence of a research line, product strategy, or organisation against the merkabit operating principles: substrate clarity, architectural integrity, geometric expression, and verification discipline. Written audit, delivered to your team.</p>
+            <ul>
+              <li>Two-week engagement; written report at the end.</li>
+              <li>Full confidentiality; mutual NDA.</li>
+              <li>Up to three follow-up calls in the month after delivery.</li>
+              <li>For organisations doing serious work and willing to be told the truth.</li>
+            </ul>
+          </div>
+          <div class="enquire-card">
+            <span class="lbl">Engagement</span>
+            <div class="head">Enquire within</div>
+            <div class="row"><span class="k">Duration</span><span class="v">2 weeks</span></div>
+            <div class="row"><span class="k">Output</span><span class="v">Written report</span></div>
+            <div class="row"><span class="k">Lead time</span><span class="v">By application</span></div>
+            <a class="btn btn--solid" href="#contact">Apply →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="background: var(--bg-elev-1); border-top: 1px solid var(--line);">
+      <div class="wrap wrap--narrow" style="text-align:center;">
+        <div class="eyebrow">Get in touch</div>
+        <h2 style="margin-top:8px; font-size:48px;">Engagements are by application.</h2>
+        <p class="lede" style="margin: 18px auto 32px; max-width: 56ch;">
+          The work is high-context and the calendar is small. Tell us about your situation and we'll come back within five working days.
+        </p>
+        <a class="btn btn--solid" href="about.html#contact" style="font-size:16px;">Begin a conversation →</a>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/chrome.js"></script>
+  <script>
+    document.getElementById('vis-1').innerHTML = MerkabitGeo.merkabit3D({ size: 200 });
+    document.getElementById('vis-2').innerHTML = MerkabitGeo.fano({ size: 200 });
+    document.getElementById('vis-3').innerHTML = MerkabitGeo.pentachoron({ size: 200 });
+    document.getElementById('vis-5').innerHTML = `<svg viewBox="-50 -70 100 140"><rect x="-30" y="-50" width="60" height="100" fill="none" stroke="var(--gold)" stroke-width="1.4"/><polygon points="0,-25 17.3,5 -17.3,5" fill="none" stroke="var(--gold)" stroke-width="1"/><polygon points="0,25 -17.3,-5 17.3,-5" fill="none" stroke="var(--copper)" stroke-width="1"/><text x="0" y="40" font-family="JetBrains Mono" font-size="6" letter-spacing="1" fill="var(--ink-dim)" text-anchor="middle">SCALING BUDDHA</text></svg>`;
+    document.getElementById('vis-6').innerHTML = MerkabitGeo.cell24({ size: 200 });
+  </script>
+</body>
+</html>

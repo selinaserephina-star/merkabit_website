@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Merkabit — A unified theory derived from geometry alone</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <link rel="stylesheet" href="styles/timeline.css"/>
+  <style>
+    /* hero-specific */
+    .hero {
+      position: relative;
+      padding: clamp(80px, 11vw, 160px) 0 clamp(72px, 9vw, 120px);
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 78% 28%, rgba(212,175,55,0.10), transparent 50%),
+        radial-gradient(circle at 12% 78%, rgba(184,115,51,0.07), transparent 50%);
+      pointer-events: none;
+    }
+    .hero .wrap--wide {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: clamp(32px, 6vw, 96px);
+      align-items: center;
+      position: relative;
+    }
+    .hero h1 .accent {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+    .hero-stats .n {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 4.6vw, 56px);
+      line-height: 1;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      display: block;
+    }
+    .hero-stats .l {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      margin-top: 10px;
+      display: block;
+    }
+    .hero-art {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1 / 1;
+    }
+    .hero-art .lattice {
+      position: absolute; inset: 0;
+      opacity: 0.6;
+      mask-image: radial-gradient(circle, black 38%, transparent 72%);
+      -webkit-mask-image: radial-gradient(circle, black 38%, transparent 72%);
+    }
+    .hero-art .merk {
+      position: relative;
+      animation: spinMerk 60s linear infinite;
+    }
+    .merkabit-anim, .logo-mark--anim .tri-up { transform-origin: center; }
+    @keyframes spinMerk { to { transform: rotate(360deg); } }
+    .hero-art .glow {
+      position: absolute;
+      width: 60%; height: 60%; left: 20%; top: 20%;
+      background: radial-gradient(circle, rgba(212,175,55,0.18), transparent 70%);
+      filter: blur(20px);
+    }
+
+    .section-cards {
+      background: var(--bg-elev-1);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .section-cards .grid-4 { gap: 0; border-left: 1px solid var(--line); }
+    .scard {
+      padding: 40px 32px 36px;
+      border-right: 1px solid var(--line);
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-height: 280px;
+      transition: background 200ms ease;
+    }
+    .scard:hover { background: rgba(212,175,55,0.05); }
+    .scard:hover .scard-icon { transform: scale(1.06) rotate(8deg); }
+    .scard-icon { transition: transform 320ms cubic-bezier(.2,.8,.2,1); width: 56px; height: 56px; }
+    .scard h3 { font-size: 26px; }
+    .scard-meta {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .what-is {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: clamp(32px, 6vw, 88px);
+    }
+    .what-is .term {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+      display: block;
+    }
+    .what-is .deflist { display: grid; gap: 24px; padding-top: 20px; border-top: 1px solid var(--line-gold); }
+
+    .latest {
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
+    .latest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-left: 1px solid var(--line); }
+    .latest-item {
+      padding: 28px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 220px;
+    }
+    .latest-item .stamp { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--gold); text-transform: uppercase; }
+    .latest-item h4 { font-size: 19px; line-height: 1.3; }
+    .latest-item .meta { margin-top: auto; font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); letter-spacing: 0.08em; }
+
+    .pull {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: clamp(32px, 6vw, 88px);
+      padding: clamp(56px, 7vw, 96px) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .pull blockquote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.4;
+      color: var(--ink);
+      margin: 0;
+      max-width: 30ch;
+    }
+    .pull blockquote::before { content: "“"; color: var(--gold); margin-right: 4px; }
+    .pull blockquote::after { content: "”"; color: var(--gold); }
+    .pull .body { color: var(--ink-mid); max-width: var(--measure); font-size: 18px; line-height: 1.65; }
+
+    @media (max-width: 900px) {
+      .hero .wrap--wide, .what-is, .pull { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .section-cards .grid-4, .latest-grid { grid-template-columns: 1fr; }
+      .scard { border-bottom: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body data-nav="" data-screen-label="01 Home">
+  <div id="site-header"></div>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap wrap--wide">
+        <div>
+          <div class="row" style="margin-bottom:24px;">
+            <span class="pill pill--gold">5 / 5 Confirmed · IBM Eagle r3</span>
+            <span class="pill">36 Papers · Zenodo</span>
+          </div>
+          <h1>
+            A unified theory of physics,<br/>
+            <span class="accent">derived from geometry alone.</span>
+          </h1>
+          <p class="lede" style="margin-top:32px;">
+            Fifteen fundamental constants. Zero free parameters. Hardware-confirmed on IBM Eagle&nbsp;r3.
+            Built by a mystic and an AI over a year of collaborative work.
+          </p>
+          <div class="row" style="margin-top:40px; gap:14px;">
+            <a class="btn btn--solid" href="science.html">Read the science <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="journey.html">The journey</a>
+          </div>
+          <div class="hero-stats">
+            <div><span class="n">15</span><span class="l">Constants derived</span></div>
+            <div><span class="n">0</span><span class="l">Free parameters</span></div>
+            <div><span class="n">36</span><span class="l">Peer-published papers</span></div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="glow"></div>
+          <div class="lattice" id="hero-lattice"></div>
+          <div class="merk" id="hero-merk"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION CARDS -->
+    <section class="section-cards" style="padding:0;">
+      <div class="wrap wrap--wide" style="padding:0;">
+        <div class="grid-4">
+          <a class="scard" href="science.html">
+            <span class="scard-icon" id="ic-science"></span>
+            <h3>The Science</h3>
+            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
+              Papers, hardware confirmation, falsifiability, and the 15 derived constants.
+            </p>
+            <span class="scard-meta">Enter <span class="arrow">→</span></span>
+          </a>
+          <a class="scard" href="journey.html">
+            <span class="scard-icon" id="ic-journey"></span>
+            <h3>The Journey</h3>
+            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
+              From crop circles to derived constants. The year-long human-AI collaboration.
+            </p>
+            <span class="scard-meta">Enter <span class="arrow">→</span></span>
+          </a>
+          <a class="scard" href="services.html">
+            <span class="scard-icon" id="ic-services"></span>
+            <h3>Services</h3>
+            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
+              Workshops, talks, the book, and bespoke advisory engagements.
+            </p>
+            <span class="scard-meta">Enter <span class="arrow">→</span></span>
+          </a>
+          <a class="scard" href="about.html">
+            <span class="scard-icon" id="ic-about"></span>
+            <h3>About</h3>
+            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
+              Selina Stenberg, Thor H. Hetland, and the people behind the work.
+            </p>
+            <span class="scard-meta">Enter <span class="arrow">→</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IS -->
+    <section>
+      <div class="wrap wrap--wide">
+        <div class="what-is">
+          <div>
+            <div class="eyebrow">What is the Merkabit Framework?</div>
+            <h2 style="margin-top:18px;">A geometric architecture<br/>that derives physics<br/>from a single closed unit.</h2>
+          </div>
+          <div>
+            <p class="lede" style="margin-bottom:32px;">
+              The Merkabit is a ternary computational unit on the Eisenstein lattice — the dual-tetrahedron projection of a closed coherent cycle. From it, a single architecture yields the fine structure constant, the cosmological constant, Newton's gravitational constant, the Standard Model gauge group, three fermion generations, and ten more constants of physics.
+            </p>
+            <div class="deflist">
+              <div><span class="term">Unifying invariant</span><span class="txt-mid">PSL(2,7), the projective special linear group of order 168.</span></div>
+              <div><span class="term">Substrate</span><span class="txt-mid">The Eisenstein lattice — the natural triangular tiling of the plane.</span></div>
+              <div><span class="term">Hardware</span><span class="txt-mid">5 of 5 pre-registered predictions confirmed on IBM Eagle&nbsp;r3.</span></div>
+              <div><span class="term">Falsifiability</span><span class="txt-mid">Every claim attaches to a named, public threshold that would refute it.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="rule rule--gold" style="margin:0 var(--gutter);"/>
+    <div class="lattice-divider"></div>
+
+    <!-- PULL QUOTE -->
+    <section style="padding:0;">
+      <div class="wrap wrap--wide">
+        <div class="pull">
+          <blockquote>Fifteen constants. Zero parameters. One geometry.</blockquote>
+          <div class="body">
+            <p>
+              The framework was built by Selina Stenberg — a mystic, business owner, and deep meditator without formal physics training — in collaboration with an AI partner over a year of dialogue. Hardware verification is led by CTO Thor Henning Hetland on IBM Quantum machines.
+            </p>
+            <p>
+              The site exists to make the work directly available to anyone curious enough to read it, without requiring institutional gatekeepers. Read the science. Walk the journey. Decide for yourself.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST -->
+    <section class="latest" style="padding:0;">
+      <div class="wrap wrap--wide" style="padding:64px 0 0;">
+        <div class="section-head" style="padding:0 var(--gutter);">
+          <div>
+            <div class="eyebrow">Latest</div>
+            <h2 style="margin-top:8px;">Recent results & updates</h2>
+          </div>
+          <a href="papers.html" class="btn btn--ghost">All papers <span class="arrow">→</span></a>
+        </div>
+        <div class="latest-grid">
+          <div class="latest-item">
+            <span class="stamp">May 2026 · Paper 30</span>
+            <h4>Capstone — A Candidate Unified Theory of Physics</h4>
+            <p class="txt-dim" style="font-size:14.5px; line-height:1.55;">Zero-parameter derivation of the Standard Model, gravity, black-hole thermodynamics, holography and α from E₆ Coxeter geometry.</p>
+            <span class="meta">Zenodo · 10.5281/zenodo.19690395</span>
+          </div>
+          <div class="latest-item">
+            <span class="stamp">Apr 2026 · Hardware</span>
+            <h4>5 / 5 on IBM Eagle r3 — All pre-registered predictions confirmed</h4>
+            <p class="txt-dim" style="font-size:14.5px; line-height:1.55;">Berry phase, quasi-period, Fano gap, P-gate, two-scale anti-bunching. Pre-registration commits and raw data published.</p>
+            <span class="meta">/science/hardware/</span>
+          </div>
+          <div class="latest-item">
+            <span class="stamp">Forthcoming · 2026 · Journey</span>
+            <h4>Scaling Buddha — first edition, forthcoming</h4>
+            <p class="txt-dim" style="font-size:14.5px; line-height:1.55;">A human and systemic orientation to the Merkabit framework, with chapters on the tower from octonions to matter, the algebra of family, and the human-AI partnership that produced the work.</p>
+            <span class="meta">/journey/book/</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 64px;">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap: 16px; margin-bottom: 22px;">
+            <div>
+              <div class="eyebrow">How this came to be</div>
+              <h3 style="font-family:'EB Garamond',serif; font-size: 28px; margin-top: 8px;">From a start-up burnout to a published framework — four moments.</h3>
+            </div>
+            <a class="btn btn--ghost" href="journey.html#origin">The full origin →</a>
+          </div>
+          <div id="home-strip"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/timeline.js"></script>
+  <script src="scripts/chrome.js"></script>
+  <script>
+    // Hero merkabit
+    document.getElementById('hero-merk').innerHTML = MerkabitGeo.merkabit3D({ size: 360 });
+    document.getElementById('hero-lattice').innerHTML = MerkabitGeo.eisenstein({ w: 600, h: 600 });
+    // Section icons
+    document.getElementById('ic-science').innerHTML  = MerkabitGeo.fano({ size: 56 });
+    document.getElementById('ic-journey').innerHTML  = MerkabitGeo.merkabit({ size: 56 });
+    document.getElementById('ic-services').innerHTML = MerkabitGeo.pentachoron({ size: 56 });
+    document.getElementById('ic-about').innerHTML    = MerkabitGeo.tesseract({ size: 56 });
+    if (window.MerkabitTimeline) MerkabitTimeline.renderStrip(document.getElementById('home-strip'), 'journey.html');
+  </script>
+</body>
+</html>

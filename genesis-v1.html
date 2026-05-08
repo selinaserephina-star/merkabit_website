@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Genesis Sequence — Merkabit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <style>
+    .page-hero { padding: 72px 0 28px; border-bottom: 1px solid var(--line); }
+    .gn-stage {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; padding: 48px 0;
+    }
+    @media (max-width: 1000px){ .gn-stage { grid-template-columns: 1fr; } }
+    .gn-canvas {
+      aspect-ratio: 1/1; min-height: 480px; border: 1px solid var(--line);
+      background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.10), transparent 60%), var(--bg-elev-1);
+      position: relative; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .gn-canvas svg { width: 78%; height: 78%; }
+    .gn-canvas .rung-no {
+      position: absolute; top: 22px; left: 26px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase;
+    }
+    .gn-canvas .rung-trail {
+      position: absolute; bottom: 22px; right: 26px; left: 26px;
+      display: flex; gap: 4px; align-items: center;
+    }
+    .gn-canvas .tick {
+      flex: 1; height: 2px; background: var(--line); cursor: pointer;
+    }
+    .gn-canvas .tick.on { background: var(--gold); }
+    .gn-canvas .tick.passed { background: var(--gold-soft); opacity: 0.5; }
+
+    .gn-detail .num {
+      font-family: var(--font-display); font-size: 80px; line-height: 1; color: var(--gold); letter-spacing: -0.04em;
+    }
+    .gn-detail h2 { font-size: 32px; margin-top: 6px; }
+    .gn-detail .arch { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; color: var(--ink-dim); text-transform: uppercase; margin-top: 18px; }
+    .gn-detail .body { color: var(--ink-mid); font-size: 17px; line-height: 1.7; margin-top: 18px; max-width: 56ch; }
+    .gn-controls { display: flex; gap: 12px; margin-top: 32px; align-items: center; }
+    .gn-controls .step {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em; color: var(--ink-dim);
+    }
+
+    .gn-list {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+      border: 1px solid var(--line);
+    }
+    @media (max-width: 1100px) { .gn-list { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .gn-list { grid-template-columns: repeat(2, 1fr); } }
+    .gn-list button {
+      padding: 22px 18px; background: transparent; border: 0;
+      border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      cursor: pointer; text-align: left; color: var(--ink-mid); display: flex; flex-direction: column; gap: 8px;
+      min-height: 130px; transition: background 200ms;
+    }
+    .gn-list button:hover { background: rgba(212,175,55,0.04); color: var(--ink); }
+    .gn-list button.on { background: rgba(212,175,55,0.12); color: var(--gold); }
+    .gn-list button .n { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+    .gn-list button .t { font-family: var(--font-display); font-size: 18px; color: var(--ink); }
+    .gn-list button.on .t { color: var(--gold); }
+
+    .pipeline {
+      background: var(--bg-elev-1); border: 1px solid var(--line); padding: 24px;
+      font-family: var(--font-mono); font-size: 12.5px; line-height: 1.8;
+      color: var(--ink-mid); border-top: 1px solid var(--line-gold);
+    }
+    .pipeline .ok { color: var(--status-confirmed); }
+    .pipeline .gold { color: var(--gold); }
+    .pipeline .dim { color: var(--ink-dim); }
+  </style>
+</head>
+<body data-nav="journey" data-screen-label="09 Genesis">
+  <div id="site-header"></div>
+  <main class="page">
+    <section class="page-hero">
+      <div class="wrap wrap--wide">
+        <div class="crumb"><a href="index.html">Home</a> · <a href="journey.html">Journey</a> · Genesis Sequence</div>
+        <h1 style="margin-top:18px;">The Genesis Sequence.</h1>
+        <p class="lede" style="margin-top:18px; max-width:64ch;">
+          Twelve rungs from the Riemann substrate up to the self-sustaining tesseract. Step through the build and watch the architecture emerge from binary rhythm to closed cycle.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="wrap wrap--wide">
+        <div class="gn-stage">
+          <div class="gn-canvas" id="gn-canvas">
+            <span class="rung-no" id="rung-no">Rung 01 / 12</span>
+            <div id="gn-art"></div>
+            <div class="rung-trail" id="rung-trail"></div>
+          </div>
+          <div class="gn-detail">
+            <span class="eyebrow">Rung</span>
+            <div class="num" id="gn-num">01</div>
+            <h2 id="gn-title">Riemann zeros — substrate rhythm</h2>
+            <div class="arch" id="gn-arch"></div>
+            <p class="body" id="gn-body"></p>
+            <div class="gn-controls">
+              <button class="btn btn--ghost" id="prev"><span class="arrow">←</span> Previous</button>
+              <button class="btn btn--solid" id="next">Next <span class="arrow">→</span></button>
+              <span class="step" id="gn-step"></span>
+            </div>
+            <div style="margin-top: 24px;">
+              <a href="papers.html" class="pill pill--gold" id="gn-paper">Paper →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="wrap wrap--wide">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">All twelve rungs</div>
+            <h2 style="margin-top:8px;">Jump to any rung.</h2>
+          </div>
+        </div>
+        <div class="gn-list" id="gn-list"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap wrap--wide">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Live pipeline · stylised</div>
+            <h2 style="margin-top:8px;">The genesis pipeline at run.</h2>
+          </div>
+          <a class="btn btn--ghost" href="papers.html#repro">Repository →</a>
+        </div>
+        <div class="pipeline" id="pipeline"></div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/chrome.js"></script>
+  <script>
+    const RUNGS = [
+      {n:'Riemann zeros', sub:'substrate-level rhythm', body:"Below structure, only rhythm. The non-trivial zeros of ζ(s) supply the substrate beat — a one-dimensional cadence on which all later coherence is built. Nothing is yet 'something'; only timing.", arch:'+ Time · ÷ Counting', art:'riemann', paper:7},
+      {n:'Binary architecture', sub:'0 / 1 — the first distinction', body:"From rhythm, the first distinction: presence or absence. The binary architecture is the minimum machinery that can carry information, and it sets the stage for closure but cannot yet close on itself.", arch:'+ Distinction', art:'binary', paper:7},
+      {n:'Triangle', sub:'R-T-S / R-S-T chiralities', body:"The simplest closed coherent form. Three vertices, three edges, two orientations. The triangle introduces chirality — the difference between left-going and right-going closure — and with it, the seed of asymmetry.", arch:'+ Closure · + Chirality', art:'triangle', paper:1},
+      {n:'Z₃ ternary', sub:'a third state opens', body:"From two states, three. The Z₃ symmetry of the triangle promotes the binary substrate into a ternary computational space, and computation that was previously linear becomes cyclic.", arch:'+ Cycle · + Z₃', art:'z3', paper:34},
+      {n:'Eisenstein lattice', sub:'hexagonal triangular grid', body:"Tile the triangle to fill the plane. The Eisenstein lattice — the natural triangular tessellation — is the substrate on which all later architecture is built. Every node has six neighbours; every face is closed.", arch:'+ Tessellation', art:'eisenstein', paper:6},
+      {n:'Tetrahedron', sub:'minimal 3D coherent volume', body:"Lift one vertex out of the plane and the closed triangle becomes a closed volume. The tetrahedron is the spinor's natural geometry — the smallest closed 3D coherent unit.", arch:'+ Volume · + Spinor', art:'tetra', paper:6},
+      {n:'Counter-tetrahedron', sub:'the v-half emerges', body:"Every closed volume calls into existence its dual. The counter-tetrahedron sits inverse to the first; together they form the Merkabit — the brand and the unit.", arch:'+ Duality · + v-half', art:'merk', paper:24},
+      {n:'Pentachoron', sub:'5 gates close cycle', body:"Five vertices, ten edges, ten triangles, five tetrahedra: the pentachoron is the smallest closed 4-dimensional simplex. Five gates close the cycle and verification becomes intrinsic.", arch:'+ 4D Closure · + Verification', art:'penta', paper:33},
+      {n:'Dual pentachoron', sub:'10 vertices, R-R shared axis', body:"As with the tetrahedron, so with the pentachoron: closure forces a dual. Two pentachora, ten vertices, one shared axis. The dual structure is what gives the framework its R-R register.", arch:'+ R-R Register', art:'dual-penta', paper:33},
+      {n:'Honeycomb', sub:'lattice fills space', body:"The dual pentachoron tiles 4-space. The Eisenstein lattice's 4D analogue — the honeycomb — is the medium on which the framework's gauge structure lives.", arch:'+ 4D Tessellation', art:'honeycomb', paper:13},
+      {n:'Tesseract', sub:'4D self-sustaining', body:"The 4-cube is the first 4D structure that can sustain itself without external input. Self-sustaining memory begins here. The Merkabit's content-addressable register is a tesseract patch.", arch:'+ Self-sustenance · + Memory', art:'tess', paper:32},
+      {n:'Ouroboros', sub:'closed cycle, returns to origin', body:"The closed cycle bites its own tail. The framework returns to the Riemann substrate — but now the substrate is no longer beneath the architecture; the architecture has become the substrate. Coherence has scaled into itself.", arch:'+ Closure · = Origin', art:'ouroboros', paper:30},
+    ];
+
+    function art(kind) {
+      switch (kind) {
+        case 'riemann': {
+          let pts = '';
+          for (let i = 0; i < 14; i++) {
+            const x = -85 + i * 13;
+            const h = [3, 8, 4, 11, 6, 9, 5, 14, 7, 10, 5, 12, 6, 9][i];
+            pts += `<line x1="${x}" y1="0" x2="${x}" y2="${-h}" stroke="var(--gold)" stroke-width="1.4"/>`;
+            pts += `<circle cx="${x}" cy="${-h}" r="2" fill="var(--gold)"/>`;
+          }
+          return `<svg viewBox="-100 -50 200 100">
+            <line x1="-100" y1="0" x2="100" y2="0" stroke="var(--line-strong)" stroke-width="0.6"/>
+            ${pts}
+          </svg>`;
+        }
+        case 'binary':
+          return `<svg viewBox="-100 -50 200 100" font-family="JetBrains Mono">
+            ${Array.from({length: 9}, (_, i) =>
+              `<text x="${-85 + i*22}" y="6" fill="var(--gold)" font-size="22" text-anchor="middle">${i % 2}</text>`
+            ).join('')}
+          </svg>`;
+        case 'triangle': return MerkabitGeo.triangle ? `<svg viewBox="-50 -50 100 100"><polygon points="0,-42 36.4,21 -36.4,21" fill="none" stroke="var(--gold)" stroke-width="1.4"/><circle r="2" fill="var(--gold)"/></svg>` : '';
+        case 'z3':
+          return `<svg viewBox="-50 -50 100 100">
+            <polygon points="0,-32 27.7,16 -27.7,16" fill="none" stroke="var(--gold)" stroke-width="1.4"/>
+            <g stroke="var(--gold-soft)" stroke-width="0.8" fill="none">
+              <path d="M0,-25 A 25 25 0 0 1 21.6 12.5"/>
+              <path d="M21.6,12.5 A 25 25 0 0 1 -21.6 12.5"/>
+              <path d="M-21.6,12.5 A 25 25 0 0 1 0 -25"/>
+            </g>
+            <circle r="2" fill="var(--gold)"/>
+          </svg>`;
+        case 'eisenstein':
+          return MerkabitGeo.eisenstein({ w: 360, h: 360 });
+        case 'tetra':
+          return `<svg viewBox="-50 -50 100 100">
+            <g fill="none" stroke="var(--gold)" stroke-width="1.4">
+              <polygon points="0,-42 36.4,21 -36.4,21"/>
+              <line x1="0" y1="-42" x2="0" y2="6"/>
+              <line x1="36.4" y1="21" x2="0" y2="6"/>
+              <line x1="-36.4" y1="21" x2="0" y2="6"/>
+            </g>
+            <circle r="1.6" fill="var(--gold)"/>
+          </svg>`;
+        case 'merk': return MerkabitGeo.merkabit3D({ size: 200 });
+        case 'penta': return MerkabitGeo.pentachoron({ size: 240 });
+        case 'dual-penta': {
+          let g = '<svg viewBox="-50 -50 100 100"><g fill="none" stroke-width="1">';
+          for (let s of [-1, 1]) {
+            const pts = [];
+            for (let i = 0; i < 5; i++) {
+              const a = -Math.PI / 2 * s + (Math.PI * 2 * i * s) / 5;
+              pts.push([Math.cos(a) * 26, Math.sin(a) * 26]);
+            }
+            for (let i = 0; i < 5; i++) for (let j = i + 1; j < 5; j++) {
+              g += `<line x1="${pts[i][0]}" y1="${pts[i][1]}" x2="${pts[j][0]}" y2="${pts[j][1]}" stroke="${s > 0 ? 'var(--gold)' : 'var(--copper)'}"/>`;
+            }
+          }
+          g += '</g></svg>';
+          return g;
+        }
+        case 'honeycomb': return MerkabitGeo.eisenstein({ w: 360, h: 360 });
+        case 'tess': return MerkabitGeo.tesseract({ size: 220 });
+        case 'ouroboros': {
+          return `<svg viewBox="-50 -50 100 100">
+            <circle r="34" fill="none" stroke="var(--gold)" stroke-width="1.4" stroke-dasharray="0 6 90 4"/>
+            <circle r="34" fill="none" stroke="var(--copper)" stroke-width="1.4" stroke-dasharray="90 4 6 0" stroke-dashoffset="-50"/>
+            <polygon points="0,-42 36.4,21 -36.4,21" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.4"/>
+            <polygon points="0,42 -36.4,-21 36.4,-21" fill="none" stroke="var(--copper)" stroke-width="0.8" opacity="0.4"/>
+            <circle r="2" fill="var(--gold)"/>
+          </svg>`;
+        }
+      }
+      return '';
+    }
+
+    let i = 0;
+    const total = RUNGS.length;
+    const trail = document.getElementById('rung-trail');
+    trail.innerHTML = RUNGS.map((_, k) => `<span class="tick" data-i="${k}"></span>`).join('');
+    trail.addEventListener('click', e => {
+      const t = e.target.closest('.tick'); if (!t) return;
+      i = +t.dataset.i; render();
+    });
+
+    document.getElementById('gn-list').innerHTML = RUNGS.map((r, k) =>
+      `<button data-i="${k}"><span class="n">Rung ${String(k+1).padStart(2,'0')}</span><span class="t">${r.n}</span></button>`).join('');
+    document.getElementById('gn-list').addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      i = +b.dataset.i; render();
+    });
+
+    document.getElementById('prev').addEventListener('click', () => { i = (i - 1 + total) % total; render(); });
+    document.getElementById('next').addEventListener('click', () => { i = (i + 1) % total; render(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { i = (i + 1) % total; render(); }
+      if (e.key === 'ArrowLeft') { i = (i - 1 + total) % total; render(); }
+    });
+
+    function render() {
+      const r = RUNGS[i];
+      document.getElementById('gn-num').textContent = String(i + 1).padStart(2, '0');
+      document.getElementById('rung-no').textContent = `Rung ${String(i + 1).padStart(2, '0')} / ${total}`;
+      document.getElementById('gn-title').textContent = r.n + ' — ' + r.sub;
+      document.getElementById('gn-arch').textContent = r.arch;
+      document.getElementById('gn-body').textContent = r.body;
+      document.getElementById('gn-step').textContent = `${i + 1} of ${total}`;
+      document.getElementById('gn-paper').innerHTML = `Paper ${r.paper} →`;
+      document.getElementById('gn-art').innerHTML = art(r.art);
+      [...trail.children].forEach((t, k) => t.classList.toggle('on', k === i) || t.classList.toggle('passed', k < i));
+      [...trail.children].forEach((t, k) => { t.classList.remove('on','passed'); if (k===i) t.classList.add('on'); else if (k<i) t.classList.add('passed'); });
+      [...document.getElementById('gn-list').children].forEach((b, k) => b.classList.toggle('on', k === i));
+    }
+    render();
+
+    // pipeline
+    document.getElementById('pipeline').innerHTML = `
+<span class="dim">$ python -m merkabit.genesis --verify</span>
+<br/><span class="gold">→</span> rung 01 · riemann zeros · rhythm acquired ............. <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 02 · binary · 0/1 distinguishable ................. <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 03 · triangle · chirality(R-T-S, R-S-T) ........... <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 04 · ternary · Z₃ closed ........................... <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 05 · eisenstein · tessellation valid ............... <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 06 · tetrahedron · spinor embedded .................. <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 07 · counter-tetra · v-half coherent ............... <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 08 · pentachoron · 5-gate close .................... <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 09 · dual pentachoron · R-R axis aligned ........... <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 10 · honeycomb · 4D fill ............................ <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 11 · tesseract · self-sustaining .................... <span class="ok">✓</span>
+<br/><span class="gold">→</span> rung 12 · ouroboros · cycle closed ....................... <span class="ok">✓</span>
+<br/><br/><span class="dim">12/12 rungs verified · architecture coherent · 0 free parameters</span>`;
+  </script>
+</body>
+</html>

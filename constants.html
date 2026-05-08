@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>15 Constants — Merkabit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <style>
+    .page-hero { padding: 88px 0 56px; border-bottom: 1px solid var(--line); }
+    .wall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 28px; }
+    @media (max-width: 1100px){ .wall { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 700px){ .wall { grid-template-columns: 1fr; } }
+    .ck {
+      background: var(--bg); padding: 28px 26px; min-height: 220px;
+      display: flex; flex-direction: column; gap: 12px; position: relative;
+    }
+    .ck:hover { background: var(--bg-elev-1); }
+    .ck .badge { position: absolute; top: 22px; right: 22px; opacity: 0.8; }
+    .ck .sym { font-family: "EB Garamond", serif; font-size: 56px; line-height: 1; color: var(--gold); letter-spacing: -0.02em; }
+    .ck .name { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); }
+    .ck .vals { display: grid; grid-template-columns: 90px 1fr; gap: 6px 12px; font-family: var(--font-mono); font-size: 12.5px; margin-top: auto; }
+    .ck .vals .lbl { color: var(--ink-dim); letter-spacing: 0.08em; text-transform: uppercase; font-size: 10px; padding-top:1px; }
+    .ck .vals .val { color: var(--ink); }
+    .ck .dev { color: var(--status-confirmed); }
+    .ck .route { font-family: var(--font-mono); font-size: 10.5px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
+  </style>
+</head>
+<body data-nav="science" data-screen-label="06 Constants">
+  <div id="site-header"></div>
+  <main class="page">
+    <section class="page-hero">
+      <div class="wrap wrap--wide">
+        <div class="crumb"><a href="index.html">Home</a> · <a href="science.html">Science</a> · 15 Constants</div>
+        <h1 style="margin-top:18px;">Fifteen constants. Zero parameters.</h1>
+        <p class="lede" style="margin-top:18px;">
+          Each card below is a constant of physics derived from the Merkabit architecture without free parameters. Predicted values are quoted to the precision the framework achieves; measured values are quoted to current experimental precision.
+        </p>
+      </div>
+    </section>
+    <section style="padding-top:24px;">
+      <div class="wrap wrap--wide">
+        <div class="wall" id="wall"></div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/chrome.js"></script>
+  <script>
+    const CONSTANTS = [
+      {sym:'α⁻¹', name:'Fine structure constant', pred:'137.035 999 13', meas:'137.035 999 084(21)', dev:'0.3 ppb', route:'Klein quartic / Fano counting', paper:28, badge:'fano'},
+      {sym:'sin²θ_W', name:'Weinberg angle', pred:'0.231 22', meas:'0.231 21(4)', dev:'<1σ', route:'PSL(2,7) S₃-decomposition', paper:11, badge:'fano'},
+      {sym:'m_W/v', name:'W-boson mass ratio', pred:'0.32638', meas:'0.32638(8)', dev:'<1σ', route:'Z₂-bundle inversion', paper:12, badge:'tetra'},
+      {sym:'α_s(M_Z)', name:'Strong coupling', pred:'0.1180', meas:'0.1179(9)', dev:'<1σ', route:'GL(3,𝔽₂) representation', paper:13, badge:'tetra'},
+      {sym:'N_g', name:'Fermion generations', pred:'3', meas:'3', dev:'exact', route:'N₃₆ × W₂₆ orbit', paper:29, badge:'penta'},
+      {sym:'Λ', name:'Cosmological constant', pred:'1.105×10⁻¹²²', meas:'1.105(8)×10⁻¹²² m_P²', dev:'<1σ', route:'Vacuum monopole suppression', paper:22, badge:'tess'},
+      {sym:'G', name:"Newton's constant", pred:'6.6743×10⁻¹¹', meas:'6.67430(15)×10⁻¹¹', dev:'<1σ', route:'Octonionic torsion / Eisenstein', paper:20, badge:'hex'},
+      {sym:'v', name:'Higgs VEV', pred:'246.2196 GeV', meas:'246.2196(15) GeV', dev:'<1σ', route:'Ternary-binary coupling R', paper:23, badge:'tetra'},
+      {sym:'Δ', name:'Yang–Mills mass gap', pred:'1/24', meas:'lattice consistent', dev:'consistent', route:'Coxeter h(E₆) = 12', paper:16, badge:'fano'},
+      {sym:'Ω_DM', name:'Dark matter density', pred:'0.265', meas:'0.265(7)', dev:'<1σ', route:'Cayley–Dickson dark sector', paper:20, badge:'hex'},
+      {sym:'h(E₆)', name:'E₆ Coxeter number', pred:'12', meas:'12 (lattice)', dev:'exact', route:'E₆ root system', paper:16, badge:'cell24'},
+      {sym:'S_BH', name:'Black hole entropy', pred:'A/4ℓ_P²', meas:'Bekenstein–Hawking', dev:'consistent', route:'Discrete Laplace counting', paper:27, badge:'tess'},
+      {sym:'η_B', name:'Baryon asymmetry', pred:'6.1×10⁻¹⁰', meas:'6.1(2)×10⁻¹⁰', dev:'<1σ', route:'B₃₁ loop obstruction', paper:35, badge:'penta'},
+      {sym:'r', name:'Lawson confinement ratio', pred:'universal', meas:'consistent w/ ITER projections', dev:'pre-ignition', route:'F-gate / E₆', paper:5, badge:'hex'},
+      {sym:'4/3', name:'Cooperative threshold', pred:'4/3', meas:'1.332(7)', dev:'<1σ', route:'Coulomb-coupled qubits', paper:18, badge:'tetra'},
+    ];
+    const badgeMap = {
+      fano: 'fano',
+      tetra: 'merkabit',
+      penta: 'pentachoron',
+      tess:  'tesseract',
+      hex:   'hex',
+      cell24:'cell24',
+    };
+    document.getElementById('wall').innerHTML = CONSTANTS.map((c, i) => `
+      <div class="ck">
+        <div class="badge"></div>
+        <span class="route">Route · ${c.route}</span>
+        <div class="sym">${c.sym}</div>
+        <div class="name">${c.name}</div>
+        <div class="vals">
+          <span class="lbl">Predicted</span><span class="val">${c.pred}</span>
+          <span class="lbl">Measured</span><span class="val">${c.meas}</span>
+          <span class="lbl">Deviation</span><span class="val dev">${c.dev}</span>
+          <span class="lbl">Source</span><span class="val"><a href="papers.html">Paper ${c.paper}</a></span>
+        </div>
+      </div>
+    `).join('');
+    document.querySelectorAll('.ck').forEach((el, i) => {
+      const c = CONSTANTS[i];
+      const fn = badgeMap[c.badge] || 'hex';
+      el.querySelector('.badge').innerHTML = MerkabitGeo[fn]({ size: 38 });
+    });
+  </script>
+</body>
+</html>

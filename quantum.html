@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Quantum — Merkabit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <style>
+    /* Quantum section accent — slightly cooler than the warm gold elsewhere */
+    .qsection { --steel: #8FB3C7; --steel-dim: rgba(143,179,199,0.55); }
+
+    .q-hero {
+      padding: 84px 0 48px; border-bottom: 1px solid var(--line);
+      position: relative; overflow: hidden;
+    }
+    .q-hero::before {
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background:
+        radial-gradient(circle at 70% 40%, rgba(143,179,199,0.06), transparent 55%),
+        radial-gradient(circle at 22% 80%, rgba(212,175,55,0.05), transparent 50%);
+    }
+    .q-hero .wrap { position: relative; }
+    .q-hero h1 { font-size: clamp(40px, 5vw, 72px); line-height: 1.05; max-width: 18ch; letter-spacing: -0.02em; }
+    .q-hero h1 em { font-style: italic; color: var(--steel); font-weight: 400; }
+    .q-hero .lede { margin-top: 22px; max-width: 56ch; font-size: clamp(17px, 1.4vw, 21px); }
+
+    .q-hero-grid {
+      display: grid; grid-template-columns: 1fr 520px; gap: 64px;
+      align-items: center; margin-top: 38px;
+    }
+    @media (max-width: 1080px){ .q-hero-grid { grid-template-columns: 1fr; } }
+
+    /* Animated merkabit cell */
+    .cell-stage {
+      aspect-ratio: 1/1; position: relative;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% 50%, rgba(143,179,199,0.07), transparent 65%),
+        var(--bg-elev-1);
+    }
+    .cell-stage svg { width: 100%; height: 100%; display: block; }
+    .cell-stage .stamp {
+      position: absolute; font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim);
+      pointer-events: none;
+    }
+    .cell-stage .s-tl { top: 14px; left: 16px; color: var(--steel); }
+    .cell-stage .s-tr { top: 14px; right: 16px; }
+    .cell-stage .s-bl { bottom: 14px; left: 16px; }
+    .cell-stage .s-br { bottom: 14px; right: 16px; color: var(--steel); }
+
+    .gate-glyph circle.bg { fill: rgba(20,28,52,0.92); stroke: var(--steel-dim); stroke-width: 1; }
+    .gate-glyph.firing circle.bg { fill: var(--steel); stroke: var(--steel); }
+    .gate-glyph.firing text { fill: var(--bg); }
+    .gate-glyph text {
+      font-family: 'EB Garamond', serif; font-size: 11px; font-weight: 500;
+      fill: var(--steel); text-anchor: middle; dominant-baseline: middle;
+    }
+
+    .q-confirm {
+      margin-top: 36px; padding: 22px 28px; border: 1px solid var(--line);
+      background: var(--bg-elev-1);
+      display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center;
+    }
+    .q-confirm .lbl { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
+    .q-confirm ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 22px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 12px; color: var(--ink-mid); }
+    .q-confirm li { display: flex; align-items: center; gap: 8px; }
+    .q-confirm .ok { color: var(--status-confirmed); }
+    .q-confirm .pending { color: var(--gold); }
+
+    /* Architecture stack */
+    .stack {
+      display: grid; gap: 0;
+      border: 1px solid var(--line);
+      background: var(--bg-elev-1);
+    }
+    .stack-row {
+      display: grid; grid-template-columns: 88px 1fr 280px 200px;
+      align-items: center; gap: 24px; padding: 28px 28px;
+      border-top: 1px solid var(--line);
+      transition: background 200ms;
+    }
+    .stack-row:first-child { border-top: 0; }
+    .stack-row:hover { background: rgba(143,179,199,0.04); }
+    .stack-row .layer-no {
+      font-family: var(--font-display); font-size: 44px; line-height: 1;
+      color: var(--steel); letter-spacing: -0.02em;
+    }
+    .stack-row .layer-tag { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim); }
+    .stack-row h3 { font-size: 24px; margin-top: 4px; }
+    .stack-row p { color: var(--ink-mid); font-size: 14.5px; line-height: 1.55; max-width: 56ch; margin-top: 6px; }
+    .stack-row .layer-vis { display: flex; justify-content: center; align-items: center; height: 90px; }
+    .stack-row .layer-vis svg { width: 100%; height: 100%; }
+    .stack-row .layer-meta {
+      font-family: var(--font-mono); font-size: 11px; line-height: 1.6;
+      color: var(--ink-dim); border-left: 1px solid var(--line-strong); padding-left: 16px;
+    }
+    .stack-row .layer-meta b { color: var(--steel); font-weight: 500; }
+    @media (max-width: 1100px){
+      .stack-row { grid-template-columns: 60px 1fr; }
+      .stack-row .layer-vis, .stack-row .layer-meta { display: none; }
+    }
+
+    /* Gate cycle */
+    .gate-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+      border: 1px solid var(--line); background: var(--bg-elev-1);
+    }
+    .gate-card {
+      padding: 28px 24px 24px; border-right: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 14px; min-height: 280px;
+    }
+    .gate-card:last-child { border-right: 0; }
+    .gate-card .glyph {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 1.5px solid var(--steel); display: flex; align-items: center; justify-content: center;
+      font-family: 'EB Garamond', serif; font-size: 24px; color: var(--steel);
+      background: var(--bg);
+    }
+    .gate-card h4 { font-size: 19px; }
+    .gate-card .qn { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--steel); }
+    .gate-card p { font-size: 14px; line-height: 1.55; color: var(--ink-mid); }
+    .gate-card .status {
+      margin-top: auto; font-family: var(--font-mono); font-size: 10.5px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--status-confirmed);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .gate-card .status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--status-confirmed); }
+    @media (max-width: 1100px){ .gate-grid { grid-template-columns: 1fr 1fr; } .gate-card { border-bottom: 1px solid var(--line); } }
+    @media (max-width: 640px){ .gate-grid { grid-template-columns: 1fr; } }
+
+    /* Comparison */
+    .cmp { width: 100%; border-collapse: collapse; }
+    .cmp th, .cmp td { padding: 16px 14px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 13.5px; }
+    .cmp th { font-family: var(--font-mono); font-weight: 400; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-dim); border-bottom-color: var(--line-strong); }
+    .cmp td.dim { color: var(--ink-mid); font-family: var(--font-mono); font-size: 12px; }
+    .cmp tr.merka td { background: rgba(143,179,199,0.05); border-color: rgba(143,179,199,0.18); }
+    .cmp tr.merka td:first-child { color: var(--steel); font-weight: 500; }
+    .cmp .hl { color: var(--ink); font-weight: 500; }
+
+    /* Roadmap */
+    .road {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+      border: 1px solid var(--line); background: var(--bg-elev-1);
+      position: relative;
+    }
+    .road::before {
+      content:""; position:absolute; left: 5%; right: 5%; top: 78px; height: 1px;
+      background: linear-gradient(90deg, var(--steel) 0%, var(--gold) 50%, var(--ink-faint) 100%);
+      opacity: 0.45;
+    }
+    .ph-card {
+      padding: 28px 22px 24px; border-right: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 12px; min-height: 320px;
+      position: relative;
+    }
+    .ph-card:last-child { border-right: 0; }
+    .ph-card .ph-no {
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-dim);
+    }
+    .ph-card .ph-dot {
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--bg-elev-1); border: 1.5px solid var(--steel);
+      margin: 12px 0 8px; position: relative; z-index: 1;
+    }
+    .ph-card.is-now .ph-dot { background: var(--steel); }
+    .ph-card .ph-when { font-family: var(--font-mono); font-size: 11px; color: var(--steel); letter-spacing: 0.12em; }
+    .ph-card h4 { font-size: 18px; line-height: 1.25; }
+    .ph-card p { font-size: 13.5px; line-height: 1.55; color: var(--ink-mid); }
+    .ph-card .deliv { margin-top: auto; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); padding-top: 14px; border-top: 1px solid var(--line); }
+    .ph-card .deliv b { color: var(--ink); font-weight: 500; display: block; margin-top: 4px; font-family: var(--font-body); font-size: 13px; letter-spacing: 0; text-transform: none; }
+    @media (max-width: 1100px){
+      .road { grid-template-columns: 1fr; }
+      .road::before { left: 28px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; background: linear-gradient(180deg, var(--steel), var(--gold), var(--ink-faint)); }
+      .ph-card { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 60px; min-height: auto; }
+      .ph-card .ph-dot { position: absolute; left: 21px; top: 32px; }
+    }
+
+    /* Engage */
+    .eng-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); }
+    .eng-card { padding: 28px 24px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; }
+    .eng-card:last-child { border-right: 0; }
+    .eng-card .meta { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--steel); }
+    .eng-card h4 { font-size: 18px; }
+    .eng-card p { font-size: 14px; color: var(--ink-mid); line-height: 1.55; }
+    .eng-card .arrow-link { margin-top: auto; padding-top: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--steel); }
+    @media (max-width: 1000px){ .eng-grid { grid-template-columns: 1fr 1fr; } .eng-card { border-bottom: 1px solid var(--line); } }
+    @media (max-width: 600px){ .eng-grid { grid-template-columns: 1fr; } }
+
+    /* Subpage links */
+    .sub-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin-top: 18px; }
+    .sub-grid a {
+      padding: 22px 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      display: flex; justify-content: space-between; align-items: center; gap: 18px;
+      color: var(--ink); font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.04em;
+      transition: background 160ms;
+    }
+    .sub-grid a:hover { background: rgba(143,179,199,0.05); color: var(--steel); }
+    .sub-grid a:nth-child(3n) { border-right: 0; }
+    .sub-grid a .arrow { color: var(--steel); }
+    @media (max-width: 800px){ .sub-grid { grid-template-columns: 1fr; } .sub-grid a { border-right: 0; } }
+
+    section.q-section { padding: 72px 0; }
+    section.q-section + section.q-section { border-top: 1px solid var(--line); }
+    .q-section h2 { font-size: clamp(30px, 3.2vw, 44px); letter-spacing: -0.015em; }
+    .q-section .section-lede { color: var(--ink-mid); font-size: 17px; line-height: 1.65; max-width: 64ch; margin-top: 14px; }
+  </style>
+</head>
+<body data-nav="quantum" class="qsection">
+  <div id="site-header"></div>
+  <main>
+
+    <!-- Hero -->
+    <section class="q-hero">
+      <div class="wrap wrap--wide">
+        <div class="crumb"><a href="index.html">Home</a> · Quantum</div>
+        <div class="q-hero-grid">
+          <div>
+            <span class="eyebrow" style="color: var(--steel);">The Merkabit Quantum Computer</span>
+            <h1 style="margin-top: 18px;">Hardware designed around the <em>architecture reality is computed in</em>.</h1>
+            <p class="lede">Native ternary. Eisenstein lattice. Five-gate primitive set. Self-sustaining tesseract memory. Closed-cycle verification.</p>
+            <p class="txt-mid" style="margin-top: 22px; max-width: 56ch; font-size: 15.5px; line-height: 1.65;">
+              Modern quantum computers are kludges — binary qubits arranged in square grids, programmed through gate decompositions that emulate richer physics the hardware was not designed to express. The Merkabit Quantum Computer matches its architecture to the underlying physics: a ternary register on a hexagonal lattice, a five-gate primitive set that closes into a self-verifying cycle, and a memory geometry that sustains coherence for ten Coxeter periods rather than collapsing in microseconds.
+            </p>
+            <div class="row gap-sm" style="margin-top: 32px; flex-wrap: wrap;">
+              <a class="btn btn--solid" href="#architecture" style="border-color: var(--steel); background: var(--steel); color: var(--bg);">Read the architecture →</a>
+              <a class="btn btn--ghost" href="#engage">Partner on it</a>
+              <a class="btn btn--ghost" href="hardware.html">Hardware confirmation</a>
+            </div>
+          </div>
+
+          <div class="cell-stage">
+            <span class="stamp s-tl">Merkabit cell · live</span>
+            <span class="stamp s-tr">(u, v) ∈ S³ × S³</span>
+            <span class="stamp s-bl">Eisenstein ℤ[ω]</span>
+            <span class="stamp s-br" id="gate-firing">R</span>
+            <svg id="cell-svg" viewBox="-100 -100 200 200" preserveAspectRatio="xMidYMid meet"></svg>
+          </div>
+        </div>
+
+        <div class="q-confirm">
+          <span class="lbl">Already confirmed</span>
+          <ul>
+            <li><span class="ok">✓</span> IBM Eagle r3 · 5/5 pre-registered</li>
+            <li><span class="ok">✓</span> Berry-phase Ramsey · 96.4%</li>
+            <li><span class="ok">✓</span> Pentachoric error detection · 99.3%</li>
+            <li><span class="ok">✓</span> Sub-Poissonian Fano · 131σ below Poisson</li>
+            <li><span class="pending">⏳</span> Google Willow · pre-registered</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture stack -->
+    <section class="q-section" id="architecture">
+      <div class="wrap wrap--wide">
+        <span class="eyebrow" style="color: var(--steel);">01 · The architecture, in five layers</span>
+        <h2 style="margin-top: 12px;">Substrate, cell, operations, memory, communication.</h2>
+        <p class="section-lede">Each layer is forced by the one below. No layer is a design choice; every layer is what the geometry requires.</p>
+
+        <div class="stack" style="margin-top: 36px;">
+          <div class="stack-row">
+            <div><div class="layer-tag">Layer 5</div><div class="layer-no">05</div></div>
+            <div>
+              <div class="layer-tag">Communication</div>
+              <h3>Cross-chiral tunnel</h3>
+              <p>A Z₃ cellular automaton connecting merkabits via the v-spinor. Trit-selective: |+1⟩ and |−1⟩ tunnel; |0⟩ is blocked because it has no boundary direction. Topology-independent across triangle, square, hexagon, dodecahedron substrates.</p>
+            </div>
+            <div class="layer-vis" id="vis-5"></div>
+            <div class="layer-meta">Paper 31 · cross-chiral tunnel<br/>Pre-registered: <b>Google Willow 19q</b><br/>Commit · <span style="color:var(--ink-mid);">470df4e</span></div>
+          </div>
+
+          <div class="stack-row">
+            <div><div class="layer-tag">Layer 4</div><div class="layer-no">04</div></div>
+            <div>
+              <div class="layer-tag">Memory</div>
+              <h3>Tesseract — 4D self-sustaining register</h3>
+              <p>The dimensional rung at which interior cross-coupling sustains coherence without external Floquet drive. 4-spinor (u, v) ∈ S⁷ × S⁷ instantiation. Persistence: 10 Coxeter periods. Capacity: ≈ 5 bits per cell.</p>
+            </div>
+            <div class="layer-vis" id="vis-4"></div>
+            <div class="layer-meta">Paper 32 · Memory Register<br/>|C|<sub>mean</sub> = <b>0.47 ± 0.02</b><br/>≥ 10 init. conditions</div>
+          </div>
+
+          <div class="stack-row">
+            <div><div class="layer-tag">Layer 3</div><div class="layer-no">03</div></div>
+            <div>
+              <div class="layer-tag">Operations</div>
+              <h3>Five-gate primitive set · pentachoric ouroboros</h3>
+              <p>{R · F · T · P · S} — rotation, frequency, transfer, chiral phase, substrate coupling. Closed-cycle verification: rather than per-gate fidelity benchmarks, the architecture is verified by closing the full cycle and checking it returns to the predicted state with the predicted geometric phase.</p>
+            </div>
+            <div class="layer-vis" id="vis-3"></div>
+            <div class="layer-meta">Paper 4 · enzyme-derived<br/>Paper 24 · P-gate native<br/>Pentachoric verification: <b>99.3%</b></div>
+          </div>
+
+          <div class="stack-row">
+            <div><div class="layer-tag">Layer 2</div><div class="layer-no">02</div></div>
+            <div>
+              <div class="layer-tag">Cell</div>
+              <h3>The merkabit — dual-spinor ternary register</h3>
+              <p>Each lattice point holds (u, v) ∈ S³ × S³ with u evolving forward in time and v backward. Three states per spinor (vs binary qubit), two interlocked spinors per cell, native Z₃ cyclic clock built in. Roughly five times the information density of a qubit.</p>
+            </div>
+            <div class="layer-vis" id="vis-2"></div>
+            <div class="layer-meta">Paper 32 · 5 bits / cell<br/>Persistence: <b>10 Coxeter periods</b><br/>Native Z₃ timing</div>
+          </div>
+
+          <div class="stack-row">
+            <div><div class="layer-tag">Layer 1</div><div class="layer-no">01</div></div>
+            <div>
+              <div class="layer-tag">Substrate</div>
+              <h3>Eisenstein lattice ℤ[ω]</h3>
+              <p>2D hexagonal-triangular lattice formed by the Eisenstein integers, where ω is a primitive sixth root of unity. Six nearest neighbours per cell (vs four on square grids). Native Z₃ structure — every triangle is one of three orientations. Carries the framework's E₆ Coxeter symmetry.</p>
+            </div>
+            <div class="layer-vis" id="vis-1"></div>
+            <div class="layer-meta">Base paper · ℤ[ω]<br/>Paper 6 · geometric operator<br/><b>6-fold</b> connectivity</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gate set -->
+    <section class="q-section">
+      <div class="wrap wrap--wide">
+        <span class="eyebrow" style="color: var(--steel);">02 · The five-gate primitive set</span>
+        <h2 style="margin-top: 12px;">Each gate, a question any coherence-engineering system must answer affirmatively.</h2>
+        <p class="section-lede">Derived empirically from the four-billion-year coherence-engineering programme of biological enzymes (Paper 4), then instantiated as quantum operations on the Eisenstein lattice. Closed in canonical R · F · T · P · S sequence — the pentachoric ouroboros.</p>
+
+        <div class="gate-grid" style="margin-top: 36px;">
+          <div class="gate-card">
+            <div class="glyph">R</div>
+            <span class="qn">Q1 · Axis</span>
+            <h4>Spinor rotation</h4>
+            <p>Is rotation occurring around the predicted axis? Sets the chiral frame for the cycle.</p>
+            <span class="status"><span class="dot"></span>Confirmed · Eagle r3</span>
+          </div>
+          <div class="gate-card">
+            <div class="glyph">F</div>
+            <span class="qn">Q2 · Resonance</span>
+            <h4>Frequency shift</h4>
+            <p>Is frequency locking established? Drives the cell into resonance with its neighbours.</p>
+            <span class="status"><span class="dot"></span>Confirmed · Eagle r3</span>
+          </div>
+          <div class="gate-card">
+            <div class="glyph">T</div>
+            <span class="qn">Q3 · Tunnel</span>
+            <h4>Amplitude transfer</h4>
+            <p>Is amplitude transferring; is the tunnel forming? The mediator of inter-cell communication.</p>
+            <span class="status"><span class="dot"></span>Confirmed · Eagle r3</span>
+          </div>
+          <div class="gate-card">
+            <div class="glyph">P</div>
+            <span class="qn">Q4 · Chirality</span>
+            <h4>Chiral phase counter-rotation</h4>
+            <p>Is the chiral phase native? P-gate fidelity directly observable; mean error 0.016.</p>
+            <span class="status"><span class="dot"></span>Confirmed · Paper 24</span>
+          </div>
+          <div class="gate-card">
+            <div class="glyph">S</div>
+            <span class="qn">Q5 · Output</span>
+            <h4>Substrate coupling</h4>
+            <p>What does the output deliver; is the result becoming substrate? Continuous, not projective.</p>
+            <span class="status"><span class="dot"></span>Confirmed · Heron r2</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="q-section">
+      <div class="wrap wrap--wide">
+        <span class="eyebrow" style="color: var(--steel);">03 · Comparison</span>
+        <h2 style="margin-top: 12px;">vs IBM, Google, IonQ, photonic.</h2>
+        <p class="section-lede">Current platforms are optimised to emulate binary-qubit computation that the underlying physics, on the framework's reading, doesn't quite reduce to. The merkabit-native approach is to match the hardware to the architecture rather than the other way around.</p>
+
+        <div style="margin-top: 32px; overflow-x: auto;">
+          <table class="cmp">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Native register</th>
+                <th>Topology</th>
+                <th>Memory persistence</th>
+                <th>Density</th>
+                <th>Verification</th>
+                <th>Clock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="hl">IBM Eagle r3 / Heron r2</td>
+                <td class="dim">Binary qubit</td>
+                <td class="dim">Heavy-hex (3 nbr)</td>
+                <td class="dim">T₁ ~ 100 µs raw</td>
+                <td class="dim">1 bit / qubit</td>
+                <td class="dim">Per-gate fidelity</td>
+                <td class="dim">External</td>
+              </tr>
+              <tr>
+                <td class="hl">Google Willow</td>
+                <td class="dim">Binary qubit</td>
+                <td class="dim">Square grid (4 nbr)</td>
+                <td class="dim">T₁ ~ 100 µs raw</td>
+                <td class="dim">1 bit / qubit</td>
+                <td class="dim">Surface-code logical</td>
+                <td class="dim">External</td>
+              </tr>
+              <tr>
+                <td class="hl">IonQ / Quantinuum</td>
+                <td class="dim">Binary qubit</td>
+                <td class="dim">All-to-all</td>
+                <td class="dim">~ seconds raw</td>
+                <td class="dim">1 bit / qubit</td>
+                <td class="dim">Per-gate fidelity</td>
+                <td class="dim">External</td>
+              </tr>
+              <tr>
+                <td class="hl">PsiQuantum / Xanadu</td>
+                <td class="dim">Photonic dual-rail</td>
+                <td class="dim">MBQC graph</td>
+                <td class="dim">In-flight only</td>
+                <td class="dim">1 bit / mode</td>
+                <td class="dim">Heralded</td>
+                <td class="dim">Optical</td>
+              </tr>
+              <tr class="merka">
+                <td>Merkabit-native</td>
+                <td>Ternary merkabit · (u, v) ∈ S³ × S³</td>
+                <td>Eisenstein hex (6 nbr)</td>
+                <td>10 Coxeter periods intrinsic</td>
+                <td>≈ 5 bits / cell</td>
+                <td>Closed-cycle pentachoric</td>
+                <td>Native Z₃</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="q-section">
+      <div class="wrap wrap--wide">
+        <span class="eyebrow" style="color: var(--steel);">04 · Roadmap</span>
+        <h2 style="margin-top: 12px;">Five phases, prototype to scale.</h2>
+        <p class="section-lede">Targets, not commitments. The site is honest about what is built (papers, simulations, hardware confirmation on existing devices) and what is planned (native merkabit hardware).</p>
+
+        <div class="road" style="margin-top: 36px;">
+          <div class="ph-card is-now">
+            <span class="ph-no">Phase 1</span>
+            <span class="ph-when">2026 — 2027</span>
+            <span class="ph-dot"></span>
+            <h4>Native qutrit cells</h4>
+            <p>Single 3-level transmon qutrit cells on hexagonal-lattice superconducting circuits. Native R · F · T · P · S without binary emulation.</p>
+            <div class="deliv">Deliverable<b>1-merkabit prototype with native gate set</b></div>
+          </div>
+          <div class="ph-card">
+            <span class="ph-no">Phase 2</span>
+            <span class="ph-when">2027 — 2028</span>
+            <span class="ph-dot"></span>
+            <h4>Pentachoric verification cluster</h4>
+            <p>19-cell hexagonal-lattice cluster running the Pentachoric Verification Protocol on hardware designed for it.</p>
+            <div class="deliv">Deliverable<b>19-cell cluster, all five gates simultaneous</b></div>
+          </div>
+          <div class="ph-card">
+            <span class="ph-no">Phase 3</span>
+            <span class="ph-when">2028 — 2029</span>
+            <span class="ph-dot"></span>
+            <h4>Tesseract memory</h4>
+            <p>16-cell 4D registers with 4-spinor instantiation. Self-sustaining coherence without external Floquet drive.</p>
+            <div class="deliv">Deliverable<b>≥ 10 Coxeter-period persistence at native rates</b></div>
+          </div>
+          <div class="ph-card">
+            <span class="ph-no">Phase 4</span>
+            <span class="ph-when">2029 — 2030</span>
+            <span class="ph-dot"></span>
+            <h4>Cross-chiral tunnel</h4>
+            <p>Inter-cluster communication via Z₃ cellular automaton. Topology-independence demonstrated across four substrates.</p>
+            <div class="deliv">Deliverable<b>Multi-cluster machine with native interconnect</b></div>
+          </div>
+          <div class="ph-card">
+            <span class="ph-no">Phase 5</span>
+            <span class="ph-when">2030 +</span>
+            <span class="ph-dot"></span>
+            <h4>Full-scale register</h4>
+            <p>1000+ cells with all five layers integrated. Comparable in size to current frontier qubit machines, native ternary throughout.</p>
+            <div class="deliv">Deliverable<b>At-scale Merkabit Quantum Computer</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subpage links -->
+    <section class="q-section">
+      <div class="wrap wrap--wide">
+        <span class="eyebrow" style="color: var(--steel);">05 · Deeper</span>
+        <h2 style="margin-top: 12px;">The full architecture, page by page.</h2>
+        <div class="sub-grid">
+          <a href="#"><span>The merkabit primitive</span><span class="arrow">/quantum/the-merkabit/ →</span></a>
+          <a href="#"><span>Five-gate set</span><span class="arrow">/quantum/gate-set/ →</span></a>
+          <a href="#"><span>Eisenstein lattice</span><span class="arrow">/quantum/lattice/ →</span></a>
+          <a href="#"><span>Tesseract memory</span><span class="arrow">/quantum/memory/ →</span></a>
+          <a href="#"><span>Verification protocol</span><span class="arrow">/quantum/verification/ →</span></a>
+          <a href="hardware.html"><span>Hardware confirmation</span><span class="arrow">/science/hardware/ →</span></a>
+          <a href="#"><span>Comparison · platforms</span><span class="arrow">/quantum/comparison/ →</span></a>
+          <a href="#"><span>Hardware specifications</span><span class="arrow">/quantum/specs/ →</span></a>
+          <a href="#engage"><span>Engage</span><span class="arrow">/quantum/engage/ →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engage -->
+    <section class="q-section" id="engage">
+      <div class="wrap wrap--wide">
+        <span class="eyebrow" style="color: var(--steel);">06 · Engage</span>
+        <h2 style="margin-top: 12px;">Open architecture. Four ways in.</h2>
+        <p class="section-lede">The architecture is published openly — 36+ Zenodo papers, public pre-registration commits, GitHub repositories. The intellectual property is the published work itself, available for any party to read, cite, and build on.</p>
+
+        <div class="eng-grid" style="margin-top: 36px;">
+          <div class="eng-card">
+            <span class="meta">Research</span>
+            <h4>Run merkabit protocols on your hardware</h4>
+            <p>Contribute to the cross-architecture validation programme. Pre-registered protocols available for any platform with ≥ 19 qubits and tunable two-qubit gates.</p>
+            <span class="arrow-link">Open a research thread →</span>
+          </div>
+          <div class="eng-card">
+            <span class="meta">Hardware partnership</span>
+            <h4>Fabricate native merkabit cells</h4>
+            <p>Superconducting, trapped-ion, photonic. Specifications available; pre-engagement technical discussions welcome; co-development arrangements possible.</p>
+            <span class="arrow-link">Discuss specifications →</span>
+          </div>
+          <div class="eng-card">
+            <span class="meta">Investment</span>
+            <h4>Fund Phase 1 prototype</h4>
+            <p>For groups interested in funding the merkabit-native hardware programme. Phase 1 prototype scope, requirements, and contact path.</p>
+            <span class="arrow-link">Request the deck →</span>
+          </div>
+          <div class="eng-card">
+            <span class="meta">License & commercial</span>
+            <h4>Deploy commercially</h4>
+            <p>The architecture is in the public domain through the published papers. Specific implementations and the Merkabit name are protected; license arrangements available.</p>
+            <span class="arrow-link">Inquire on terms →</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 48px; padding: 24px 28px; border: 1px solid var(--line); background: var(--bg-elev-1); display: flex; gap: 18px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+          <div>
+            <span class="eyebrow" style="color: var(--steel);">Editorial discipline</span>
+            <p style="margin-top: 8px; max-width: 70ch; color: var(--ink-mid); font-size: 14.5px; line-height: 1.55;">
+              The Quantum section is in the science register throughout. No interpretive content. Contemplative framing remains accessible through Journey and Scaling Buddha. A reader who wants only the technical work gets a clean technical experience.
+            </p>
+          </div>
+          <a class="btn btn--ghost" href="journey.html">Journey register →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/chrome.js"></script>
+  <script>
+    // ── Animated merkabit cell hero ───────────────────────────────────────
+    (function () {
+      const NS = 'http://www.w3.org/2000/svg';
+      const svg = document.getElementById('cell-svg');
+      const firingLabel = document.getElementById('gate-firing');
+      if (!svg) return;
+
+      const STEEL = '#8FB3C7';
+      const STEEL_DIM = 'rgba(143,179,199,0.45)';
+      const GOLD = '#D4AF37';
+      const COPPER = '#B87333';
+      const INK_DIM = 'rgba(245,240,230,0.35)';
+
+      const el = (tag, attrs, parent) => {
+        const n = document.createElementNS(NS, tag);
+        for (const k in attrs) n.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(n);
+        return n;
+      };
+
+      // Six neighbour cells (faint hex)
+      const neighbours = el('g', { opacity: 0.4 }, svg);
+      for (let i = 0; i < 6; i++) {
+        const a = i * Math.PI / 3 + Math.PI / 6;
+        const cx = Math.cos(a) * 70, cy = Math.sin(a) * 70;
+        // small triangle pair
+        const r = 11;
+        for (let k = 0; k < 2; k++) {
+          const flip = k === 0 ? 1 : -1;
+          const pts = [];
+          for (let j = 0; j < 3; j++) {
+            const aa = -Math.PI / 2 + j * 2 * Math.PI / 3;
+            pts.push([cx + Math.cos(aa) * r * flip, cy + Math.sin(aa) * r * flip]);
+          }
+          el('polygon', {
+            points: pts.map(p => p.join(',')).join(' '),
+            fill: 'none', stroke: STEEL_DIM, 'stroke-width': 0.7,
+          }, neighbours);
+        }
+      }
+
+      // Connecting edges from center to neighbours
+      for (let i = 0; i < 6; i++) {
+        const a = i * Math.PI / 3 + Math.PI / 6;
+        el('line', {
+          x1: Math.cos(a) * 28, y1: Math.sin(a) * 28,
+          x2: Math.cos(a) * 60, y2: Math.sin(a) * 60,
+          stroke: STEEL_DIM, 'stroke-width': 0.5, 'stroke-dasharray': '1 3',
+        }, svg);
+      }
+
+      // Central merkabit — two interlocked tetrahedra (rotating group)
+      const cellG = el('g', {}, svg);
+
+      // Forward tetrahedron (gold) and inverse (copper)
+      const tet = (color, opacity, gParent) => {
+        const r = 26;
+        const proj = (p) => [p[0], p[1]];
+        const verts = [
+          [0, -r],
+          [r * 0.866, r * 0.5],
+          [-r * 0.866, r * 0.5],
+          [0, 0],
+        ];
+        const edges = [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]];
+        const g = el('g', { opacity }, gParent);
+        edges.forEach(([i, j]) => {
+          const a = proj(verts[i]), b = proj(verts[j]);
+          el('line', { x1: a[0], y1: a[1], x2: b[0], y2: b[1],
+            stroke: color, 'stroke-width': 1.4, 'stroke-linecap': 'round' }, g);
+        });
+        verts.forEach(v => {
+          const p = proj(v);
+          el('circle', { cx: p[0], cy: p[1], r: 1.6, fill: color }, g);
+        });
+        return g;
+      };
+      const tetU = tet(GOLD, 0.85, cellG);
+      const tetV = tet(COPPER, 0.7, cellG);
+      tetV.setAttribute('transform', 'rotate(180)');
+
+      // Inner Z3 ternary clock (3 dots)
+      const z3 = el('g', {}, cellG);
+      for (let i = 0; i < 3; i++) {
+        const a = -Math.PI / 2 + i * 2 * Math.PI / 3;
+        el('circle', { cx: Math.cos(a) * 6, cy: Math.sin(a) * 6, r: 1.4, fill: STEEL }, z3);
+      }
+
+      // Five gate glyphs orbiting
+      const gateRing = el('g', {}, svg);
+      const gates = ['R', 'F', 'T', 'P', 'S'];
+      const gateNodes = gates.map((g, i) => {
+        const node = el('g', { class: 'gate-glyph' }, gateRing);
+        el('circle', { class: 'bg', r: 11 }, node);
+        const t = el('text', { y: 1 }, node);
+        t.textContent = g;
+        return node;
+      });
+      const positionGates = (ringAngleDeg) => {
+        const phi = ringAngleDeg * Math.PI / 180;
+        gateNodes.forEach((n, i) => {
+          const a = -Math.PI / 2 + i * 2 * Math.PI / 5 + phi;
+          const cx = Math.cos(a) * 80, cy = Math.sin(a) * 80;
+          n.setAttribute('transform', `translate(${cx} ${cy})`);
+        });
+      };
+      positionGates(0);
+
+      // Animation loop
+      let t0 = performance.now();
+      const FULL = 18000;        // full slow rotation of cell
+      const GATE_PERIOD = 4500;  // one gate fire cycle (per gate)
+      function tick(now) {
+        const t = (now - t0);
+        const angle = (t / FULL) * 360;
+        cellG.setAttribute('transform', `rotate(${angle * 0.7})`);
+        z3.setAttribute('transform', `rotate(${-angle * 1.6})`);
+        positionGates(angle * 0.25);
+        // Counter rotate inner v-tetra to give "interlock" feel
+        tetV.setAttribute('transform', `rotate(${180 - angle * 0.5})`);
+
+        const idx = Math.floor((t / GATE_PERIOD) % 5);
+        gateNodes.forEach((n, i) => n.classList.toggle('firing', i === idx));
+        if (firingLabel) firingLabel.textContent = gates[idx];
+
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+
+    // ── Layer visualisations ──────────────────────────────────────────────
+    document.getElementById('vis-1').innerHTML = MerkabitGeo.eisenstein({ w: 220, h: 90 });
+    document.getElementById('vis-2').innerHTML = MerkabitGeo.merkabit({ size: 90 });
+    document.getElementById('vis-3').innerHTML = MerkabitGeo.pentachoron({ size: 90 });
+    document.getElementById('vis-4').innerHTML = MerkabitGeo.tesseract({ size: 90 });
+    document.getElementById('vis-5').innerHTML = MerkabitGeo.fano({ size: 90 });
+  </script>
+</body>
+</html>

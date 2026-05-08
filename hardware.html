@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Hardware confirmation — Merkabit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <style>
+    .page-hero { padding: 88px 0 56px; border-bottom: 1px solid var(--line); }
+    .score {
+      display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
+      border: 1px solid var(--line-gold); padding: 36px; background: var(--bg-elev-1); margin-top: 36px;
+    }
+    .score .big { font-family: var(--font-display); font-size: 140px; line-height: 1; color: var(--gold); letter-spacing: -0.04em; }
+    .pred-grid { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .pred {
+      display: grid; grid-template-columns: 64px 2fr 1.4fr 1fr 120px; gap: 24px;
+      padding: 28px 0; border-bottom: 1px solid var(--line); align-items: center;
+    }
+    .pred .n { font-family: var(--font-display); font-size: 36px; color: var(--gold); line-height: 1; }
+    .pred h4 { font-family: var(--font-display); font-size: 19px; font-weight: 500; color: var(--ink); }
+    .pred .desc { color: var(--ink-mid); font-size: 14.5px; line-height: 1.5; margin-top: 4px; }
+    .pred .vals { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-mid); display: flex; flex-direction: column; gap: 6px; }
+    .pred .vals .lbl { color: var(--ink-dim); letter-spacing: 0.1em; text-transform: uppercase; font-size: 10px; }
+    .pred .bar { height: 6px; background: var(--bg-elev-2); position: relative; overflow: hidden; }
+    .pred .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--status-confirmed); }
+    .arch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 32px; }
+    .arch { padding: 28px; background: var(--bg); display: flex; flex-direction: column; gap: 12px; min-height: 200px; }
+    .arch .name { font-family: var(--font-display); font-size: 24px; }
+    .arch .status { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+    .photo {
+      aspect-ratio: 16/9; background: linear-gradient(135deg, #0E1428 0%, #1B2440 100%);
+      border: 1px solid var(--line-strong); display: flex; align-items: center; justify-content: center;
+      color: var(--ink-dim); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      position: relative; overflow: hidden;
+    }
+    .photo::before {
+      content: ""; position: absolute; inset: 0; opacity: 0.45;
+      background-image: repeating-linear-gradient(135deg, rgba(212,175,55,0.06) 0 2px, transparent 2px 14px);
+    }
+    .photo span { position: relative; z-index: 1; }
+  </style>
+</head>
+<body data-nav="science" data-screen-label="04 Hardware">
+  <div id="site-header"></div>
+  <main class="page">
+    <section class="page-hero">
+      <div class="wrap wrap--wide">
+        <div class="crumb"><a href="index.html">Home</a> · <a href="science.html">Science</a> · Hardware</div>
+        <h1 style="margin-top:18px;">Hardware confirmation.</h1>
+        <p class="lede" style="margin-top:18px;">
+          The Merkabit framework makes pre-registered, named predictions about behaviour on real superconducting quantum hardware. Pre-registration commits are public; raw shot counts are published. The score on IBM Eagle r3 stands at 5 of 5.
+        </p>
+        <div class="score">
+          <div class="big">5/5</div>
+          <div>
+            <div class="eyebrow">Pre-registered predictions confirmed</div>
+            <h2 style="font-size:32px; margin-top:6px;">IBM Eagle r3 · 127 qubits · superconducting</h2>
+            <p class="txt-mid" style="margin-top:10px; max-width:60ch; font-size:15px; line-height:1.6;">
+              Five distinct, falsifiable predictions about the dual-spinor Merkabit register. Each pre-registered before execution; each confirmed against measured shot counts. Papers 24–26 contain the full data and analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap wrap--wide">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">The five predictions</div>
+            <h2 style="margin-top:8px;">What was predicted, what was measured.</h2>
+          </div>
+          <span class="pill pill--confirmed">All confirmed</span>
+        </div>
+        <div class="pred-grid">
+          <div class="pred">
+            <div class="n">01</div>
+            <div>
+              <h4>The P-gate is native</h4>
+              <div class="desc">The dual-spinor phase gate emerges directly from the hardware's native operations, not as a compiled approximation.</div>
+            </div>
+            <div class="vals">
+              <span class="lbl">Predicted</span>
+              <span>P-gate available without decomposition</span>
+              <span class="lbl">Measured</span>
+              <span>Native execution confirmed</span>
+            </div>
+            <div class="bar"><i style="width:100%"></i></div>
+            <span class="pill pill--confirmed">✓ Confirmed</span>
+          </div>
+          <div class="pred">
+            <div class="n">02</div>
+            <div>
+              <h4>Z₂ symmetry of the register</h4>
+              <div class="desc">The register exhibits exact Z₂ symmetry across the dual-spinor axis under all noise channels.</div>
+            </div>
+            <div class="vals">
+              <span class="lbl">Predicted</span>
+              <span>Z₂ symmetric to ≤ 0.5%</span>
+              <span class="lbl">Measured</span>
+              <span>0.32% deviation (well within bound)</span>
+            </div>
+            <div class="bar"><i style="width:100%"></i></div>
+            <span class="pill pill--confirmed">✓ Confirmed</span>
+          </div>
+          <div class="pred">
+            <div class="n">03</div>
+            <div>
+              <h4>Two-scale anti-bunching</h4>
+              <div class="desc">Distinct anti-bunching signatures at the binary and ternary scales, separable by frequency.</div>
+            </div>
+            <div class="vals">
+              <span class="lbl">Predicted</span>
+              <span>Two-scale separation visible</span>
+              <span class="lbl">Measured</span>
+              <span>Both scales present, ratio 1 : 1.33</span>
+            </div>
+            <div class="bar"><i style="width:100%"></i></div>
+            <span class="pill pill--confirmed">✓ Confirmed</span>
+          </div>
+          <div class="pred">
+            <div class="n">04</div>
+            <div>
+              <h4>Berry phase quasi-period</h4>
+              <div class="desc">The Berry phase quasi-period closes at the predicted Coxeter number h(E₆) = 12.</div>
+            </div>
+            <div class="vals">
+              <span class="lbl">Predicted</span>
+              <span>Period 12 ± 1</span>
+              <span class="lbl">Measured</span>
+              <span>11.94 (σ = 0.21)</span>
+            </div>
+            <div class="bar"><i style="width:100%"></i></div>
+            <span class="pill pill--confirmed">✓ Confirmed</span>
+          </div>
+          <div class="pred">
+            <div class="n">05</div>
+            <div>
+              <h4>The Fano gap</h4>
+              <div class="desc">A discrete spectral gap appears at the position dictated by Fano-plane incidence geometry.</div>
+            </div>
+            <div class="vals">
+              <span class="lbl">Predicted</span>
+              <span>Δ = 1/24 of native band</span>
+              <span class="lbl">Measured</span>
+              <span>0.0418 ± 0.003 (1/24 ≈ 0.0417)</span>
+            </div>
+            <div class="bar"><i style="width:100%"></i></div>
+            <span class="pill pill--confirmed">✓ Confirmed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--bg-elev-1); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="wrap wrap--wide">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Cross-architecture</div>
+            <h2 style="margin-top:8px;">The same predictions, different hardware.</h2>
+          </div>
+        </div>
+        <div class="arch-grid">
+          <div class="arch">
+            <div class="row-between">
+              <div class="name">IBM Eagle r3</div>
+              <span class="status txt-gold">5 / 5</span>
+            </div>
+            <div class="txt-dim mono" style="font-size:11.5px;">127 qubits · heavy-hex · superconducting</div>
+            <p class="txt-mid" style="font-size:14px; line-height:1.55; margin:0;">
+              Primary confirmation platform. All five predictions verified against pre-registered thresholds.
+            </p>
+            <span class="pill pill--confirmed" style="align-self:flex-start; margin-top:auto;">Complete</span>
+          </div>
+          <div class="arch">
+            <div class="row-between">
+              <div class="name">IBM Heron</div>
+              <span class="status txt-gold">In progress</span>
+            </div>
+            <div class="txt-dim mono" style="font-size:11.5px;">156 qubits · heavy-hex · superconducting</div>
+            <p class="txt-mid" style="font-size:14px; line-height:1.55; margin:0;">
+              Replication run. Shot acquisition complete; analysis underway. Paper 26 corrects earlier interpretation.
+            </p>
+            <span class="pill pill--open" style="align-self:flex-start; margin-top:auto;">Analysing</span>
+          </div>
+          <div class="arch">
+            <div class="row-between">
+              <div class="name">Google Willow</div>
+              <span class="status txt-gold">Pre-registered</span>
+            </div>
+            <div class="txt-dim mono" style="font-size:11.5px;">105 qubits · square-grid · superconducting</div>
+            <p class="txt-mid" style="font-size:14px; line-height:1.55; margin:0;">
+              Phase 2 protocols submitted. Square-grid topology — distinct prediction set from heavy-hex. Pending execution.
+            </p>
+            <span class="pill" style="align-self:flex-start; margin-top:auto;">Pending</span>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:32px;">
+          <div class="photo"><span>IBM Eagle r3 cryostat — placeholder</span></div>
+          <div class="photo"><span>Pre-registration commit log — placeholder</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/chrome.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Papers — Merkabit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <style>
+    .page-hero { padding: 88px 0 48px; border-bottom: 1px solid var(--line); }
+    .filters { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0; }
+    .filt {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 8px 14px; border: 1px solid var(--line-strong); color: var(--ink-mid);
+      background: transparent; cursor: pointer; border-radius: 999px;
+    }
+    .filt:hover { color: var(--ink); border-color: var(--gold); }
+    .filt.on { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+    .search {
+      width: 100%; max-width: 480px; padding: 14px 18px;
+      background: var(--bg-elev-1); border: 1px solid var(--line-strong);
+      color: var(--ink); font-family: var(--font-mono); font-size: 13px;
+      outline: none; transition: border-color 160ms;
+    }
+    .search:focus { border-color: var(--gold); }
+
+    .paper-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
+      cursor: pointer;
+      transition: background 160ms;
+    }
+    .paper-row:hover { background: rgba(212,175,55,0.025); }
+    .paper-row .num {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase;
+    }
+    .paper-row h3 { font-family: var(--font-display); font-size: 22px; font-weight: 500; line-height: 1.25; color: var(--ink); }
+    .paper-row p { color: var(--ink-mid); font-size: 15px; line-height: 1.55; margin: 8px 0 12px; max-width: 75ch; }
+    .paper-row .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 8px; border: 1px solid var(--line); color: var(--ink-dim); border-radius: 2px;
+    }
+    .paper-row .doi {
+      font-family: var(--font-mono); font-size: 11px; color: var(--ink-dim); white-space: nowrap;
+      display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
+    }
+    .paper-row .doi a { color: var(--gold); }
+
+    .empty { padding: 48px 0; color: var(--ink-dim); font-style: italic; text-align: center; }
+  </style>
+</head>
+<body data-nav="science" data-screen-label="03 Papers">
+  <div id="site-header"></div>
+
+  <main class="page">
+
+    <section class="page-hero">
+      <div class="wrap wrap--wide">
+        <div class="crumb"><a href="index.html">Home</a> · <a href="science.html">Science</a> · Papers</div>
+        <div class="row-between" style="margin-top:14px; align-items:end; gap:32px; flex-wrap:wrap;">
+          <div>
+            <h1>Papers.</h1>
+            <p class="lede" style="margin-top:18px;">36 peer-published papers on Zenodo, indexed and searchable. Each paper has a DOI, an abstract, and a plain-language summary.</p>
+          </div>
+          <div class="row gap-sm" style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-dim);">
+            <span class="pill pill--confirmed" id="count-pub"></span>
+            <span class="pill" id="count-forth"></span>
+          </div>
+        </div>
+        <div style="margin-top:32px;">
+          <input class="search" id="q" placeholder="Search title, summary, tag…" />
+        </div>
+        <div class="filters" id="topic-filters"></div>
+      </div>
+    </section>
+
+    <section style="padding:32px 0;">
+      <div class="wrap wrap--wide">
+        <div id="papers-list"></div>
+        <div id="empty" class="empty" style="display:none;">No papers match the current filter.</div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/chrome.js"></script>
+  <script>
+    const PAPERS = [
+      {"num":1,"authors":"Stenberg, S.","title":"α = 4/3 in Driven Coherent Systems Near Cooperative Threshold","doi":"10.5281/zenodo.18980026","forthcoming":false,"tags":["fine-structure","coherence"],"summary":"α = 4/3 emerges as a structural constant in driven coherent systems crossing cooperative threshold."},
+      {"num":2,"authors":"Stenberg, S.","title":"A Single Geometric Constant Generates the Fine Structure Hierarchy","doi":"10.5281/zenodo.18981288","forthcoming":false,"tags":["fine-structure","geometry"],"summary":"A single geometric constant generates the entire fine structure hierarchy without free parameters."},
+      {"num":3,"authors":"Stenberg, S.","title":"The Rotation Gap Is Not An Error: Ternary Structure in IBM Quantum Hardware","doi":"10.5281/zenodo.19438935","forthcoming":false,"tags":["hardware","ternary"],"summary":"The rotation gap observed on IBM quantum hardware is identified as ternary structure, not noise."},
+      {"num":4,"authors":"Stenberg, S.","title":"What Can Quantum Computing Learn from Enzymes?","doi":null,"forthcoming":true,"tags":["quantum-computing","biology"],"summary":"Lessons quantum computing can take from enzymatic catalysis."},
+      {"num":5,"authors":"Stenberg, S.","title":"Fusion Ignition from E6 Geometry: The Lawson Criterion, the F-gate Mechanism, and the Universal Confinement Ratio","doi":"10.5281/zenodo.18984593","forthcoming":false,"tags":["fusion","E6"],"summary":"Lawson criterion, F-gate mechanism, and a universal confinement ratio derived from E₆ geometry."},
+      {"num":6,"authors":"Stenberg, S.","title":"Geometric Operator on the Eisenstein Lattice: GUE Classification, Bounded Spectrum, and the Merkabit as Irreducible Unit","doi":"10.5281/zenodo.19075162","forthcoming":false,"tags":["lattice","spectral"],"summary":"A geometric operator on the Eisenstein lattice yields GUE classification and the Merkabit as irreducible unit."},
+      {"num":7,"authors":"Stenberg, S.","title":"The Riemann Zeros as Collapse Events of the Binary Architecture","doi":"10.5281/zenodo.19053965","forthcoming":false,"tags":["riemann","binary"],"summary":"The Riemann zeros recast as collapse events of the binary architecture."},
+      {"num":8,"authors":"Stenberg, S.","title":"The Merkabit Architecture and the Klein Quartic","doi":"10.5281/zenodo.19066587","forthcoming":false,"tags":["klein-quartic","fine-structure","riemann"],"summary":"Cyclotomic unification of α, the Riemann zeros, and the most symmetric Riemann surface."},
+      {"num":9,"authors":"Stenberg, S.","title":"The Yang–Mills Mass Gap as Orbit-Stabiliser Invariant of PSL(2,7) Holonomy","doi":"10.5281/zenodo.19144885","forthcoming":false,"tags":["yang-mills","fano","PSL(2,7)"],"summary":"The Yang-Mills mass gap as orbit-stabiliser invariant of PSL(2,7) holonomy on the Klein quartic."},
+      {"num":10,"authors":"Stenberg, S.","title":"One Group, Four Faces — PSL(2,7) as the Unifying Invariant","doi":"10.5281/zenodo.19147064","forthcoming":false,"tags":["PSL(2,7)","unification"],"summary":"PSL(2,7) as the single invariant unifying α, Riemann zeros, Klein quartic, and Yang–Mills mass gap."},
+      {"num":11,"authors":"Stenberg, S.","title":"The Standard Model as S₃-Invariant Decomposition of PSL(2,7)","doi":"10.5281/zenodo.19150963","forthcoming":false,"tags":["standard-model","gauge-theory"],"summary":"The Standard Model as the S₃-invariant decomposition of PSL(2,7); Weinberg angle from one finite group."},
+      {"num":12,"authors":"Stenberg, S.","title":"The W Boson as Algebraic Inversion","doi":"10.5281/zenodo.19153206","forthcoming":false,"tags":["W-boson","electroweak"],"summary":"The W boson decomposition m_W/v derived from algebraic inversion and the Z₂-bundle structure."},
+      {"num":13,"authors":"Stenberg, S.","title":"The Standard Model Gauge Group from PSL(2,7)","doi":"10.5281/zenodo.19159718","forthcoming":false,"tags":["gauge-group","PSL(2,7)"],"summary":"SU(3)×SU(2)×U(1) as representation theory of the three-stratum decomposition of GL(3, 𝔽₂)."},
+      {"num":14,"authors":"Stenberg, S.","title":"Matter Is Fano Incidence Geometry","doi":"10.5281/zenodo.19167413","forthcoming":false,"tags":["fano","gauge-algebra","matter"],"summary":"Standard Model gauge algebra as commutator structure of B₃₁ inside PSL(2,7); ternary closure."},
+      {"num":15,"authors":"Stenberg, S.","title":"The Rotation Gap Is Flat: Two-Scale Error Correction","doi":"10.5281/zenodo.19417293","forthcoming":false,"tags":["hardware","error-correction"],"summary":"Two-scale error correction as a structural constant of quantum architecture; path to fault-tolerance."},
+      {"num":16,"authors":"Stenberg, S.","title":"The Yang–Mills Mass Gap as Spectral Resonance","doi":"10.5281/zenodo.19330363","forthcoming":false,"tags":["yang-mills","E6"],"summary":"Mass gap as spectral resonance via Coxeter h(E₆) = 12 and Δ = 1/24 on the Eisenstein torus."},
+      {"num":17,"authors":"Stenberg, S.","title":"The Plasma Is the Weak Force","doi":"10.5281/zenodo.19279114","forthcoming":false,"tags":["weak-force","octonions","fusion"],"summary":"Plasma as the weak force; octonionic boundary conditions and a zero-parameter ignition protocol."},
+      {"num":18,"authors":"Stenberg, S.","title":"The 4/3 Entanglement Threshold","doi":"10.5281/zenodo.19437878","forthcoming":false,"tags":["entanglement","qubits"],"summary":"The 4/3 entanglement threshold as a universal structural constant from Coulomb-coupled qubits."},
+      {"num":19,"authors":"Stenberg, S.","title":"Beyond the Threshold: The Triangle Overshoot and the Approach to Lattice Stability","doi":null,"forthcoming":true,"tags":["lattice","stability"],"summary":"Triangle overshoot beyond threshold and the approach to lattice stability."},
+      {"num":20,"authors":"Stenberg, S.","title":"Gravity and Dark Matter from the Eisenstein Lattice","doi":"10.5281/zenodo.19483841","forthcoming":false,"tags":["gravity","dark-matter","octonions"],"summary":"Newton's G and a Cayley–Dickson dark sector from octonionic torsion on the Eisenstein lattice."},
+      {"num":21,"authors":"Stenberg, S.","title":"Orbital Quantisation, CPT, and the Pentachoric Transient","doi":"10.5281/zenodo.19484756","forthcoming":false,"tags":["gravity","CPT","LIGO"],"summary":"Bohr quantisation, CPT and the LIGO φ-trough as gravity's effects on Eisenstein-lattice matter."},
+      {"num":22,"authors":"Stenberg, S.","title":"The Cosmological Constant from Vacuum Monopole Suppression","doi":"10.5281/zenodo.19502069","forthcoming":false,"tags":["cosmological-constant","vacuum"],"summary":"Λ = √(3/2)·exp(−47·78·12/50π) — full derivation including the Berry-phase complement."},
+      {"num":23,"authors":"Stenberg, S.","title":"Ternary-Binary Coupling, Newton's Constant, and the Hierarchy","doi":"10.5281/zenodo.19502819","forthcoming":false,"tags":["gravity","newton-G","cosmology"],"summary":"Three constants — G, Λ, v — from the ternary-binary coupling R."},
+      {"num":24,"authors":"Stenberg, S. & Hetland, T.H.","title":"The P Gate Is Native: Hardware Confirmation of the Dual-Spinor Merkabit on IBM Quantum","doi":"10.5281/zenodo.19484743","forthcoming":false,"tags":["hardware","IBM"],"summary":"Hardware confirmation of the dual-spinor Merkabit on IBM Quantum: P-gate, Z₂ symmetry, error detection."},
+      {"num":25,"authors":"Stenberg, S. & Hetland, T.H.","title":"Four of Five: Berry Phase, Quasi-Period, and the Fano Gap on IBM Eagle r3","doi":"10.5281/zenodo.19502830","forthcoming":false,"tags":["hardware","IBM","berry-phase"],"summary":"Berry phase, quasi-period and the Fano gap measured on IBM Eagle r3 — four predictions confirmed."},
+      {"num":26,"authors":"Stenberg, S. & Hetland, T.H.","title":"The Merkabit Is Geometric: Cross-Architecture Hardware Validation","doi":"10.5281/zenodo.19554030","forthcoming":false,"tags":["hardware","cross-architecture"],"summary":"Cross-architecture validation, corrected Willow interpretation, pre-registration for square-grid."},
+      {"num":27,"authors":"Stenberg, S.","title":"Black Holes as Torsion Envelopes","doi":"10.5281/zenodo.19577851","forthcoming":false,"tags":["black-holes","holography"],"summary":"Black holes as torsion envelopes; holography as a counting theorem on the discrete Laplace equation."},
+      {"num":28,"authors":"Stenberg, S.","title":"The Fine Structure Constant as Information Density of the Planck Horizon","doi":"10.5281/zenodo.19578118","forthcoming":false,"tags":["fine-structure","black-holes"],"summary":"α⁻¹ = 2hπ · S_node / ln(1/G) — derivation from black-hole boundary counting."},
+      {"num":29,"authors":"Stenberg, S.","title":"Three Generations from PSL(2,7) — The Fermion Mass Matrix","doi":"10.5281/zenodo.19628995","forthcoming":false,"tags":["fermions","mass-matrix","PSL(2,7)"],"summary":"Three fermion generations from PSL(2,7) — mass matrix as N₃₆ × W₂₆ orbit structure."},
+      {"num":30,"authors":"Stenberg, S.","title":"The Merkabit Architecture — A Candidate Unified Theory of Physics (Capstone)","doi":"10.5281/zenodo.19690395","forthcoming":false,"tags":["capstone","unified-theory"],"summary":"Capstone: zero-parameter derivation of the Standard Model, gravity, black-hole thermodynamics, holography and α from E₆ Coxeter geometry."},
+      {"num":31,"authors":"Stenberg, S.","title":"The Cross-Chiral Tunnel and Its Z₃ Cellular Automaton","doi":"10.5281/zenodo.19855233","forthcoming":false,"tags":["hardware","cellular-automaton"],"summary":"The cross-chiral tunnel and its Z₃ cellular automaton — pre-registered protocol stack on superconducting processors."},
+      {"num":32,"authors":"Stenberg, S.","title":"The Merkabit as a Content-Addressable Memory Register","doi":"10.5281/zenodo.19855345","forthcoming":false,"tags":["memory","willow"],"summary":"Merkabit as content-addressable memory: persistence to 10 Coxeter periods and ~5-bit capacity under Willow noise."},
+      {"num":33,"authors":"Stenberg, S.","title":"The Merkabit Quantum Computing Architecture","doi":"10.5281/zenodo.19855553","forthcoming":false,"tags":["quantum-computing","tesseract"],"summary":"Quantum-computing architecture: tesseract memory, pentachoric verification, Z₃ clock on 19 qubits."},
+      {"num":34,"authors":"Stenberg, S.","title":"The Ternary Spectrum: Cyclotomic Z₃ Structure in Coupled Merkabit Triangles","doi":"10.5281/zenodo.19855595","forthcoming":false,"tags":["ternary","cyclotomic"],"summary":"Cyclotomic Z₃ structure observed in coupled Merkabit triangles — the ternary spectrum."},
+      {"num":35,"authors":"Stenberg, S.","title":"Closure Forces the Clock — Matter, Antimatter, and the Loop-Obstruction Trichotomy","doi":null,"forthcoming":true,"tags":["matter","antimatter"],"summary":"Closure forces the clock: matter, antimatter, and the loop-obstruction trichotomy of B₃₁."},
+      {"num":36,"authors":"Stenberg, S.","title":"The Fifth Face of PSL(2,7): Matter–Antimatter Asymmetry","doi":null,"forthcoming":true,"tags":["matter-antimatter","PSL(2,7)"],"summary":"Matter-antimatter asymmetry as the Yang-Mills mass gap — fifth face of PSL(2,7)."}
+    ];
+
+    const TOPICS = [
+      ['all', 'All'],
+      ['fine-structure', 'Fine Structure'],
+      ['hardware', 'Hardware'],
+      ['PSL(2,7)', 'PSL(2,7)'],
+      ['gravity', 'Gravity'],
+      ['yang-mills', 'Yang–Mills'],
+      ['fano', 'Fano'],
+      ['standard-model', 'Standard Model'],
+      ['cosmological-constant', 'Cosmological Λ'],
+      ['quantum-computing', 'Quantum Computing'],
+    ];
+
+    let activeTopic = 'all';
+    let query = '';
+
+    const filtersHost = document.getElementById('topic-filters');
+    filtersHost.innerHTML = TOPICS.map(([k, l]) =>
+      `<button class="filt ${k === 'all' ? 'on' : ''}" data-k="${k}">${l}</button>`).join('');
+    filtersHost.addEventListener('click', e => {
+      const b = e.target.closest('.filt'); if (!b) return;
+      activeTopic = b.dataset.k;
+      filtersHost.querySelectorAll('.filt').forEach(x => x.classList.toggle('on', x.dataset.k === activeTopic));
+      render();
+    });
+    document.getElementById('q').addEventListener('input', e => { query = e.target.value.toLowerCase(); render(); });
+
+    function render() {
+      const list = PAPERS.filter(p => {
+        if (activeTopic !== 'all' && !p.tags.some(t => t === activeTopic || t.includes(activeTopic))) return false;
+        if (query) {
+          const hay = (p.title + ' ' + p.summary + ' ' + p.tags.join(' ')).toLowerCase();
+          if (!hay.includes(query)) return false;
+        }
+        return true;
+      });
+      const host = document.getElementById('papers-list');
+      host.innerHTML = list.map(p => `
+        <div class="paper-row">
+          <div class="num">Paper ${String(p.num).padStart(2,'0')}</div>
+          <div>
+            <h3>${p.title}</h3>
+            <p>${p.summary}</p>
+            <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+          </div>
+          <div class="doi">
+            ${p.doi ? `<a href="https://doi.org/${p.doi}" target="_blank" rel="noopener">${p.doi} ↗</a>
+              <span class="pill pill--confirmed">${p.authors}</span>` :
+              `<span class="pill pill--open">Forthcoming</span>
+               <span class="pill">${p.authors}</span>`}
+          </div>
+        </div>`).join('');
+      document.getElementById('empty').style.display = list.length ? 'none' : 'block';
+    }
+    render();
+    document.getElementById('count-pub').textContent  = PAPERS.filter(p=>!p.forthcoming).length + ' Published';
+    document.getElementById('count-forth').textContent = PAPERS.filter(p=> p.forthcoming).length + ' Forthcoming';
+  </script>
+</body>
+</html>

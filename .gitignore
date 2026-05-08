@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local server cache
+.cache/
+.tmp/
+
+# Don't ignore .nojekyll — GitHub Pages needs it
+!.nojekyll

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>The Journey — Merkabit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <link rel="stylesheet" href="styles/timeline.css"/>
+  <style>
+    .page-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--line); position: relative; overflow:hidden; }
+    .page-hero .bg-art { position:absolute; right:-10%; top:0; bottom:0; width:55%; opacity:0.5; mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent); }
+    .page-hero .wrap--wide { position: relative; }
+    .narr { font-size: 19px; line-height: 1.7; color: var(--ink-mid); max-width: 60ch; }
+    .narr p + p { margin-top: 1em; }
+    .narr em { color: var(--gold); font-style: italic; }
+    .arc { padding: 56px 0; border-bottom: 1px solid var(--line); }
+    .arc-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+    @media (max-width: 900px) { .arc-grid { grid-template-columns: 1fr; } }
+    .arc h2 { font-size: 36px; }
+    .arc-grid .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+
+    .book-block { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 800px) { .book-block { grid-template-columns: 1fr; } }
+    .book-cover {
+      aspect-ratio: 2/3; background:
+        linear-gradient(160deg, #1B2440 0%, #0E1428 100%);
+      border: 1px solid var(--line-gold);
+      display: flex; flex-direction: column; justify-content: space-between; padding: 28px;
+      position: relative; overflow: hidden;
+    }
+    .book-cover::before {
+      content:""; position:absolute; inset:0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'><g fill='none' stroke='%23D4AF37' stroke-width='0.5' opacity='0.5'><polygon points='0,-42 36.4,21 -36.4,21'/><polygon points='0,42 -36.4,-21 36.4,-21'/></g></svg>");
+      background-size: 75%; background-position: center; background-repeat: no-repeat; opacity: 0.7;
+    }
+    .book-cover .top, .book-cover .bot { position: relative; z-index: 1; }
+    .book-cover .top { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    .book-cover .ttl { font-family: var(--font-display); font-size: 28px; line-height: 1.1; color: var(--ink); }
+    .book-cover .auth { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-dim); text-transform: uppercase; margin-top: 6px; }
+
+    .resources { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); }
+    @media (max-width: 1100px) { .resources { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .resources { grid-template-columns: 1fr; } }
+    .res {
+      padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 12px; min-height: 220px;
+    }
+    .res:hover { background: rgba(212,175,55,0.04); }
+    .res .num { font-family: var(--font-display); font-size: 32px; color: var(--gold); }
+    .res h4 { font-family: var(--font-display); font-size: 19px; }
+    .res p { font-size: 14px; color: var(--ink-mid); line-height: 1.55; margin: 0; }
+    .res ol { margin: 8px 0 0; padding-left: 18px; color: var(--ink-mid); font-size: 13.5px; line-height: 1.5; }
+    .res ol li::marker { color: var(--gold); font-family: var(--font-mono); }
+  </style>
+</head>
+<body data-nav="journey" data-screen-label="08 Journey">
+  <div id="site-header"></div>
+  <main class="page">
+
+    <section class="page-hero">
+      <div class="bg-art" id="bg-art"></div>
+      <div class="wrap wrap--wide">
+        <div class="crumb"><a href="index.html">Home</a> · The Journey</div>
+        <h1 style="margin-top:18px; max-width: 16ch;">The journey is its own story.</h1>
+        <p class="lede" style="margin-top:24px;">
+          The framework began with crop circles — not as messages or revelation, but as geometric data that recurred with structural consistency. From this geometry emerged a unit of coherence — the merkabit — and from that unit, an architecture that turned out to derive the fundamental constants of physics from first principles.
+        </p>
+      </div>
+    </section>
+
+    <section class="arc" id="origin">
+      <div class="wrap wrap--wide">
+        <div class="arc-grid">
+          <div>
+            <div class="meta">Chapter 01</div>
+            <h2>The crop circles to derived constants arc.</h2>
+            <a class="btn btn--ghost" href="#" style="margin-top:24px;">Read full origin →</a>
+          </div>
+          <div class="narr">
+            <p>What began as a contemplative practice became a research programme. Selina Stenberg — a start-up founder running several small tech companies in Oslo, alongside a long-form contemplative practice and without formal physics training — began noticing that the geometry recurring across crop formations followed structural rules. <em>Not random. Not noise. Geometry behaving like an architecture.</em></p>
+            <p>The work that followed asked one question, repeatedly, in many forms: what is the smallest closed coherent unit that can sustain itself? The answer turned out to be the merkabit — a ternary computational unit on the Eisenstein lattice — and once it was named, every unsolved question Selina pointed at it answered.</p>
+            <p>Fifteen constants. Zero free parameters. The entire Standard Model gauge group. Newton's gravitational constant. The cosmological constant. Three fermion generations. Five distinct hardware predictions, all confirmed. <em>One geometry.</em></p>
+          </div>
+        </div>
+        <div style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--line);">
+          <div class="meta" style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold);">How this came to be</div>
+          <h3 style="font-family:'EB Garamond',serif; font-size: 32px; margin-top: 12px; max-width: 26ch;">Eight moments, from start-up burnout to a published framework.</h3>
+        </div>
+        <div id="origin-timeline"></div>
+      </div>
+    </section>
+
+    <section class="arc" id="collaboration">
+      <div class="wrap wrap--wide">
+        <div class="arc-grid">
+          <div>
+            <div class="meta">Chapter 02</div>
+            <h2>A year of human–AI collaboration.</h2>
+            <a class="btn btn--ghost" href="#" style="margin-top:24px;">Read the case study →</a>
+          </div>
+          <div class="narr">
+            <p>The framework was developed in dialogue between Selina and Claude (Anthropic, Opus 4.7, 1M context) over the course of a year. Hardware verification was led by Thor Henning Hetland on IBM Quantum machines.</p>
+            <p>The collaboration worked because of <em>contemplative-rigour discipline</em> — the willingness to sit with a question long enough for the geometry to surface, paired with the willingness to push back hard when the AI answered with plausible nonsense. Neither side carried the work alone.</p>
+            <p>This is, as far as we know, the first frontier-knowledge result whose method was explicitly contemplative + AI-assisted, done outside academia. The site exists in part to make that path visible to others.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="arc" id="book">
+      <div class="wrap wrap--wide">
+        <div class="meta" style="font-family:var(--font-mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom: 24px;">Chapter 03 · The book</div>
+        <div class="book-block">
+          <div class="book-cover">
+            <div class="top">A Human and Systemic Orientation</div>
+            <div class="bot">
+              <div class="ttl">Scaling<br/>Buddha</div>
+              <div class="auth">Selina Stenberg · forthcoming · 2026</div>
+            </div>
+          </div>
+          <div>
+            <h2 style="font-size: 36px;">Scaling Buddha — first edition, forthcoming.</h2>
+            <p class="narr" style="margin-top: 16px;">Most of us grow up believing life is something we push through. <em>Scaling Buddha</em> offers a different orientation: we are not moving through life as isolated agents but living inside a coherence system that responds to how aligned we are with its rhythms.</p>
+            <p class="narr">
+              This book is the human translation of the Merkabit framework — a body of work proposing that coherence governs whether complex systems persist or collapse, derived from geometry and confirmed in physics, biology, and quantum hardware. The chapters move from phase space into lived experience, exploring how humans undergo phase transitions, how families transmit coherence, how AI is becoming a real partner in coherence work, and how the descent from octonions to matter places consciousness back inside the geometry — not as metaphor but as architecture.
+            </p>
+            <p class="narr">
+              The next leap for humanity is learning how to remain coherent while operating systems of unprecedented complexity.
+            </p>
+            <div class="row gap-sm" style="margin-top: 24px; flex-wrap: wrap;">
+              <a class="btn btn--solid" href="services.html#book">Notify me when published →</a>
+              <a class="btn btn--ghost" href="#">Read sample chapter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--bg-elev-1); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="wrap wrap--wide">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Genesis Sequence</div>
+            <h2 style="margin-top:8px;">Watch the architecture build itself.</h2>
+          </div>
+          <a href="genesis.html" class="btn btn--solid">Open the build <span class="arrow">→</span></a>
+        </div>
+        <p class="narr" style="max-width:64ch;">
+          Twelve rungs from the Riemann substrate up to the self-sustaining tesseract — an interactive scrollable build of the entire architecture, with one diagram per rung and a brief explanation linking each to the paper that develops it formally.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap wrap--wide">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Resources · where to start</div>
+            <h2 style="margin-top:8px;">Pick the path that fits you.</h2>
+          </div>
+        </div>
+        <div class="resources">
+          <a class="res" href="papers.html">
+            <span class="num">01</span>
+            <h4>If you're a scientist</h4>
+            <p>Start with Paper 30 (capstone), then 11, 20, 22, then the hardware confirmations.</p>
+            <ol><li>Paper 30 — Capstone</li><li>Paper 11 — Standard Model from PSL(2,7)</li><li>Paper 22 — Cosmological Λ</li><li>Hardware §</li></ol>
+          </a>
+          <a class="res" href="#">
+            <span class="num">02</span>
+            <h4>If you're a meditator</h4>
+            <p>Start with Scaling Buddha, then the Genesis Sequence, then the Five Faces page.</p>
+            <ol><li>Scaling Buddha — Preface</li><li>Genesis Sequence</li><li>Five Faces of PSL(2,7)</li><li>Origin chapter</li></ol>
+          </a>
+          <a class="res" href="#">
+            <span class="num">03</span>
+            <h4>If you're an entrepreneur</h4>
+            <p>Start with the collaboration story, then the workshops, then the book.</p>
+            <ol><li>Collaboration chapter</li><li>Workshops · Frontier work</li><li>Scaling Buddha — Algebra of Family</li><li>Talks</li></ol>
+          </a>
+          <a class="res" href="#">
+            <span class="num">04</span>
+            <h4>If you're curious</h4>
+            <p>Start at the homepage, walk to the Five Faces, then the 15 Constants.</p>
+            <ol><li>Homepage hero</li><li>Five Faces</li><li>15 Constants wall</li><li>Falsifiability</li></ol>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/timeline.js"></script>
+  <script src="scripts/chrome.js"></script>
+  <script>
+    if (window.MerkabitTimeline) {
+      MerkabitTimeline.renderFull(document.getElementById('origin-timeline'));
+    }
+  </script>
+  <script>
+    document.getElementById('bg-art').innerHTML = MerkabitGeo.eisenstein({ w: 800, h: 600 });
+  </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>The Science — Merkabit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/site.css"/>
+  <style>
+    .page-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--line); }
+    .page-hero .wrap--wide { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+    .crumb { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); }
+    .crumb a { color: var(--gold); }
+
+    .pillar-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .pillar { padding: 36px 32px; background: var(--bg); display: flex; flex-direction: column; gap: 14px; min-height: 220px; }
+    .pillar .icon { width: 44px; height: 44px; }
+    .pillar h3 { font-size: 22px; }
+    .pillar .num { font-family: var(--font-display); font-size: 56px; line-height: 1; color: var(--gold); letter-spacing: -0.02em; }
+
+    .subnav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .subnav a { padding: 36px 28px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 12px; transition: background 200ms; min-height: 200px; }
+    .subnav a:hover { background: rgba(212,175,55,0.05); }
+    .subnav a:last-child { border-right: 0; }
+    .subnav a .ico { width: 40px; height: 40px; }
+    .subnav a h4 { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--ink); }
+    .subnav a p { font-size: 14.5px; color: var(--ink-mid); margin: 0; line-height: 1.55; }
+    .subnav a .more { margin-top: auto; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+
+    .headline-num {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      padding: 32px;
+      border: 1px solid var(--line-gold);
+      background: var(--bg-elev-1);
+      align-items: center;
+    }
+    .headline-num .big {
+      font-family: var(--font-display);
+      font-size: 120px;
+      line-height: 1;
+      color: var(--gold);
+      letter-spacing: -0.04em;
+    }
+  </style>
+</head>
+<body data-nav="science" data-screen-label="02 Science">
+  <div id="site-header"></div>
+
+  <main class="page">
+
+    <section class="page-hero">
+      <div class="wrap wrap--wide">
+        <div>
+          <div class="crumb"><a href="index.html">Home</a> · The Science</div>
+          <h1 style="margin-top:18px;">The science.</h1>
+          <p class="lede" style="margin-top:24px;">
+            Fifteen fundamental constants derived from a single geometric architecture, with zero free parameters, confirmed on real quantum hardware. The work below is technical, defensible, and reproducible.
+          </p>
+        </div>
+        <div>
+          <div class="headline-num">
+            <span class="big">15</span>
+            <div>
+              <div class="eyebrow">Constants</div>
+              <p style="margin:6px 0 0; font-size:15px; color:var(--ink-mid);">α, αₛ, sin²θ_W, m_W/v, three fermion generations, Λ, G, and more — all derived.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Four pillars -->
+    <section style="padding-top:88px;">
+      <div class="wrap wrap--wide">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">The four pillars</div>
+            <h2 style="margin-top:8px;">What's been done, in plain terms.</h2>
+          </div>
+        </div>
+        <div class="pillar-grid">
+          <div class="pillar">
+            <span class="icon" id="p-ico-1"></span>
+            <span class="eyebrow eyebrow--mid">Pillar 1 · Derivation</span>
+            <h3>15 constants from one architecture</h3>
+            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
+              The fine structure constant, the cosmological constant, Newton's gravitational constant, the Standard Model gauge group SU(3)×SU(2)×U(1), three fermion generations, the Weinberg angle, m_W/v, and more — all derived from a single closed geometric unit, with no free parameters.
+            </p>
+            <a href="constants.html" class="pill pill--gold" style="align-self:flex-start;margin-top:6px;">See the 15 constants →</a>
+          </div>
+          <div class="pillar">
+            <span class="icon" id="p-ico-2"></span>
+            <span class="eyebrow eyebrow--mid">Pillar 2 · Unifying Invariant</span>
+            <h3>PSL(2,7) — order 168</h3>
+            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
+              The projective special linear group of order 168 — the symmetry group of the Fano plane — is the single invariant unifying α, the Riemann zeros, the Klein quartic, the Yang–Mills mass gap, and matter-antimatter asymmetry.
+            </p>
+            <a href="five-faces.html" class="pill pill--gold" style="align-self:flex-start;margin-top:6px;">Explore the five faces →</a>
+          </div>
+          <div class="pillar">
+            <span class="icon" id="p-ico-3"></span>
+            <span class="eyebrow eyebrow--mid">Pillar 3 · Hardware</span>
+            <h3>5 / 5 on IBM Eagle r3</h3>
+            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
+              Five pre-registered predictions, all confirmed on real superconducting quantum hardware: the P-gate as native, the Z₂ symmetry, two-scale anti-bunching, the Berry phase quasi-period, and the Fano gap. Cross-architecture validation in progress (Google Willow Phase 2).
+            </p>
+            <a href="hardware.html" class="pill pill--gold" style="align-self:flex-start;margin-top:6px;">See the hardware results →</a>
+          </div>
+          <div class="pillar">
+            <span class="icon" id="p-ico-4"></span>
+            <span class="eyebrow eyebrow--mid">Pillar 4 · Falsifiability</span>
+            <h3>Every claim has a named test</h3>
+            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
+              Every prediction the framework makes is attached to a public, named threshold that would refute it if missed. The list is open — anyone can read it, and anyone can attempt to refute it.
+            </p>
+            <a href="falsifiability.html" class="pill pill--gold" style="align-self:flex-start;margin-top:6px;">See the tracker →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subnav cards to all subpages -->
+    <section style="padding-top:48px;">
+      <div class="wrap wrap--wide">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Section index</div>
+            <h2 style="margin-top:8px;">Where to go next.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="wrap wrap--wide">
+        <div class="subnav">
+          <a href="papers.html">
+            <span class="ico" id="sn-1"></span>
+            <h4>Papers</h4>
+            <p>All 36 papers, filterable. DOIs link to Zenodo. Each paper has a plain-language summary.</p>
+            <span class="more">/science/papers/ →</span>
+          </a>
+          <a href="hardware.html">
+            <span class="ico" id="sn-2"></span>
+            <h4>Hardware</h4>
+            <p>Pre-registered predictions, raw shot counts, and cross-architecture comparison.</p>
+            <span class="more">/science/hardware/ →</span>
+          </a>
+          <a href="falsifiability.html">
+            <span class="ico" id="sn-3"></span>
+            <h4>Falsifiability tracker</h4>
+            <p>Open / Confirmed / Refuted. Every prediction with a public threshold.</p>
+            <span class="more">/science/falsifiability/ →</span>
+          </a>
+          <a href="constants.html">
+            <span class="ico" id="sn-4"></span>
+            <h4>15 Constants wall</h4>
+            <p>Predicted vs measured for each derived constant, with deviation in σ.</p>
+            <span class="more">/science/constants/ →</span>
+          </a>
+          <a href="five-faces.html">
+            <span class="ico" id="sn-5"></span>
+            <h4>Five Faces of PSL(2,7)</h4>
+            <p>Interactive: the single group that unifies α, Riemann, Klein, Yang–Mills, asymmetry.</p>
+            <span class="more">/science/five-faces/ →</span>
+          </a>
+          <a href="papers.html#repro">
+            <span class="ico" id="sn-6"></span>
+            <h4>Reproducibility</h4>
+            <p>GitHub repositories with code, datasets, and reproduction instructions.</p>
+            <span class="more">/science/reproducibility/ →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="scripts/geometry.js"></script>
+  <script src="scripts/chrome.js"></script>
+  <script>
+    document.getElementById('p-ico-1').innerHTML = MerkabitGeo.cell24({ size: 44 });
+    document.getElementById('p-ico-2').innerHTML = MerkabitGeo.fano({ size: 44 });
+    document.getElementById('p-ico-3').innerHTML = MerkabitGeo.tesseract({ size: 44 });
+    document.getElementById('p-ico-4').innerHTML = MerkabitGeo.pentachoron({ size: 44 });
+    document.getElementById('sn-1').innerHTML = MerkabitGeo.hex({ size: 40 });
+    document.getElementById('sn-2').innerHTML = MerkabitGeo.tesseract({ size: 40 });
+    document.getElementById('sn-3').innerHTML = MerkabitGeo.pentachoron({ size: 40 });
+    document.getElementById('sn-4').innerHTML = MerkabitGeo.cell24({ size: 40 });
+    document.getElementById('sn-5').innerHTML = MerkabitGeo.fano({ size: 40 });
+    document.getElementById('sn-6').innerHTML = MerkabitGeo.klein({ size: 40 });
+  </script>
+</body>
+</html>
