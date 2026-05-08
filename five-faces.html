@@ -108,7 +108,7 @@
           PSL(2,7) is the automorphism group of the Fano plane and the symmetry group of the Klein quartic. It is the smallest non-trivial finite simple group whose order is twice that of the smallest non-cyclic simple group, A₅. In the Merkabit framework, every measurable physical structure that requires <em>three</em> ternary closure with binary verification reduces to PSL(2,7) somewhere along its derivation chain. The "five faces" are the five places this reduction has been made explicit and falsifiable.
         </p>
         <p style="font-size:18px; line-height:1.7; color:var(--ink-mid); max-width:64ch;">
-          The fifth face — matter–antimatter asymmetry — is the most recent. Paper 36 (forthcoming) shows that the asymmetry parameter η_B = 6.1×10⁻¹⁰ emerges from the same loop-obstruction trichotomy of B₃₁ that produces the Yang–Mills mass gap. Five distinct hard problems; one finite group of order 168.
+          The fifth face — matter–antimatter asymmetry — is the most recent and currently in development. The architectural finding: the asymmetry parameter η_B = 6.1×10⁻¹⁰ emerges from the same loop-obstruction trichotomy of B₃₁ that produces the Yang–Mills mass gap. Five distinct hard problems; one finite group of order 168.
         </p>
       </div>
     </section>
@@ -123,7 +123,7 @@
       {key:'riemann', glyph:'ζ', title:'The Riemann zeros', desc:"Non-trivial zeros of ζ(s) appear as collapse events of the binary architecture on the Eisenstein lattice. The PSL(2,7) action permutes the spectral lines of the geometric operator.", eqlbl:'Statement', eq:'Spec(L) = { ζ-zeros } via PSL(2,7) action on E[ζ₇]', paper:7, ang:-18 },
       {key:'klein', glyph:'K', title:'The Klein quartic', desc:"The Klein quartic is the most symmetric Riemann surface of genus 3. Its automorphism group is exactly PSL(2,7). The Merkabit register lives on its quotient.", eqlbl:'Surface', eq:'Aut(X(7)) = PSL(2,7)  ·  |Aut| = 168 = 84(g−1)', paper:8, ang:54 },
       {key:'ymgap', glyph:'Δ', title:'The Yang–Mills mass gap', desc:"The mass gap is the orbit-stabiliser invariant of PSL(2,7) holonomy on Klein-quartic-quotiented Eisenstein patches. Δ = 1/24 falls out of Coxeter h(E₆) = 12.", eqlbl:'Gap', eq:'Δ = 1/24 = 1 / (2 · h(E₆))', paper:9, ang:126 },
-      {key:'matter', glyph:'η', title:'Matter–antimatter asymmetry', desc:"The fifth face. Asymmetry η_B emerges from the loop-obstruction trichotomy of B₃₁ — the same closure mechanism that opens the Yang–Mills gap. One group, two phenomena.", eqlbl:'Asymmetry', eq:'η_B = 6.1 × 10⁻¹⁰  (B₃₁ loop trichotomy)', paper:36, ang:198 },
+      {key:'matter', glyph:'η', title:'Matter–antimatter asymmetry', desc:"The fifth face. Asymmetry η_B emerges from the loop-obstruction trichotomy of B₃₁ — the same closure mechanism that opens the Yang–Mills gap. One group, two phenomena.", eqlbl:'Asymmetry', eq:'η_B = 6.1 × 10⁻¹⁰  (B₃₁ loop trichotomy)', paper:null, ang:198 },
     ];
 
     const c = document.getElementById('ff-canvas');
@@ -179,7 +179,7 @@
       document.getElementById('ff-descr').textContent = f.desc;
       document.getElementById('ff-eqlbl').textContent = f.eqlbl;
       document.getElementById('ff-eq').textContent = f.eq;
-      document.getElementById('ff-paper').innerHTML = `Paper ${f.paper} →`;
+      document.getElementById('ff-paper').innerHTML = f.paper ? `Paper ${f.paper} →` : `In development →`;
       c.querySelectorAll('.ray').forEach((r, j) => r.classList.toggle('on', j === i));
       c.querySelectorAll('.face-dot').forEach((r, j) => r.classList.toggle('on', j === i));
       c.querySelectorAll('text').forEach((t, j) => t.classList.toggle('on', j === i));
