@@ -57,14 +57,20 @@
     .ev .what { font-size: 17px; color: var(--ink); line-height: 1.55; }
     .ev .what em { color: var(--ink-mid); font-style: normal; display: block; font-size: 14px; margin-top: 4px; }
 
-    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 64px 0; }
-    @media (max-width: 1000px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
-    .ch { padding: 28px; border: 1px solid var(--line); display:flex; flex-direction:column; gap: 14px; min-height: 220px; }
-    .ch .lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
-    .ch h3 { font-size: 22px; }
-    .ch p { font-size: 14.5px; color: var(--ink-mid); line-height: 1.55; margin: 0; }
-    .ch a.value { font-family: var(--font-mono); font-size: 13px; color: var(--gold); margin-top: auto; word-break: break-word; }
+    .contact-block { padding: 96px 0; text-align: center; }
+    .contact-block h2 { font-size: clamp(36px, 5vw, 48px); }
+    .contact-block .email-link {
+      display: inline-block;
+      margin-top: 32px;
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 32px);
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 4px;
+      transition: opacity 150ms ease;
+    }
+    .contact-block .email-link:hover { opacity: 0.78; }
   </style>
 </head>
 <body data-nav="about" data-screen-label="11 About">
@@ -171,45 +177,13 @@
 
 
     <section id="contact">
-      <div class="wrap wrap--wide">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Contact</div>
-            <h2 style="margin-top:8px;">Begin a conversation.</h2>
-          </div>
-        </div>
-        <div class="contact-grid">
-          <div class="ch">
-            <span class="lbl">For engagements</span>
-            <h3>Talks, workshops, advisory.</h3>
-            <p>Tell us about the work. Lead times are typically four to eight weeks. We come back within five working days.</p>
-            <a class="value" href="mailto:selina@exoreaction.com">selina@exoreaction.com</a>
-          </div>
-          <div class="ch">
-            <span class="lbl">For science</span>
-            <h3>Papers, falsifiability, replication.</h3>
-            <p>For collaboration on hardware tests, lattice replication, and questions about the constants.</p>
-            <a class="value" href="mailto:selina@exoreaction.com?subject=Science%20%E2%80%93%20Merkabit">selina@exoreaction.com</a>
-          </div>
-          <div class="ch">
-            <span class="lbl">For press</span>
-            <h3>Interviews and feature requests.</h3>
-            <p>Selectively considered. Briefing pack available on request.</p>
-            <a class="value" href="mailto:selina@exoreaction.com?subject=Press%20%E2%80%93%20Merkabit">selina@exoreaction.com</a>
-          </div>
-          <div class="ch">
-            <span class="lbl">For code</span>
-            <h3>Repositories, replication, source.</h3>
-            <p>Companion code for the Genesis Sequence, hardware-confirmation notebooks, and other working repositories.</p>
-            <a class="value" href="https://github.com/SelinaAliens?tab=repositories" target="_blank" rel="noopener">github.com/SelinaAliens ↗</a>
-          </div>
-          <div class="ch">
-            <span class="lbl">Elsewhere</span>
-            <h3>LinkedIn.</h3>
-            <p>Professional background, prior work, and a slower public-facing channel.</p>
-            <a class="value" href="https://www.linkedin.com/in/selinas/" target="_blank" rel="noopener">linkedin.com/in/selinas ↗</a>
-          </div>
-        </div>
+      <div class="wrap wrap--narrow contact-block">
+        <div class="eyebrow">Contact</div>
+        <h2 style="margin-top:8px;">Begin a conversation.</h2>
+        <p class="lede" style="margin: 24px auto 0; max-width: 56ch;">
+          Tell us about the work. Lead times are typically four to eight weeks. We come back within five working days.
+        </p>
+        <a class="email-link" href="mailto:selina@exoreaction.com">selina@exoreaction.com</a>
       </div>
     </section>
 
