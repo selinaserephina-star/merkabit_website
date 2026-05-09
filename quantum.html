@@ -208,6 +208,14 @@
     section.q-section + section.q-section { border-top: 1px solid var(--line); }
     .q-section h2 { font-size: clamp(30px, 3.2vw, 44px); letter-spacing: -0.015em; }
     .q-section .section-lede { color: var(--ink-mid); font-size: 17px; line-height: 1.65; max-width: 64ch; margin-top: 14px; }
+
+    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    @media (max-width: 800px) {
+      section.q-section { padding: 48px 0; }
+      .cmp { min-width: 720px; font-size: 12.5px; }
+      .cmp th, .cmp td { padding: 12px 10px; font-size: 12.5px; }
+    }
   </style>
 </head>
 <body data-nav="quantum" class="qsection">

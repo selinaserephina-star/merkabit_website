@@ -155,7 +155,21 @@
       display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
       margin-top: 28px; border: 1px solid var(--line);
     }
-    @media (max-width: 800px) { .phases { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 800px) {
+      .page-hero { padding: 40px 0 20px; }
+      .gn-stage { gap: 32px; padding: 16px 0; }
+      .canvas-wrap { min-height: 360px; }
+      .stamp.center { font-size: 40px; }
+      .gn-side .num { font-size: 48px; }
+      .phases { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .canvas-wrap { min-height: 300px; }
+      .phases { grid-template-columns: repeat(2, 1fr); }
+      .ph { border-bottom: 1px solid var(--line); }
+      .ph:nth-child(odd) { border-right: 1px solid var(--line); }
+      .ph:nth-child(even) { border-right: 0; }
+    }
     .ph {
       padding: 18px 16px; border-right: 1px solid var(--line); cursor: pointer;
       display: flex; flex-direction: column; gap: 4px; transition: background 200ms;

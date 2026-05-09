@@ -45,6 +45,19 @@
       color: var(--gold);
       letter-spacing: -0.04em;
     }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 56px 0 40px; }
+      .page-hero .wrap--wide { grid-template-columns: 1fr; gap: 32px; }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .subnav { grid-template-columns: 1fr; }
+      .subnav a { border-right: 0; border-bottom: 1px solid var(--line); min-height: auto; padding: 28px 22px; }
+      .subnav a:last-child { border-bottom: 0; }
+      .pillar { padding: 28px 22px; min-height: auto; }
+      .pillar .num { font-size: 44px; }
+      .headline-num { grid-template-columns: 1fr; padding: 24px; gap: 16px; text-align: left; }
+      .headline-num .big { font-size: 72px; }
+    }
   </style>
 </head>
 <body data-nav="science" data-screen-label="02 Science">

@@ -57,6 +57,20 @@
       fill: var(--ink-mid); transition: fill 200ms;
     }
     .ff-canvas text.on { fill: var(--gold); }
+
+    @media (max-width: 800px) {
+      .page-hero { padding: 56px 0 24px; }
+      .ff-stage { gap: 32px; padding: 36px 0; }
+      .ff-canvas { min-height: 320px; }
+      .ff-detail .num { font-size: 64px; }
+      .ff-detail h2 { font-size: 26px; }
+      .ff-detail .descr { font-size: 15.5px; }
+      .ff-tabs { grid-template-columns: 1fr 1fr; overflow-x: visible; }
+      .ff-tabs button { border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 12px; }
+      .ff-tabs button:nth-child(odd) { border-right: 1px solid var(--line); }
+      .ff-tabs button:last-child { border-bottom: 0; grid-column: 1 / -1; }
+      .ff-tabs button .t { font-size: 15px; }
+    }
   </style>
 </head>
 <body data-nav="science" data-screen-label="07 Five Faces">

@@ -62,6 +62,27 @@
     .paper-row .doi a { color: var(--gold); }
 
     .empty { padding: 48px 0; color: var(--ink-dim); font-style: italic; text-align: center; }
+
+    @media (max-width: 800px) {
+      .paper-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 24px 0;
+      }
+      .paper-row .num { font-size: 10.5px; }
+      .paper-row h3 { font-size: 19px; }
+      .paper-row.is-base h3 { font-size: 22px; }
+      .paper-row p { font-size: 14.5px; }
+      .paper-row .doi {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        white-space: normal;
+      }
+      .filters { gap: 8px; }
+      .filt { padding: 6px 11px; font-size: 10px; letter-spacing: 0.1em; }
+    }
   </style>
 </head>
 <body data-nav="science" data-screen-label="03 Papers">

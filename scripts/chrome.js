@@ -33,7 +33,16 @@
           </a>
           <nav class="nav">${links}</nav>
           <span class="nav-meta">v1 · 2026</span>
+          <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+          </button>
         </div>
+        <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+          <div class="mobile-nav-inner">
+            ${NAV.map(n => `<a href="${n.href}" class="${n.key === active ? 'active' : ''}">${n.label}</a>`).join('')}
+            <a class="mobile-nav-cta" href="about.html#contact">selina@exoreaction.com</a>
+          </div>
+        </nav>
       </header>`;
   }
 
@@ -104,6 +113,32 @@
     const footerHost = document.getElementById('site-footer');
     if (headerHost) headerHost.outerHTML = header(active);
     if (footerHost) footerHost.outerHTML = footer();
+
+    // Mobile-menu toggle wiring (must run after header is mounted)
+    const toggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    if (toggle && mobileNav) {
+      const closeMenu = () => {
+        document.body.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+      };
+      const openMenu = () => {
+        document.body.classList.add('nav-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        mobileNav.setAttribute('aria-hidden', 'false');
+      };
+      toggle.addEventListener('click', () => {
+        if (document.body.classList.contains('nav-open')) closeMenu();
+        else openMenu();
+      });
+      // Close on link click (so anchor jumps work and SPA-feel returns)
+      mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      // Close on Escape
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && document.body.classList.contains('nav-open')) closeMenu();
+      });
+    }
 
     // Tell parent (browser frame) what URL to display
     const path = location.pathname.split('/').pop() || 'index.html';

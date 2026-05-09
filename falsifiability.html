@@ -46,6 +46,17 @@
       background: var(--bg-elev-2); border: 1px solid var(--line); white-space: nowrap;
     }
     .grid-stack { display: grid; gap: 14px; }
+
+    @media (max-width: 760px) {
+      .page-hero { padding: 56px 0 36px; }
+      .fcard {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 22px 22px 22px 26px;
+      }
+      .fcard .right { align-items: flex-start; min-width: 0; flex-direction: row; flex-wrap: wrap; gap: 10px; }
+      .fcard h3 { font-size: 19px; }
+    }
   </style>
 </head>
 <body data-nav="science" data-screen-label="05 Falsifiability">

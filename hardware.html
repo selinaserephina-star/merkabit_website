@@ -42,6 +42,29 @@
       background-image: repeating-linear-gradient(135deg, rgba(212,175,55,0.06) 0 2px, transparent 2px 14px);
     }
     .photo span { position: relative; z-index: 1; }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 56px 0 36px; }
+      .score { grid-template-columns: 1fr; padding: 24px; gap: 16px; }
+      .score .big { font-size: 88px; }
+      .pred {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+          "n title"
+          "n desc"
+          "vals vals"
+          "bar  bar";
+        gap: 8px 18px;
+        padding: 22px 0;
+      }
+      .pred .n { grid-area: n; font-size: 30px; }
+      .pred h4 { grid-area: title; }
+      .pred .desc { grid-area: desc; }
+      .pred .vals { grid-area: vals; flex-direction: row; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+      .pred .bar { grid-area: bar; margin-top: 8px; }
+      .arch-grid { grid-template-columns: 1fr; }
+      .arch { padding: 22px; min-height: auto; }
+    }
   </style>
 </head>
 <body data-nav="science" data-screen-label="04 Hardware">
