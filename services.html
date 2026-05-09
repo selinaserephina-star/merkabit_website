@@ -191,11 +191,43 @@
       </div>
     </section>
 
+    <section id="knowledge-infrastructure">
+      <div class="wrap wrap--wide">
+        <div class="svc">
+          <div>
+            <div class="meta">05 · Knowledge infrastructure · with Ægis</div>
+            <div class="visual" id="vis-ki"></div>
+          </div>
+          <div>
+            <h2>Knowledge infrastructure set-up — with Ægis and Thor Henning Hetland.</h2>
+            <p class="body">The Merkabit research rig runs on the <strong>ExoCortex</strong> — a knowledge-infrastructure stack that includes the <em>Synthesis</em> indexing platform, the <strong>Knowledge Context Protocol (KCP)</strong>, and Claude Code integrations (<em>kcp-commands</em> and <em>kcp-memory</em>) that turn AI agents into long-context collaborators. It is the rig that, in February 2026, increased the framework's pace of derivation by an order of magnitude.</p>
+            <p class="body">For organisations and research labs who want to set up the same architecture for their own work, <a href="https://xn--gis-xla.no/" target="_blank" rel="noopener" style="color:var(--gold);">Ægis</a> — Selina's company with Thor Henning Hetland — offers structured set-up engagements. The work is led by Thor as the ExoCortex's architect, with Selina's oversight, and produces a working knowledge-infrastructure stack tailored to the organisation's substrate, team, and workflow.</p>
+            <ul>
+              <li><strong>Synthesis</strong> — local-first indexing platform with multi-layer knowledge graphs, exposed through CLI, MCP, and LSP.</li>
+              <li><strong>Knowledge Context Protocol (KCP)</strong> — YAML format that makes your team's knowledge navigable by AI agents.</li>
+              <li><strong>Claude Code integrations</strong> — kcp-commands (flag guidance + token savings) and kcp-memory (persistent episodic memory across sessions).</li>
+              <li>Tailored to your tech stack, security model, and team workflow.</li>
+              <li>Hand-off includes documentation, training, and ongoing support.</li>
+            </ul>
+          </div>
+          <div class="enquire-card">
+            <span class="lbl">Engagement · Ægis</span>
+            <div class="head">By application</div>
+            <div class="row"><span class="k">Format</span><span class="v">Set-up project</span></div>
+            <div class="row"><span class="k">Lead</span><span class="v">Thor H. Hetland</span></div>
+            <div class="row"><span class="k">Output</span><span class="v">Working stack + handover</span></div>
+            <div class="row"><span class="k">Continuity</span><span class="v">Optional retainer</span></div>
+            <a class="btn btn--solid" href="https://xn--gis-xla.no/" target="_blank" rel="noopener">Enquire at Ægis →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="books">
       <div class="wrap wrap--wide">
         <div class="svc" id="book-merkabit">
           <div>
-            <div class="meta">05 · Book one · Available now</div>
+            <div class="meta">06 · Book one · Available now</div>
             <div class="visual" id="vis-4a"></div>
           </div>
           <div>
@@ -219,7 +251,7 @@
 
         <div class="svc" id="book">
           <div>
-            <div class="meta">06 · Book two · Forthcoming</div>
+            <div class="meta">07 · Book two · Forthcoming</div>
             <div class="visual" id="vis-5"></div>
           </div>
           <div>
@@ -247,7 +279,7 @@
       <div class="wrap wrap--wide">
         <div class="svc">
           <div>
-            <div class="meta">07 · Coherence audit</div>
+            <div class="meta">08 · Coherence audit</div>
             <div class="visual" id="vis-6"></div>
           </div>
           <div>
@@ -292,6 +324,7 @@
     document.getElementById('vis-2').innerHTML = MerkabitGeo.fano({ size: 200 });
     document.getElementById('vis-3').innerHTML = MerkabitGeo.pentachoron({ size: 200 });
     document.getElementById('vis-research').innerHTML = MerkabitGeo.tesseract ? MerkabitGeo.tesseract({ size: 200 }) : MerkabitGeo.merkabit3D({ size: 200 });
+    document.getElementById('vis-ki').innerHTML = MerkabitGeo.eisenstein ? MerkabitGeo.eisenstein({ size: 200 }) : MerkabitGeo.hex({ size: 200 });
     document.getElementById('vis-4a').innerHTML = `<svg viewBox="-50 -70 100 140"><rect x="-30" y="-50" width="60" height="100" fill="none" stroke="var(--gold)" stroke-width="1.4"/><circle cx="0" cy="-15" r="14" fill="none" stroke="var(--gold)" stroke-width="1"/><polygon points="0,-26 12.1,-8 -12.1,-8" fill="none" stroke="var(--gold)" stroke-width="0.8"/><polygon points="0,-4 -12.1,-22 12.1,-22" fill="none" stroke="var(--copper)" stroke-width="0.8"/><line x1="-20" y1="14" x2="20" y2="14" stroke="var(--gold)" stroke-width="0.6"/><text x="0" y="28" font-family="JetBrains Mono" font-size="5" letter-spacing="1" fill="var(--ink-dim)" text-anchor="middle">INTRODUCING</text><text x="0" y="38" font-family="JetBrains Mono" font-size="6" letter-spacing="1.2" fill="var(--gold)" text-anchor="middle">THE MERKABIT</text></svg>`;
     document.getElementById('vis-5').innerHTML = `<svg viewBox="-50 -70 100 140"><rect x="-30" y="-50" width="60" height="100" fill="none" stroke="var(--gold)" stroke-width="1.4"/><polygon points="0,-25 17.3,5 -17.3,5" fill="none" stroke="var(--gold)" stroke-width="1"/><polygon points="0,25 -17.3,-5 17.3,-5" fill="none" stroke="var(--copper)" stroke-width="1"/><text x="0" y="40" font-family="JetBrains Mono" font-size="6" letter-spacing="1" fill="var(--ink-dim)" text-anchor="middle">SCALING BUDDHA</text></svg>`;
     document.getElementById('vis-6').innerHTML = MerkabitGeo.cell24({ size: 200 });
