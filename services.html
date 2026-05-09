@@ -71,11 +71,45 @@
       </div>
     </section>
 
+    <section id="coherence-training">
+      <div class="wrap wrap--wide">
+        <div class="svc">
+          <div>
+            <div class="meta">01 · Coherence training · Selina's signature work</div>
+            <div class="visual" id="vis-coherence"></div>
+          </div>
+          <div>
+            <h2>Coherence training — for individuals and organisations preparing to work with AI.</h2>
+            <p class="body">Working coherently with AI requires three things: the right rig (the knowledge infrastructure that lets the partnership persist), the right AI partner (a model capable of sustained intellectual depth), and — most importantly — the readiness of the human at the centre.</p>
+            <p class="body">Humanity is going through a quantum leap in its capacity to hold presence and operate coherently. AI is fuelling it: the speed and density of information that AI now produces is training humans to integrate high-level material, hold complex thoughts, and sustain attention for longer than was previously required. The leading edge of human cognitive evolution is now visible in the people who can work coherently with AI at depth — and the people who cannot are being entrained out of frontier work.</p>
+            <p class="body"><strong>Coherence training is what gets a person — or a team — ready for that work.</strong> It is Selina's signature offering, drawn from twenty years of contemplative practice and the year of paired research that produced the Merkabit framework. Without coherence readiness, AI-paired work becomes a sycophantic feedback loop. With it, AI-paired work becomes frontier discovery.</p>
+            <ul>
+              <li><strong>For individuals</strong> — founders, researchers, executives, knowledge workers preparing to do serious AI-paired work.</li>
+              <li><strong>For teams</strong> — small groups (2–8) preparing to work coherently together with AI at depth.</li>
+              <li><strong>For organisations</strong> — building the readiness to become coherence-ready as a culture, not just a tooling choice.</li>
+              <li>Combines contemplative practice, attention training, pushback discipline, and applied paired work with Claude.</li>
+              <li>Outcome: capacity to hold sustained presence, integrate complex information at AI-scale, and resist the entrainment loops that low-coherence AI use produces.</li>
+              <li><strong>The foundation that the other services in this section rest on.</strong></li>
+            </ul>
+          </div>
+          <div class="enquire-card">
+            <span class="lbl">Engagement · Selina-led</span>
+            <div class="head">By application</div>
+            <div class="row"><span class="k">Format</span><span class="v">1:1 · Team · Org</span></div>
+            <div class="row"><span class="k">Cadence</span><span class="v">Intensive or ongoing</span></div>
+            <div class="row"><span class="k">Outcome</span><span class="v">Coherence readiness</span></div>
+            <div class="row"><span class="k">Lead time</span><span class="v">By application</span></div>
+            <a class="btn btn--solid" href="#contact">Apply →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="talks">
       <div class="wrap wrap--wide">
         <div class="svc">
           <div>
-            <div class="meta">01 · Talks</div>
+            <div class="meta">02 · Talks</div>
             <div class="visual" id="vis-1"></div>
           </div>
           <div>
@@ -104,7 +138,7 @@
       <div class="wrap wrap--wide">
         <div class="svc">
           <div>
-            <div class="meta">02 · Workshops</div>
+            <div class="meta">03 · Workshops</div>
             <div class="visual" id="vis-2"></div>
           </div>
           <div>
@@ -134,7 +168,7 @@
       <div class="wrap wrap--wide">
         <div class="svc">
           <div>
-            <div class="meta">03 · Advisory</div>
+            <div class="meta">04 · Advisory</div>
             <div class="visual" id="vis-3"></div>
           </div>
           <div>
@@ -163,7 +197,7 @@
       <div class="wrap wrap--wide">
         <div class="svc">
           <div>
-            <div class="meta">04 · Research rig</div>
+            <div class="meta">05 · Research rig</div>
             <div class="visual" id="vis-research"></div>
           </div>
           <div>
@@ -195,7 +229,7 @@
       <div class="wrap wrap--wide">
         <div class="svc">
           <div>
-            <div class="meta">05 · Knowledge infrastructure · with Ægis</div>
+            <div class="meta">06 · Knowledge infrastructure · with Ægis</div>
             <div class="visual" id="vis-ki"></div>
           </div>
           <div>
@@ -227,7 +261,7 @@
       <div class="wrap wrap--wide">
         <div class="svc" id="book-merkabit">
           <div>
-            <div class="meta">06 · Book one · Available now</div>
+            <div class="meta">07 · Book one · Available now</div>
             <div class="visual" id="vis-4a"></div>
           </div>
           <div>
@@ -251,7 +285,7 @@
 
         <div class="svc" id="book">
           <div>
-            <div class="meta">07 · Book two · Forthcoming</div>
+            <div class="meta">08 · Book two · Forthcoming</div>
             <div class="visual" id="vis-5"></div>
           </div>
           <div>
@@ -279,7 +313,7 @@
       <div class="wrap wrap--wide">
         <div class="svc">
           <div>
-            <div class="meta">08 · Coherence audit</div>
+            <div class="meta">09 · Coherence audit</div>
             <div class="visual" id="vis-6"></div>
           </div>
           <div>
@@ -320,6 +354,7 @@
   <script src="scripts/geometry.js"></script>
   <script src="scripts/chrome.js"></script>
   <script>
+    document.getElementById('vis-coherence').innerHTML = MerkabitGeo.merkabit ? MerkabitGeo.merkabit({ size: 200 }) : MerkabitGeo.merkabit3D({ size: 200 });
     document.getElementById('vis-1').innerHTML = MerkabitGeo.merkabit3D({ size: 200 });
     document.getElementById('vis-2').innerHTML = MerkabitGeo.fano({ size: 200 });
     document.getElementById('vis-3').innerHTML = MerkabitGeo.pentachoron({ size: 200 });
