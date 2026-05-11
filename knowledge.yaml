@@ -1,0 +1,2017 @@
+kcp_version: "0.12"
+project: merkabit
+version: "2.2"
+description: >
+  Selina Stenberg's theoretical physics research: a geometry-based unified theory
+  of physics deriving the Standard Model, gravity, black holes, and all fundamental
+  constants from a single algebraic structure — PSL(2,7) acting on the Eisenstein
+  lattice Z[omega]. The Merkabit is a balanced ternary computational unit replacing
+  fragile qubits with intrinsically stable dual-spinor geometry. As of May 2026:
+  36 published papers + 1 base paper on Zenodo, 5 hardware predictions confirmed
+  on IBM Eagle r3 quantum processors, Capstone paper (Paper 30) published April
+  2026 presenting the complete unified theory with zero free parameters across 17
+  fundamental constants. Co-developed with Claude (Anthropic). Selina is CEO of
+  eXOReaction AS; this is her research initiative. This knowledge base covers the
+  full paper series, code repositories, theory documents, strategic assessments,
+  and implementation pathways.
+
+maintainer: totto@exoreaction.com
+updated: "2026-05-11"
+
+# ─── TRUST ───────────────────────────────────────────────────────────────────
+trust:
+  provenance:
+    publisher: eXOReaction AS / Merkabit
+    contact:
+      - selina@exoreaction.com
+      - totto@exoreaction.com
+
+# ─── AUTHORITY ───────────────────────────────────────────────────────────────
+authority:
+  read: initiative
+  summarize: initiative
+  modify: denied
+  execute: denied
+  share_externally: requires_approval
+
+# ─── VISIBILITY ──────────────────────────────────────────────────────────────
+visibility:
+  default: public
+  conditions:
+    - when:
+        unit_scope: [strategic, assessment]
+      then:
+        sensitivity: internal
+        requires_auth: true
+
+# ─── DISCOVERY ───────────────────────────────────────────────────────────────
+discovery:
+  source: manual
+  verification_status: verified
+  confidence: 1.0
+  verified_at: "2026-05-09T00:00:00Z"
+
+# ─── SIGNING ────────────────────────────────────────────────────────────────
+signing:
+  scheme: ed25519
+  scope: this-manifest
+  public_key: https://merkabit.com/.well-known/kcp-signing-key.pub
+  signature: https://merkabit.com/knowledge.yaml.sig
+
+# ─── PROVIDES SKILLS ────────────────────────────────────────────────────────
+provides_skills:
+  - merkabit-paper-navigator      # Navigate 35 papers by topic, dependency, status
+  - merkabit-hardware-results     # IBM Eagle r3 validation results and analysis
+  - merkabit-theory-overview      # Unified theory concepts, PSL(2,7), Eisenstein lattice
+
+# ─── HINTS ───────────────────────────────────────────────────────────────────
+hints:
+  total_unit_count: 65
+  total_token_estimate: 350000
+  has_summaries: true
+  has_chunks: false
+  recommended_entry_point: readme
+
+# ─── NAVIGATION GUIDE ───────────────────────────────────────────────────────
+# Reading order for agents new to Merkabit:
+#   1. readme              -> orientation, structure map
+#   2. quick-reference     -> 1-page summary for fast context
+#   3. zenodo-2026-readme  -> arc of the 2026 series
+#   4. paper-30-capstone   -> the complete unified theory (primary entry point)
+#   5. opus-assessment     -> critical internal analysis
+#   6. zenodo-base         -> foundation paper (load before companion papers)
+#   7. theory-*            -> conceptual layer (original framework)
+#
+# Key concepts as entry triggers:
+#   merkabit, decoherence, qubit, quantum-computing, pi-lock, tetrahedral
+#   eisenstein-lattice, psl27, fine-structure-constant, alpha, alpha-137
+#   yang-mills, riemann-zeros, standard-model, gauge-group, su3su2u1
+#   e6, fano-plane, klein-quartic, millennium-prize
+#   ibm-eagle-r3, hardware-validation, capstone, unified-theory
+#   selina, selina-stenberg, exoreaction-research
+# ────────────────────────────────────────────────────────────────────────────
+
+units:
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # ORIENTATION
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: readme
+    path: README.md
+    title: "Merkabit Knowledge Base — Master Orientation"
+    intent: >
+      Master orientation file. Maps the full knowledge graph: 5 core areas
+      (theory, assets, context, implementation, strategic), navigation by role
+      (researcher, investor, engineer, public), cross-references, and the
+      2026 Zenodo series summary. Load first to orient.
+    scope: overview
+    audience: [totto, agents, investors, researchers]
+    hints:
+      load_strategy: eager
+      token_estimate: 800
+      priority: primary
+    triggers:
+      - merkabit
+      - what is merkabit
+      - selina research
+      - knowledge graph
+      - where to start
+      - merkabit overview
+      - orientation
+
+  - id: quick-reference
+    path: QUICK-REFERENCE.md
+    title: "Merkabit Quick Reference"
+    intent: >
+      1-page summary: what Merkabit is, the 3-level theory (Universal Grammar ->
+      Merkabit Unit -> Merkabit Computer), the 4 implementation pathways,
+      competitive positioning vs IBM/Google/IonQ, and key metrics.
+      Use for meetings, pitches, and rapid onboarding.
+    scope: summary
+    audience: [totto, investors, general]
+    hints:
+      load_strategy: eager
+      token_estimate: 600
+      priority: primary
+    triggers:
+      - merkabit summary
+      - elevator pitch
+      - quick overview
+      - what does merkabit do
+      - quantum computing pitch
+
+  - id: concept-index
+    path: CONCEPT-INDEX.md
+    title: "Merkabit Concept Index"
+    intent: >
+      Alphabetical index of all Merkabit concepts with links to files where
+      each concept is defined and discussed. Use to find where a specific
+      term (pi-Lock, phase-locking, coherence, PSL(2,7), etc.) is explained.
+    scope: index
+    audience: [totto, agents, researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 400
+      priority: supplementary
+    triggers:
+      - concept definition
+      - where is X defined
+      - find term
+
+  - id: asset-index
+    path: ASSET-INDEX.md
+    title: "Merkabit Asset Index"
+    intent: >
+      Catalogue of all PDFs, videos, and visuals with metadata (size, date,
+      description). Use to find which file to load for a given topic.
+    scope: index
+    audience: [totto, agents]
+    hints:
+      load_strategy: lazy
+      token_estimate: 500
+      priority: supplementary
+    triggers:
+      - asset list
+      - which pdf
+      - find file
+      - document catalogue
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # INTERNAL ASSESSMENT
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: opus-assessment
+    path: assessment/opus-analysis-2026-04-06.md
+    title: "Opus Deep Analysis — Merkabit 2026 Series"
+    intent: >
+      Deep technical and strategic analysis of the Zenodo 2026 papers,
+      produced 2026-04-06. Covers: what is mathematically legitimate, the V=10
+      normalisation issue (weakest link in alpha derivation), why Yang-Mills and
+      Riemann claims don't meet Clay criteria, red flags for physics community
+      (velocity, AI co-authorship), and strategic recommendations
+      (John Baez, Journal of Mathematical Physics, no patents, stop Zenodo).
+      READ THIS before advising Selina on publication strategy.
+    scope: assessment
+    audience: [totto]
+    hints:
+      load_strategy: eager
+      token_estimate: 1400
+      priority: primary
+    triggers:
+      - publication strategy
+      - should selina publish
+      - john baez
+      - millennium prize credibility
+      - v=10 problem
+      - alpha derivation weakness
+      - what are the red flags
+      - advise selina
+      - next steps merkabit
+      - journal of mathematical physics
+      - patent merkabit
+      - credibility assessment
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # THEORY (ORIGINAL FRAMEWORK)
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: theory-universal-grammar
+    path: theory/universal-grammar/overview.md
+    title: "Theory Level 1 — Universal Grammar"
+    intent: >
+      Level 1 of the Merkabit theory stack. Universal Grammar is the coherence
+      pattern underlying all stable systems: forward expansive flow + inverse
+      integrating flow = coherence. Observed in hurricanes, galaxies, nervous
+      systems. The mathematical foundation for the Merkabit unit.
+    scope: theory
+    audience: [researchers, totto, agents]
+    hints:
+      load_strategy: lazy
+      token_estimate: 600
+      priority: secondary
+    triggers:
+      - universal grammar
+      - coherence pattern
+      - dual flow
+      - forward expansive
+      - inverse integrating
+      - pi-lock foundation
+
+  - id: theory-merkabit-unit
+    path: theory/merkabit-unit/README.md
+    title: "Theory Level 2 — The Merkabit Unit"
+    intent: >
+      Level 2. The Merkabit unit: a stable quantum information unit based on
+      dual spinors (u,v) in S3 x S3 with counter-rotating phase evolution at pi-lock.
+      Covers geometry (tetrahedral), the pi-Lock mechanism, and standing wave
+      structure. The computational atom of the Merkabit computer.
+    scope: theory
+    audience: [researchers, totto, agents]
+    hints:
+      load_strategy: lazy
+      token_estimate: 700
+      priority: secondary
+    triggers:
+      - merkabit unit
+      - pi-lock
+      - dual spinors
+      - tetrahedral geometry
+      - phase locking
+      - counter-rotating
+      - s3 spinors
+      - standing wave
+
+  - id: theory-merkabit-computer
+    path: theory/merkabit-computer/README.md
+    title: "Theory Level 3 — The Merkabit Computer"
+    intent: >
+      Level 3. The Merkabit Computer architecture: 5 gates, error healing
+      (not correction), Galaxy Breathing Mode, Ouroboros Cycle. How Merkabit
+      units compose into a quantum computer that heals errors intrinsically
+      rather than requiring external error correction.
+    scope: theory
+    audience: [researchers, engineers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 800
+      priority: secondary
+    triggers:
+      - merkabit computer
+      - error healing
+      - 5 gates
+      - galaxy breathing
+      - ouroboros
+      - quantum architecture
+      - gate set
+
+  - id: theory-decoherence-solution
+    path: theory/decoherence-solution/decoherence.md
+    title: "Decoherence Solution — Pi-Lock Stability"
+    intent: >
+      The problem/solution framing: why qubits decohere, how pi-lock geometry
+      provides intrinsic stability, quantified comparison to current qubit
+      approaches. The core value proposition of the Merkabit framework.
+    scope: theory
+    audience: [researchers, investors, engineers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 600
+      priority: secondary
+    triggers:
+      - decoherence
+      - qubit problem
+      - why qubits fail
+      - coherence time
+      - error correction vs error healing
+      - quantum stability
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # EARLIER FRAMEWORK PDFs
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: pdf-introducing-framework
+    path: assets/pdfs/introducing-framework.pdf
+    title: "Introducing the Merkabit Framework"
+    intent: >
+      Introductory paper (3.4MB, ~60 pages). First-principles introduction to
+      the Merkabit framework: Universal Grammar, pi-lock, coherence theory.
+      Entry point for reading the original framework before the 2026 series.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: supplementary
+    triggers:
+      - introducing merkabit
+      - original paper
+      - first paper
+      - merkabit introduction
+
+  - id: pdf-computation-by-resonance
+    path: assets/pdfs/computation-by-resonance.pdf
+    title: "Computation by Resonance"
+    intent: >
+      Main technical paper (16MB, ~300 pages). Full treatment of ternary
+      computation via resonance: gate operations, error healing, implementation
+      pathways. Most technically detailed of the pre-2026 papers.
+    scope: paper
+    audience: [researchers, engineers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 40000
+      priority: supplementary
+    triggers:
+      - computation by resonance
+      - ternary computation original
+      - gate operations detail
+      - resonance computing
+
+  - id: pdf-coherence-reality-model
+    path: assets/pdfs/coherence-reality-model.pdf
+    title: "Coherence Reality Model"
+    intent: >
+      Foundational physics paper (15MB, ~300 pages). Coherence Reality Model:
+      how coherence underlies physical reality, from quantum to cosmological
+      scale. The philosophical and physical grounding for the Merkabit framework.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 40000
+      priority: supplementary
+    triggers:
+      - coherence reality model
+      - physical coherence
+      - reality model
+      - cosmological coherence
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # ZENODO 2026 SERIES — INDEX
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: zenodo-2026-readme
+    path: assets/pdfs/zenodo-2026-series/README.md
+    title: "Zenodo 2026 Series — Index and Arc"
+    intent: >
+      Index and arc of the 34+ papers published 2026. Covers: the shift from
+      conceptual framework to rigorous mathematical proofs, the base paper +
+      companions, key mathematical structures (PSL(2,7), Eisenstein lattice,
+      Fano plane, Klein quartic), claimed derivations (alpha^-1=137, Yang-Mills,
+      Riemann zeros, Standard Model), and reading order. LOAD BEFORE any
+      companion paper.
+    scope: index
+    audience: [totto, agents, researchers]
+    hints:
+      load_strategy: eager
+      token_estimate: 600
+      priority: primary
+    triggers:
+      - zenodo 2026
+      - 2026 series
+      - paper series
+      - series arc
+      - what did selina publish
+      - 2026 papers
+      - psl27 series
+      - eisenstein series
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # ZENODO 2026 SERIES — BASE PAPER (Paper 0)
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: zenodo-base
+    path: assets/pdfs/zenodo-2026-series/base-ternary-computational-unit-eisenstein-lattice.pdf
+    title: "Paper 0 — The Merkabit: A Ternary Computational Unit on the Eisenstein Lattice"
+    doi: "10.5281/zenodo.18925475"
+    intent: >
+      THE foundation paper (2.4MB). Defines the merkabit as a balanced ternary
+      unit based on dual spinors (u,v) in S3 x S3 with counter-rotating phase
+      evolution at pi-lock. Establishes the Eisenstein lattice Z[omega] as the
+      computational substrate. Defines the 168-element phase space = PSL(2,7).
+      Must be read before any companion paper.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 15000
+      priority: primary
+    triggers:
+      - base paper
+      - paper 0
+      - ternary computational unit
+      - eisenstein lattice definition
+      - psl27 definition
+      - 168 element phase space
+      - pi-lock spinors
+      - merkabit foundation 2026
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # ZENODO 2026 SERIES — PAPERS 1-34
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: zenodo-paper-01
+    path: assets/pdfs/zenodo-2026-series/paper-01-alpha-4-3-driven-coherent-systems.pdf
+    title: "Paper 1 — Alpha = 4/3 in Driven Coherent Systems Near Cooperative Threshold"
+    doi: "10.5281/zenodo.18980026"
+    intent: >
+      Alpha = 4/3 as universal coherence driver (1.4MB). Empirical paper:
+      alpha = 4/3 observed across 12 platforms, 14 measurements, 24 orders of
+      magnitude in timescale. Establishes observational basis for the
+      geometric constant.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 10000
+      priority: secondary
+    triggers:
+      - alpha 4/3
+      - coherent systems alpha
+      - 4/3 constant
+      - empirical alpha
+      - 12 platforms
+      - coherence driver
+      - paper 1
+
+  - id: zenodo-paper-02
+    path: assets/pdfs/zenodo-2026-series/paper-02-geometric-constant-fine-structure-hierarchy.pdf
+    title: "Paper 2 — A Single Geometric Constant Generates the Fine Structure Hierarchy"
+    doi: "10.5281/zenodo.18981288"
+    intent: >
+      Fine structure constant from geometry (602K, SHORT — good entry point).
+      Single geometric constant generates the fine structure hierarchy.
+      The core alpha derivation: alpha^-1 ~ (4/3)(168/V) where V=10 (pentachoron).
+      NOTE: V=10 normalisation is the weakest link — see opus-assessment.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 4000
+      priority: primary
+    triggers:
+      - fine structure constant
+      - alpha 137
+      - alpha derivation
+      - geometric alpha
+      - fine structure hierarchy
+      - alpha from geometry
+      - v=10
+      - pentachoron
+      - paper 2
+
+  - id: zenodo-paper-03
+    path: assets/pdfs/zenodo-2026-series/paper-03-ibm-quantum-rotation-gap.pdf
+    title: "Paper 3 — The Rotation Gap Is Not An Error: Ternary Structure in IBM Quantum Hardware"
+    doi: "10.5281/zenodo.19438935"
+    arxiv: "2604.11963"
+    intent: >
+      IBM quantum hardware empirical results. Demonstrates ternary structure
+      in IBM quantum hardware — the rotation gap is not an error but reflects
+      the merkabit architecture. First hardware validation paper. Also on arXiv.
+    scope: paper
+    audience: [researchers, totto]
+    status: published
+    validated: true
+    validation_method: ibm-eagle-r3
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: primary
+    triggers:
+      - ibm quantum merkabit
+      - paper 3
+      - rotation gap not error
+      - ternary structure hardware
+      - ibm quantum evidence
+      - quantum hardware validation
+      - arxiv 2604
+
+  - id: zenodo-paper-04
+    path: assets/pdfs/Enzymes_Paper_4.pdf
+    title: "Paper 4 — What Can Quantum Computing Learn from Enzymes?"
+    doi: "10.5281/zenodo.20113876"
+    intent: >
+      What quantum computing can learn from biological enzymes — catalysis as
+      a coherence-engineering primitive. Enzymes perform geometric pre-organisation
+      of substrate, transition-state stabilisation, and product release across
+      the same boundary operator with opposite sign — the substrate-in / product-out
+      symmetry that the merkabit framework identifies as the R/F/T/P interior
+      dynamics enclosed by S boundary at both ends. The paper transfers
+      enzyme-derived design principles to merkabit-based quantum computation.
+    scope: paper
+    audience: [researchers, engineers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 25000
+      priority: secondary
+    triggers:
+      - quantum computing enzymes
+      - enzymes coherence engineering
+      - catalysis merkabit
+      - substrate product symmetry boundary operator
+      - paper 4
+      - biological pre-organisation quantum
+  - id: zenodo-paper-05
+    path: assets/pdfs/zenodo-2026-series/paper-05-fusion-ignition-e6-geometry-lawson.pdf
+    title: "Paper 5 — Fusion Ignition from E6 Geometry"
+    doi: "10.5281/zenodo.18984593"
+    intent: >
+      Fusion ignition from E6 geometry (1.1MB). Derives Lawson criterion for
+      fusion ignition from E6 McKay correspondence geometry, zero free parameters.
+      Connects the merkabit architecture to plasma/fusion physics.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: supplementary
+    triggers:
+      - fusion ignition
+      - e6 geometry
+      - lawson criterion
+      - plasma fusion merkabit
+      - e6 mckay
+      - paper 5
+
+  - id: zenodo-paper-06
+    path: assets/pdfs/zenodo-2026-series/paper-06-geometric-operator-eisenstein-gue.pdf
+    title: "Paper 6 — Geometric Operator on the Eisenstein Lattice"
+    doi: "10.5281/zenodo.19075162"
+    intent: >
+      GUE classification and bounded spectrum (877K). Constructs a
+      zero-parameter Hermitian operator on the Eisenstein lattice.
+      Eigenvalue statistics match Gaussian Unitary Ensemble (GUE).
+      Bounded spectrum. Foundational for the Riemann zeros connection.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 6000
+      priority: secondary
+    triggers:
+      - gue operator
+      - hermitian operator eisenstein
+      - gaussian unitary ensemble
+      - eigenvalue statistics
+      - bounded spectrum
+      - paper 6
+
+  - id: zenodo-paper-07
+    path: assets/pdfs/zenodo-2026-series/paper-07-riemann-zeros-collapse-events.pdf
+    title: "Paper 7 — The Riemann Zeros as Collapse Events of the Binary Architecture"
+    doi: "10.5281/zenodo.19053965"
+    intent: >
+      Riemann zeros as collapse events (1.1MB). Interprets Riemann zeros as
+      collapse events of the binary architecture. Uses GUE correspondence
+      (see paper-06). Claims connection to Riemann Hypothesis (Millennium Prize).
+      NOTE: GUE match is suggestive but not a proof — see opus-assessment.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: secondary
+    triggers:
+      - riemann zeros
+      - riemann hypothesis
+      - collapse events
+      - zeta zeros
+      - critical line
+      - riemann millennium
+      - paper 7
+
+  - id: zenodo-paper-08
+    path: assets/pdfs/zenodo-2026-series/paper-08-merkabit-architecture-klein-quartic.pdf
+    title: "Paper 8 — The Merkabit Architecture and the Klein Quartic"
+    doi: "10.5281/zenodo.19066587"
+    intent: >
+      Klein quartic and cyclotomic unification (905K). Connects merkabit
+      architecture to the Klein quartic (most symmetric Riemann surface of
+      genus 3, automorphism group PSL(2,7)). Cyclotomic unification of alpha,
+      Riemann zeros, and the Klein quartic.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 6000
+      priority: supplementary
+    triggers:
+      - klein quartic
+      - cyclotomic unification
+      - genus 3 riemann surface
+      - most symmetric
+      - paper 8
+
+  - id: zenodo-paper-09b
+    path: assets/pdfs/zenodo-2026-series/paper-09b-yang-mills-mass-gap-orbit-stabiliser.pdf
+    title: "Paper 9 — The Yang-Mills Mass Gap as Orbit-Stabiliser Invariant of PSL(2,7) Holonomy"
+    doi: "10.5281/zenodo.19144885"
+    intent: >
+      Yang-Mills mass gap (738K). Claims proof of Yang-Mills mass gap as
+      topological invariant of merkabit architecture via orbit-stabiliser theorem.
+      Millennium Prize claim. NOTE: discrete PSL(2,7) context != continuous 4D
+      Yang-Mills required by Clay — see opus-assessment for the gap.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 5000
+      priority: secondary
+    triggers:
+      - yang-mills mass gap
+      - yang mills
+      - mass gap proof
+      - yang mills millennium
+      - orbit stabiliser
+      - topological invariant gap
+      - paper 9
+
+  - id: zenodo-paper-10
+    path: assets/pdfs/zenodo-2026-series/paper-09-one-group-four-faces-psl27.pdf
+    title: "Paper 10 — One Group, Four Faces: PSL(2,7) as the Unifying Invariant"
+    doi: "10.5281/zenodo.19147064"
+    intent: >
+      PSL(2,7) as universal invariant — synthesis paper (264K, SHORT).
+      One group, four faces: PSL(2,7) unifies alpha^-1=137, Riemann zeros,
+      Klein quartic, and Yang-Mills mass gap. Best synthesis paper of the series.
+      Recommended reading after paper-02 to understand the unification claim.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: primary
+    triggers:
+      - one group four faces
+      - psl27 unification
+      - psl27 synthesis
+      - 168 group
+      - unification claim
+      - paper 10
+
+  - id: zenodo-paper-11
+    path: assets/pdfs/zenodo-2026-series/paper-11-standard-model-s3-invariant.pdf
+    title: "Paper 11 — The Standard Model as S3-Invariant Decomposition of PSL(2,7)"
+    doi: "10.5281/zenodo.19150963"
+    intent: >
+      Standard Model from S3 invariance (434K). Standard Model as S3-invariant
+      structure. PSL(2,7) decomposition into force sectors: strong, weak,
+      electromagnetic, confinement, Weinberg angle — all from single finite group.
+      Zero free parameters.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 3000
+      priority: secondary
+    triggers:
+      - standard model derivation
+      - s3 invariant
+      - force sectors
+      - weinberg angle derived
+      - su3 su2 u1 derived
+      - standard model from group theory
+      - paper 11
+
+  - id: zenodo-paper-12
+    path: assets/pdfs/zenodo-2026-series/paper-12-w-boson-algebraic-inversion.pdf
+    title: "Paper 12 — The W Boson as Algebraic Inversion"
+    doi: "10.5281/zenodo.19153206"
+    intent: >
+      W boson mass derivation (661K). W boson mass as algebraic inversion.
+      Z2-bundle structure of the Weinberg sector. m_W/v derived from
+      PSL(2,7) representation theory.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 5000
+      priority: supplementary
+    triggers:
+      - w boson mass
+      - boson mass derivation
+      - weinberg sector
+      - z2 bundle
+      - mw/v ratio
+      - paper 12
+
+  - id: zenodo-paper-13
+    path: assets/pdfs/zenodo-2026-series/paper-13-standard-model-gauge-group-psl27.pdf
+    title: "Paper 13 — The Standard Model Gauge Group from PSL(2,7)"
+    doi: "10.5281/zenodo.19159718"
+    intent: >
+      Gauge group from representation theory (803K). SU(3)xSU(2)xU(1) derived
+      from representation theory of PSL(2,7), without imposing it as an axiom.
+      One of the most publishable results. Does not require Millennium Prize framing.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 6000
+      priority: secondary
+    triggers:
+      - gauge group derivation
+      - su3 su2 u1 from psl27
+      - standard model gauge group
+      - representation theory standard model
+      - paper 13
+
+  - id: zenodo-paper-14
+    path: assets/pdfs/zenodo-2026-series/paper-14-matter-fano-incidence-geometry-final.pdf
+    title: "Paper 14 — Matter Is Fano Incidence Geometry"
+    doi: "10.5281/zenodo.19167413"
+    intent: >
+      Matter as Fano incidence geometry (911K). Complete closure of the first
+      arc: from single requirement (self-correcting computation across time) ->
+      stability of matter. 7-point Fano plane as matter structure. One of the
+      most publishable results.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 7000
+      priority: secondary
+    triggers:
+      - fano geometry
+      - matter as geometry
+      - fano plane matter
+      - paper 14
+      - complete arc
+      - self-correcting computation
+
+  - id: zenodo-paper-15
+    path: assets/pdfs/zenodo-2026-series/paper-15-plasma-weak-force-octonionic.pdf
+    title: "Paper 15 — The Rotation Gap Is Flat: Two-Scale Error Correction"
+    doi: "10.5281/zenodo.19417293"
+    intent: >
+      Binary-ternary hybrid architecture and two-scale error correction.
+      Every existing qubit is a merkabit restricted to binary sector B31 of PSL(2,7).
+      Rotation gap: B31 detection 86.1% vs T75 (full merkabit) 98.7% = 12.6 pp.
+      Gap is FLAT across 4 orders of magnitude of error rate — architectural,
+      not noise-dependent.
+    scope: paper
+    audience: [researchers, engineers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: secondary
+    triggers:
+      - rotation gap flat
+      - two-scale error correction
+      - binary ternary hybrid
+      - b31 t75
+      - paper 15
+
+  - id: zenodo-paper-16
+    path: assets/pdfs/zenodo-2026-series/paper-16-yang-mills-mass-gap-spectral-resonance.pdf
+    title: "Paper 16 — The Yang-Mills Mass Gap as Spectral Resonance"
+    doi: "10.5281/zenodo.19330363"
+    intent: >
+      Yang-Mills gap convergence on Eisenstein torus. Dynamical verification:
+      spectral gap of T75 confined sector converges to delta=1/24 on Eisenstein
+      tori of increasing size. delta = 1/24 = 1/|2T| where 2T is binary
+      tetrahedral group; h=12 is Coxeter number of E6.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 6000
+      priority: secondary
+    triggers:
+      - yang mills spectral resonance
+      - delta 1/24
+      - eisenstein torus
+      - gap convergence
+      - paper 16
+
+  - id: zenodo-paper-17
+    path: assets/pdfs/zenodo-2026-series/paper-17-plasma-weak-force.pdf
+    title: "Paper 17 — The Plasma Is the Weak Force"
+    doi: "10.5281/zenodo.19279114"
+    intent: >
+      Plasma = weak force via octonionic boundary conditions. Catalytic
+      confinement. Zero-parameter ignition protocol for fusion. Extension
+      of paper-05 into octonion mathematics.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: supplementary
+    triggers:
+      - plasma weak force
+      - octonionic
+      - octonions merkabit
+      - catalytic confinement
+      - fusion ignition protocol
+      - paper 17
+
+  - id: zenodo-paper-18
+    path: assets/pdfs/zenodo-2026-series/paper-18-entanglement-threshold.pdf
+    title: "Paper 18 — The 4/3 Entanglement Threshold"
+    doi: "10.5281/zenodo.19437878"
+    intent: >
+      Independent verification of alpha=4/3 as topological invariant.
+      Average von Neumann entropy at CZ gate = 4/3 exactly for Coulomb-coupled
+      electrons (Beysengulov et al. PRX Quantum 2024). Algebraically exact,
+      independent of coupling strength — a topological invariant of the symmetric
+      tridiagonal coupling matrix.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 5000
+      priority: secondary
+    triggers:
+      - entanglement threshold
+      - 4/3 topological invariant
+      - von neumann entropy 4/3
+      - cz gate entropy
+      - beysengulov
+      - paper 18
+
+  - id: zenodo-paper-19
+    title: "Paper 19 — Beyond the Threshold: Triangle Overshoot and Approach to Lattice Stability"
+    doi: null
+    intent: >
+      Forthcoming paper on triangle overshoot dynamics and the approach to
+      lattice stability beyond the 4/3 threshold.
+    scope: paper
+    audience: [researchers]
+    status: forthcoming
+    hints:
+      load_strategy: skip
+      token_estimate: 0
+      priority: supplementary
+    triggers:
+      - paper 19
+      - triangle overshoot
+      - lattice stability
+      - forthcoming paper 19
+
+  - id: zenodo-paper-20
+    path: assets/pdfs/zenodo-2026-series/paper-20-gravity-eisenstein-lattice.pdf
+    title: "Paper 20 — Gravity and Dark Matter from the Eisenstein Lattice"
+    doi: "10.5281/zenodo.19483841"
+    intent: >
+      Gravity and dark matter from the merkabit architecture. Extends the
+      PSL(2,7) / Eisenstein lattice framework beyond quantum computing and
+      particle physics into cosmology. First time the framework addresses
+      gravity. Derives effective gravitational coupling from lattice geometry.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: primary
+    triggers:
+      - gravity merkabit
+      - dark matter merkabit
+      - paper 20
+      - cosmology merkabit
+      - gravity from psl27
+      - dark matter derivation
+
+  - id: zenodo-paper-21
+    path: assets/pdfs/zenodo-2026-series/paper-21-orbital-quantisation-cpt-pentachoric.pdf
+    title: "Paper 21 — Orbital Quantisation, CPT, and the Pentachoric Transient"
+    doi: "10.5281/zenodo.19484756"
+    intent: >
+      Orbital quantisation and CPT symmetry from pentachoric geometry.
+      Derives CPT invariance as a geometric consequence of the merkabit
+      architecture. Pentachoric transient structure.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 6000
+      priority: secondary
+    triggers:
+      - orbital quantisation
+      - cpt symmetry
+      - pentachoric transient
+      - paper 21
+
+  - id: zenodo-paper-22
+    path: assets/pdfs/zenodo-2026-series/paper-22-cosmological-constant-vacuum-monopole.pdf
+    title: "Paper 22 — The Cosmological Constant from Vacuum Monopole Suppression"
+    doi: "10.5281/zenodo.19502069"
+    intent: >
+      Derives the cosmological constant Lambda = 2.87 x 10^-122 from vacuum
+      monopole suppression in the merkabit architecture. Addresses the
+      cosmological constant problem (worst prediction in physics).
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 6000
+      priority: secondary
+    triggers:
+      - cosmological constant
+      - vacuum monopole
+      - lambda derivation
+      - dark energy
+      - paper 22
+
+  - id: zenodo-paper-23
+    path: assets/pdfs/zenodo-2026-series/paper-23-three-constants-ternary-binary-coupling.pdf
+    title: "Paper 23 — Ternary-Binary Coupling, Newton's Constant, and the Hierarchy"
+    doi: "10.5281/zenodo.19502819"
+    intent: >
+      Derives Newton's gravitational constant and the hierarchy problem from
+      ternary-binary coupling in the merkabit architecture. Three fundamental
+      constants (alpha, G, Lambda) from one geometric structure.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 6000
+      priority: secondary
+    triggers:
+      - newton constant
+      - hierarchy problem
+      - ternary binary coupling
+      - three constants
+      - paper 23
+
+  - id: zenodo-paper-24
+    path: assets/pdfs/zenodo-2026-series/paper-24-p-gate-is-native.pdf
+    title: "Paper 24 — The P Gate Is Native: Hardware Confirmation of the Dual-Spinor Merkabit on IBM Quantum"
+    doi: "10.5281/zenodo.19484743"
+    authors: [Stenberg, Hetland]
+    intent: >
+      Hardware confirmation paper. The P gate is native to IBM Eagle r3 quantum
+      hardware — confirms the dual-spinor merkabit structure is not an abstraction
+      but physically present. Validates earlier theoretical predictions on real
+      quantum hardware.
+    scope: paper
+    audience: [researchers, totto, engineers]
+    validated: true
+    validation_method: ibm-eagle-r3
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: primary
+    triggers:
+      - p gate native
+      - hardware confirmation
+      - dual spinor hardware
+      - ibm eagle r3
+      - paper 24
+      - p gate ibm
+
+  - id: zenodo-paper-25
+    path: assets/pdfs/zenodo-2026-series/paper-25-four-of-five-berry-phase-quasi-period.pdf
+    title: "Paper 25 — Four of Five: Berry Phase, Quasi-Period, and the Fano Gap on IBM Eagle r3"
+    doi: "10.5281/zenodo.19502830"
+    authors: [Stenberg, Hetland]
+    intent: >
+      Four of five Appendix N hardware predictions confirmed on IBM Eagle r3.
+      Berry phase, quasi-period, and the Fano gap — all match theoretical
+      predictions from the merkabit architecture.
+    scope: paper
+    audience: [researchers, totto, engineers]
+    validated: true
+    validation_method: ibm-eagle-r3
+    hints:
+      load_strategy: lazy
+      token_estimate: 7000
+      priority: primary
+    triggers:
+      - four of five
+      - berry phase
+      - quasi-period
+      - fano gap
+      - ibm eagle r3 results
+      - appendix n
+      - paper 25
+
+  - id: zenodo-paper-26
+    path: assets/pdfs/Paper_26_The_Merkabit_Is_Geometric_v1.pdf
+    title: "Paper 26 — The Merkabit Is Geometric: Cross-Architecture Hardware Validation"
+    doi: "10.5281/zenodo.19554030"
+    authors: [Stenberg, Hetland]
+    intent: >
+      Cross-architecture hardware validation. Demonstrates the merkabit
+      structure is geometric (not an artifact of specific hardware). Tests
+      across multiple IBM quantum processor architectures.
+    scope: paper
+    audience: [researchers, totto, engineers]
+    validated: true
+    validation_method: ibm-eagle-r3
+    hints:
+      load_strategy: lazy
+      token_estimate: 7000
+      priority: primary
+    triggers:
+      - cross architecture
+      - merkabit is geometric
+      - hardware validation
+      - paper 26
+
+  - id: zenodo-paper-27
+    path: assets/pdfs/Paper_27_Black_Holes_Holography_v.1.pdf
+    title: "Paper 27 — Black Holes as Torsion Envelopes"
+    doi: "10.5281/zenodo.19577851"
+    intent: >
+      Black holes as torsion envelopes in the merkabit architecture.
+      Derives black hole thermodynamics and holographic properties from
+      PSL(2,7) geometry. Extends the unified theory to gravitational
+      singularities.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 8000
+      priority: secondary
+    triggers:
+      - black holes
+      - torsion envelopes
+      - holography
+      - black hole thermodynamics
+      - paper 27
+
+  - id: zenodo-paper-28
+    path: assets/pdfs/Paper_28_Native_Asymmetric_Phase_Gates_v1.pdf
+    title: "Paper 28 — The Fine Structure Constant as Information Density of the Planck Horizon"
+    doi: "10.5281/zenodo.19578118"
+    intent: >
+      Derives the fine structure constant as the information density of the
+      Planck horizon. Alternative route to alpha from black hole / holographic
+      considerations. NOTE: filename (Native_Asymmetric_Phase_Gates) does not
+      match title — use as-is.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 10000
+      priority: secondary
+    triggers:
+      - information density
+      - planck horizon
+      - alpha from black holes
+      - fine structure holographic
+      - paper 28
+
+  - id: zenodo-paper-29
+    path: assets/pdfs/Paper_29_Three_Generations_PSL27_v1.pdf
+    title: "Paper 29 — Three Generations from PSL(2,7): The Fermion Mass Matrix"
+    doi: "10.5281/zenodo.19628995"
+    intent: >
+      Three fermion generations derived from PSL(2,7) with zero free parameters.
+      Z62 orbit structure -> coupling fractions 15/31 / 8/31 / 5/31 = three generations.
+      Cabibbo angle 13.04 deg (0.35% from PDG). Top quark 171.6 GeV (0.69% from PDG).
+      CKM + PMNS matrices from geometry. At least 2 dark matter species from
+      S3-orbit decomposition. Co-authored with Claude Anthropic.
+    scope: paper
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 10000
+      priority: primary
+    triggers:
+      - three generations
+      - fermion generations merkabit
+      - paper 29
+      - cabibbo angle
+      - CKM matrix merkabit
+      - PMNS matrix merkabit
+      - top quark merkabit
+      - dark matter species
+      - PSL27 generations
+
+  - id: paper-30-capstone
+    path: assets/pdfs/Paper_30_Capstone_Merkabit_Unified_Theory_v.2.pdf
+    title: "Paper 30 — The Merkabit Architecture: A Candidate Unified Theory of Physics (Capstone, v2)"
+    doi: "10.5281/zenodo.20117997"
+    intent: >
+      CAPSTONE v2 — The complete Merkabit Architecture as a candidate unified theory
+      of physics. Single algebraic forcing chain deriving Standard Model, gravity,
+      black hole thermodynamics, holography, and the fine structure constant from
+      E6 Coxeter geometry and the discrete Laplace equation. Zero free parameters
+      across 17 fundamental constants. Consolidates the full companion-paper series
+      including the post-v1 additions: matter-antimatter asymmetry as the Yang-Mills
+      mass gap (Paper 36 Fifth Face, eta_B = 5 alpha^4 / |2T| = 5.91e-10), the
+      loop-obstruction trichotomy of B31 (Paper 35), and the McKay-pair 2T <-> E6
+      framing of the order-24 invariant at the ternary stratum. Key results:
+      alpha^-1=137.036 (0.005 ppb), alpha_s=5/42, sin^2(theta_W)=3/13, m_W=47v/144,
+      G_eff=1/4, Lambda=2.87x10^-122, Delta=1/24, eta_B=5.91e-10. Resolves 5 open
+      problems (gravity, black holes, holography, alpha from black holes,
+      matter-antimatter asymmetry). All 5 Appendix N hardware predictions confirmed
+      on IBM Eagle r3 April 2026. READ THIS FIRST for the complete architecture
+      overview. PRIMARY ENTRY POINT. (v1 DOI 10.5281/zenodo.19690395 superseded by
+      v2 at 10.5281/zenodo.20117997.)
+    scope: paper
+    audience: [researchers, totto]
+    validated: true
+    validation_method: ibm-eagle-r3
+    hints:
+      load_strategy: eager
+      token_estimate: 28000
+      priority: primary
+    triggers:
+      - capstone
+      - capstone v2
+      - unified theory merkabit
+      - paper 30
+      - complete architecture
+      - merkabit unified theory
+      - zero parameter derivation
+      - forcing chain
+      - fine structure constant all routes
+      - holographic principle merkabit
+      - yang-mills mass gap capstone
+      - cosmological constant merkabit
+      - standard model derivation capstone
+      - matter-antimatter asymmetry capstone
+  - id: zenodo-paper-31
+    path: assets/pdfs/Paper_31_Cross_Chiral_Tunnel_Z3.pdf
+    title: "Paper 31 — The Cross-Chiral Tunnel and Its Z3 Cellular Automaton"
+    doi: "10.5281/zenodo.19855233"
+    intent: >
+      Cross-chiral tunnel structure and its Z3 cellular automaton. Explores
+      chirality within the merkabit architecture as a Z3 automaton process.
+      Post-capstone paper extending the framework.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 12000
+      priority: secondary
+    triggers:
+      - cross-chiral tunnel
+      - z3 cellular automaton
+      - chirality merkabit
+      - paper 31
+
+  - id: zenodo-paper-32
+    path: assets/pdfs/Paper_32_Content_Addressable_Memory_Register.pdf
+    title: "Paper 32 — The Merkabit as a Content-Addressable Memory Register"
+    doi: "10.5281/zenodo.19855345"
+    intent: >
+      The merkabit interpreted as a content-addressable memory register.
+      Connects the physics architecture to computer science concepts —
+      the merkabit is not just a qubit replacement but a fundamentally
+      different computational primitive.
+    scope: paper
+    audience: [researchers, engineers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 6000
+      priority: secondary
+    triggers:
+      - content-addressable memory
+      - memory register
+      - CAM merkabit
+      - paper 32
+
+  - id: zenodo-paper-33
+    path: assets/pdfs/Paper_33_Quantum_Computing_Architecture.pdf
+    title: "Paper 33 — The Merkabit Quantum Computing Architecture"
+    doi: "10.5281/zenodo.19855553"
+    intent: >
+      Complete quantum computing architecture based on the merkabit.
+      Full specification of how merkabit-based quantum computation differs
+      from and supersedes qubit-based approaches.
+    scope: paper
+    audience: [researchers, engineers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 30000
+      priority: primary
+    triggers:
+      - quantum computing architecture
+      - merkabit computer architecture
+      - paper 33
+      - merkabit vs qubit architecture
+
+  - id: zenodo-paper-34
+    path: assets/pdfs/Paper_34_Ternary_Spectrum_Z3.pdf
+    title: "Paper 34 — The Ternary Spectrum: Cyclotomic Z3 Structure in Coupled Merkabit Triangles"
+    doi: "10.5281/zenodo.19855595"
+    intent: >
+      Ternary spectrum analysis through cyclotomic Z3 structure in coupled
+      merkabit triangles. Spectral properties of the ternary architecture.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 30000
+      priority: secondary
+    triggers:
+      - ternary spectrum
+      - cyclotomic z3
+      - coupled merkabit triangles
+      - paper 34
+
+  - id: zenodo-paper-35
+    path: assets/pdfs/Paper_35_Closure_Forces_The_Clock.pdf
+    title: "Paper 35 — Closure Forces the Clock: Matter, Antimatter, and the Loop-Obstruction Trichotomy of B31"
+    doi: "10.5281/zenodo.20126813"
+    intent: >
+      Three empirically distinguishable closure modes of the binary triangle
+      B31 (matter R-T-S, antimatter R-S-T, Riemann log-prime drive) form a
+      structurally complete loop-obstruction trichotomy. Master clock revised
+      to 60 = lcm(h(E6), h(E8)); 5-fold ouroboros is the 60->12 collapse
+      operator; alpha^-1 = N(12 + 5omega) + dim(D4) gains a dynamical reading
+      as the Eisenstein-norm signature of the collapse vector. Matter-antimatter
+      rate asymmetry delta_rate = 0.04171 +/- 0.0001 measured on a 6-qubit
+      Cirq simulation, matching Yang-Mills mass gap 1/|2T| = 1/24 to four
+      significant figures with zero free parameters. v2 stratum-anchors the
+      Wigner-GUE/Riemann attributions to Paper 6 (137-stratum geometric
+      operator) and Paper 7 (Dirichlet-zeros), corrects the McKay-pair framing
+      of the order-24 invariant 2T, and restores Paper 14 matter/antimatter
+      orientation language for R-T-S vs R-S-T chiralities.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 30000
+      priority: primary
+    triggers:
+      - closure forces the clock
+      - matter antimatter binary triangle
+      - master clock 60
+      - 5-fold ouroboros 60 to 12
+      - loop-obstruction trichotomy
+      - B31 closure modes
+      - matter-antimatter rate asymmetry simulation
+      - paper 35
+      - R-T-S R-S-T chirality
+
+  - id: zenodo-paper-36
+    path: assets/pdfs/Paper_36_Fifth_Face_PSL_2_7.pdf
+    title: "Paper 36 — The Fifth Face of PSL(2,7): Matter-Antimatter Asymmetry as the Yang-Mills Mass Gap"
+    doi: "10.5281/zenodo.20126710"
+    intent: >
+      Fifth Face of PSL(2,7) — the cosmological baryon-to-photon ratio
+      eta_B = 5 alpha^4 / |2T| = 5.91 x 10^-10, a 3% match to Planck 2018
+      (6.09 +/- 0.06) x 10^-10 with zero free parameters. Identifies the
+      Paper 35 matter-antimatter rate asymmetry on B31 with the Yang-Mills
+      mass gap Delta(YM) = 1/|2T| = 1/24 of Papers 9 and 16 to four
+      significant figures. The order-24 invariant lives at the McKay-pair
+      2T <-> E6 of the ternary stratum T75; the order-24 maximal subgroup
+      of PSL(2,7) is S4 (2T is not a subgroup of PSL(2,7)); |2T| = |S4| =
+      24 = 2 h(E6) is the architectural bridge. Extends Paper 10 Four Faces
+      unification (alpha, Riemann zeros, Klein quartic, YM mass gap) to a
+      fifth face (baryogenesis). v2 adds Paper 6 reference, naming-note
+      disambiguation between McKay-binary and Merkabit B31 binary stratum,
+      and citation-hygiene fixes.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 30000
+      priority: primary
+    triggers:
+      - fifth face PSL(2,7)
+      - matter-antimatter asymmetry yang-mills
+      - baryon to photon ratio derivation
+      - eta_B 5 alpha^4 over 2T
+      - 5.91e-10 baryogenesis
+      - mckay pair 2T E6 ternary stratum
+      - paper 36
+      - planck 2018 baryon ratio match
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # EXPLAINER VIDEO
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: video-explainer
+    path: assets/video/the-merkabit-computer.md
+    title: "The Merkabit Computer — Video Explainer"
+    intent: >
+      6-minute video explainer transcript and metadata. Best entry point for
+      non-technical audiences and for understanding how Selina communicates
+      the Merkabit concept verbally. 62 sections, 7.7KB transcript.
+    scope: media
+    audience: [totto, general, investors]
+    hints:
+      load_strategy: lazy
+      token_estimate: 800
+      priority: secondary
+    triggers:
+      - merkabit video
+      - explainer video
+      - merkabit explained simply
+      - non-technical introduction
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # IMPLEMENTATION
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: implementation-pathways
+    path: implementation/pathways/summary.md
+    title: "Implementation Pathways"
+    intent: >
+      Summary of 4+ implementation pathways for building a Merkabit computer:
+      superconducting circuits, trapped ions, photonic systems, and others.
+      Physics and engineering requirements for each pathway.
+    scope: implementation
+    audience: [engineers, researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 800
+      priority: supplementary
+    triggers:
+      - implementation pathways
+      - how to build merkabit
+      - superconducting merkabit
+      - trapped ions merkabit
+      - photonic merkabit
+      - build it
+
+  - id: implementation-validation
+    path: implementation/validation/README.md
+    title: "Validation and Proof-of-Concept Plans"
+    intent: >
+      Validation and proof-of-concept plans. Test protocols for verifying
+      pi-lock stability, benchmarking against qubit systems. Zero-point
+      benchmark methodology.
+    scope: implementation
+    audience: [engineers, researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 600
+      priority: supplementary
+    triggers:
+      - validation plan
+      - proof of concept
+      - benchmark merkabit
+      - test protocol
+      - zero point benchmark
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # STRATEGIC
+  # ══════════════════════════════════════════════════════════════════════════
+
+  - id: strategic-ip
+    path: strategic/ip/README.md
+    title: "IP Strategy"
+    intent: >
+      IP strategy for Merkabit: patent vs publish vs trade secret analysis.
+      Options, risks, and recommendations. Cross-reference with opus-assessment
+      which advises against patenting Millennium Prize claims.
+    scope: strategic
+    audience: [totto, selina, investors]
+    hints:
+      load_strategy: lazy
+      token_estimate: 700
+      priority: secondary
+    triggers:
+      - ip strategy
+      - patent merkabit
+      - intellectual property
+      - trade secret
+      - publish vs patent
+
+  - id: strategic-business-model
+    path: strategic/business-model/README.md
+    title: "Business Model Options"
+    intent: >
+      Business model options: startup, licensing, academic spinout.
+      Revenue models, partnership structures, go-to-market options.
+    scope: strategic
+    audience: [totto, selina, investors]
+    hints:
+      load_strategy: lazy
+      token_estimate: 600
+      priority: supplementary
+    triggers:
+      - business model
+      - commercialise merkabit
+      - licensing merkabit
+      - startup merkabit
+      - monetise
+
+  - id: strategic-positioning
+    path: strategic/positioning/README.md
+    title: "Market Positioning"
+    intent: >
+      Market positioning for different audiences (researchers, investors, public,
+      technical). Competitive landscape vs IBM, Google, IonQ. Key messages per
+      audience. Individual positioning files for each audience segment.
+    scope: strategic
+    audience: [totto, selina, investors]
+    hints:
+      load_strategy: lazy
+      token_estimate: 500
+      priority: supplementary
+    triggers:
+      - positioning
+      - competitive analysis
+      - vs ibm
+      - vs google quantum
+      - vs ionq
+      - market positioning
+      - messaging
+
+  - id: strategic-funding
+    path: strategic/funding/README.md
+    title: "Funding Strategy"
+    intent: >
+      Funding strategy: sources, requirements, timeline, and milestones.
+      What funding is needed to validate and commercialise the Merkabit.
+    scope: strategic
+    audience: [totto, selina, investors]
+    hints:
+      load_strategy: lazy
+      token_estimate: 600
+      priority: supplementary
+    triggers:
+      - funding
+      - investors merkabit
+      - grant funding
+      - research funding
+      - how much to build merkabit
+
+  # ══════════════════════════════════════════════════════════════════════════
+  # CODE REPOSITORIES (github.com/SelinaAliens)
+  # ══════════════════════════════════════════════════════════════════════════
+  # Cloned to code/ directory. All Python.
+  # Papers 15+ co-authored "with Claude Anthropic" (AI co-authorship disclosed).
+
+  - id: code-the-merkabit
+    path: code/The_Merkabit
+    title: "Code — The Merkabit (Foundation Repo)"
+    intent: >
+      Foundation Python repo (3 stars, 54 files). Implements merkabit structures
+      with counter-rotating spinors, 5-gate set, hexagonal lattice, 3-layer error
+      correction. Best entry point for running the base architecture in code.
+    scope: code
+    audience: [totto, researchers, engineers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: secondary
+    triggers:
+      - merkabit code
+      - run merkabit
+      - merkabit python
+      - implement merkabit
+
+  - id: code-companion-analysis
+    path: code/merkabit-companion-analysis
+    title: "Code — Companion Analysis (Paper 1)"
+    intent: >
+      201-file empirical pipeline. Stretched-exponential (KWW) relaxation analysis
+      across quantum, plasma, atmospheric, biological, and neural systems.
+      Key finding: alpha ~ 4/3 across 10 orders of magnitude in spatial scale,
+      spanning Google Sycamore (nm) through ASDEX tokamak (1m) to hurricanes/EEG.
+      Empirical backbone for Paper 01.
+    scope: code
+    audience: [researchers, totto]
+    hints:
+      load_strategy: lazy
+      token_estimate: 3000
+      priority: secondary
+    triggers:
+      - empirical alpha
+      - kww relaxation
+      - stretched exponential
+      - cross-platform data
+      - companion analysis
+      - alpha across scales
+
+  - id: code-entanglement-4-3
+    path: code/entanglement_4-3
+    title: "Code — Entanglement 4/3 (Paper 18)"
+    intent: >
+      Independent verification of alpha=4/3 as topological invariant (Apr 5 2026).
+      Average von Neumann entropy at CZ gate = 4/3 exactly for Coulomb-coupled
+      electrons (Beysengulov et al. PRX Quantum 2024). Algebraically exact,
+      independent of coupling strength. Written as a letter to Prof. Hjorth-Jensen.
+    scope: code
+    audience: [totto, researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 1000
+      priority: secondary
+    triggers:
+      - entanglement threshold code
+      - 4/3 topological invariant code
+      - von neumann entropy code
+      - beysengulov code
+      - hjorth-jensen letter
+
+  - id: code-rotation-gap
+    path: code/rotation_gap_is_flat
+    title: "Code — Rotation Gap Is Flat (Paper 15)"
+    intent: >
+      Paper 15 code. Binary-Ternary Hybrid Architecture.
+      Every existing qubit is a merkabit restricted to binary sector B31 of PSL(2,7).
+      Rotation gap: B31 detection 86.1% vs T75 (full merkabit) 98.7% = 12.6 pp.
+      Gap is FLAT across 4 orders of magnitude of error rate (CV < 3%).
+      Co-authored with Claude Anthropic.
+    scope: code
+    audience: [totto, researchers, engineers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 3000
+      priority: secondary
+    triggers:
+      - rotation gap code
+      - binary ternary hybrid code
+      - b31 t75 code
+      - qubit to merkabit migration code
+
+  - id: code-yang-mills-spectral
+    path: code/Yang-Mills_Spectral-Resonance
+    title: "Code — Yang-Mills Spectral Resonance (Paper 16)"
+    intent: >
+      Paper 16 code (50 files). Dynamical verification: spectral gap of T75
+      confined sector converges to delta=1/24 on Eisenstein tori of increasing
+      size. Includes Wilson loops, Svetitsky-Yaffe universality, glueball mass
+      ratios, running coupling. Co-authored with Claude Anthropic.
+    scope: code
+    audience: [totto, researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 3000
+      priority: secondary
+    triggers:
+      - yang mills spectral code
+      - delta 1/24 code
+      - glueball spectrum code
+
+  - id: code-riemann-zeroes
+    path: code/Riemann_Zeroes
+    title: "Code — Riemann Zeroes (Paper 7)"
+    intent: Python implementation of Riemann zeros as collapse events (Paper 07).
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: supplementary
+    triggers:
+      - riemann zeros code
+
+  - id: code-yang-mills-merkabit
+    path: code/yang_mills_Merkabit
+    title: "Code — Yang-Mills Merkabit (Paper 9)"
+    intent: Python for Yang-Mills mass gap from orbit-stabiliser theorem (Paper 09b).
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: supplementary
+    triggers:
+      - yang mills merkabit code
+
+  - id: code-gauge-group
+    path: code/gauge_group_merkabit
+    title: "Code — Gauge Group (Paper 13)"
+    intent: >
+      Python for gauge group derivation — 26 files (Paper 13).
+      PSL(2,7) representation theory to SU(3) x SU(2) x U(1).
+      Fano geometry, confinement theorem, Weinberg angle.
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 4000
+      priority: supplementary
+    triggers:
+      - gauge group code
+      - su3 su2 u1 code
+
+  - id: code-matter-fano
+    path: code/Matter_is_fano
+    title: "Code — Matter Is Fano (Paper 14)"
+    intent: Python for Fano incidence geometry paper (Paper 14).
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: supplementary
+    triggers:
+      - fano matter code
+
+  - id: code-standard-model
+    path: code/standard_model_merkabit
+    title: "Code — Standard Model Merkabit (Paper 11)"
+    intent: Python for Standard Model as S3-invariant (Paper 11).
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: supplementary
+    triggers:
+      - standard model merkabit code
+
+  - id: code-w-boson
+    path: code/w_boson_as_alegbraic_inversion
+    title: "Code — W Boson Algebraic Inversion (Paper 12)"
+    intent: Python for W boson mass derivation (Paper 12). Z2-bundle, m_W/v.
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 1500
+      priority: supplementary
+    triggers:
+      - w boson code
+
+  - id: code-plasma-weak
+    path: code/plasma_is_the_weak_force
+    title: "Code — Plasma Is the Weak Force (Paper 17)"
+    intent: Python for plasma = weak force. Octonionic BC, fusion.
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: supplementary
+    triggers:
+      - plasma weak code
+
+  - id: code-klein-quartic
+    path: code/Klein_quartic_merkabit
+    title: "Code — Klein Quartic Merkabit (Paper 8)"
+    intent: Python + .docx manuscript for Klein quartic (Paper 08).
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: supplementary
+    triggers:
+      - klein quartic code
+
+  - id: code-geometric-operator
+    path: code/merkabit_geometric_operator
+    title: "Code — Geometric Operator (Paper 6)"
+    intent: Python for GUE operator on Eisenstein lattice (Paper 06).
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 1500
+      priority: supplementary
+    triggers:
+      - geometric operator code
+
+  - id: code-fusion-ignition
+    path: code/merkabit_results-fusion_ignition
+    title: "Code — Fusion Ignition (Paper 5)"
+    intent: Python for fusion ignition from E6 geometry (Paper 05).
+    scope: code
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 1500
+      priority: supplementary
+    triggers:
+      - fusion ignition code
+
+  - id: code-hardware-test
+    path: code/merkabit_hardware_test
+    title: "Code — Merkabit Hardware Test"
+    intent: >
+      Hardware test scripts for IBM quantum validation. Used for Papers 24-26
+      hardware confirmation runs on IBM Eagle r3.
+    scope: code
+    audience: [totto, engineers]
+    validated: true
+    validation_method: ibm-eagle-r3
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: secondary
+    triggers:
+      - hardware test code
+      - ibm test code
+      - eagle r3 test
+
+  - id: code-three-generations-hw
+    path: code/three_generations_hardware_test
+    title: "Code — Three Generations Hardware Test"
+    intent: >
+      Hardware test scripts for three-generations predictions.
+      Validation of fermion generation structure on IBM quantum hardware.
+    scope: code
+    audience: [totto, engineers, researchers]
+    validated: true
+    validation_method: ibm-eagle-r3
+    hints:
+      load_strategy: lazy
+      token_estimate: 2000
+      priority: secondary
+    triggers:
+      - three generations hardware code
+      - fermion generations test code
+
+# ═══════════════════════════════════════════════════════════════════════════
+# RELATIONSHIPS
+# ═══════════════════════════════════════════════════════════════════════════
+
+relationships:
+
+  # ── Orientation chain ──────────────────────────────────────────────────
+  - from: readme
+    to: zenodo-2026-readme
+    type: introduces
+
+  - from: readme
+    to: theory-universal-grammar
+    type: introduces
+
+  - from: quick-reference
+    to: readme
+    type: summarises
+
+  # ── Assessment context ─────────────────────────────────────────────────
+  - from: opus-assessment
+    to: zenodo-2026-readme
+    type: critiques
+
+  - from: opus-assessment
+    to: zenodo-paper-02
+    type: critiques
+
+  - from: opus-assessment
+    to: zenodo-paper-09b
+    type: critiques
+
+  - from: opus-assessment
+    to: zenodo-paper-07
+    type: critiques
+
+  - from: opus-assessment
+    to: strategic-ip
+    type: informs
+
+  # ── Zenodo series arc ──────────────────────────────────────────────────
+  - from: zenodo-base
+    to: zenodo-2026-readme
+    type: implements
+
+  - from: zenodo-paper-02
+    to: zenodo-paper-01
+    type: builds_on
+
+  - from: zenodo-paper-10
+    to: zenodo-paper-02
+    type: synthesises
+
+  - from: zenodo-paper-10
+    to: zenodo-paper-07
+    type: synthesises
+
+  - from: zenodo-paper-10
+    to: zenodo-paper-08
+    type: synthesises
+
+  - from: zenodo-paper-14
+    to: zenodo-paper-10
+    type: completes
+
+  - from: zenodo-paper-11
+    to: zenodo-paper-10
+    type: extends
+
+  - from: zenodo-paper-13
+    to: zenodo-paper-11
+    type: extends
+
+  - from: zenodo-paper-15
+    to: zenodo-paper-05
+    type: extends
+
+  - from: zenodo-paper-16
+    to: zenodo-paper-09b
+    type: extends
+
+  - from: zenodo-paper-17
+    to: zenodo-paper-05
+    type: extends
+
+  - from: zenodo-paper-18
+    to: zenodo-paper-01
+    type: validates
+
+  - from: zenodo-paper-20
+    to: zenodo-paper-14
+    type: extends
+
+  - from: zenodo-paper-21
+    to: zenodo-paper-20
+    type: builds_on
+
+  - from: zenodo-paper-22
+    to: zenodo-paper-20
+    type: builds_on
+
+  - from: zenodo-paper-23
+    to: zenodo-paper-22
+    type: builds_on
+
+  - from: zenodo-paper-29
+    to: zenodo-paper-13
+    type: extends
+
+  # ── Capstone synthesises everything ────────────────────────────────────
+  - from: paper-30-capstone
+    to: zenodo-base
+    type: synthesises
+
+  - from: paper-30-capstone
+    to: zenodo-paper-20
+    type: synthesises
+
+  - from: paper-30-capstone
+    to: zenodo-paper-29
+    type: synthesises
+
+  - from: paper-30-capstone
+    to: zenodo-paper-14
+    type: synthesises
+
+  - from: paper-30-capstone
+    to: zenodo-paper-09b
+    type: synthesises
+
+  # ── Post-capstone papers build on capstone ─────────────────────────────
+  - from: zenodo-paper-31
+    to: paper-30-capstone
+    type: builds_on
+
+  - from: zenodo-paper-32
+    to: paper-30-capstone
+    type: builds_on
+
+  - from: zenodo-paper-33
+    to: paper-30-capstone
+    type: builds_on
+
+  - from: zenodo-paper-34
+    to: paper-30-capstone
+    type: builds_on
+
+  # ── Hardware validation papers ─────────────────────────────────────────
+  - from: zenodo-paper-24
+    to: zenodo-base
+    type: validates
+
+  - from: zenodo-paper-25
+    to: paper-30-capstone
+    type: validates
+
+  - from: zenodo-paper-26
+    to: zenodo-paper-24
+    type: extends
+
+  # ── Theory to 2026 series ──────────────────────────────────────────────
+  - from: zenodo-base
+    to: theory-merkabit-unit
+    type: formalises
+
+  - from: zenodo-base
+    to: theory-universal-grammar
+    type: formalises
+
+  # ── Framework papers to theory ─────────────────────────────────────────
+  - from: pdf-introducing-framework
+    to: theory-universal-grammar
+    type: expands
+
+  - from: pdf-computation-by-resonance
+    to: theory-merkabit-computer
+    type: expands
+
+  # ── Strategic dependencies ─────────────────────────────────────────────
+  - from: strategic-ip
+    to: opus-assessment
+    type: depends_on
+
+  - from: strategic-business-model
+    to: opus-assessment
+    type: informed_by
+
+  # ── Code repos to papers ───────────────────────────────────────────────
+  - from: code-the-merkabit
+    to: zenodo-base
+    type: implements
+
+  - from: code-companion-analysis
+    to: zenodo-paper-01
+    type: validates
+
+  - from: code-entanglement-4-3
+    to: zenodo-paper-18
+    type: validates
+
+  - from: code-riemann-zeroes
+    to: zenodo-paper-07
+    type: implements
+
+  - from: code-yang-mills-merkabit
+    to: zenodo-paper-09b
+    type: implements
+
+  - from: code-yang-mills-spectral
+    to: zenodo-paper-16
+    type: implements
+
+  - from: code-gauge-group
+    to: zenodo-paper-13
+    type: implements
+
+  - from: code-matter-fano
+    to: zenodo-paper-14
+    type: implements
+
+  - from: code-rotation-gap
+    to: zenodo-paper-15
+    type: implements
+
+  - from: code-plasma-weak
+    to: zenodo-paper-17
+    type: implements
+
+  - from: code-klein-quartic
+    to: zenodo-paper-08
+    type: implements
+
+  - from: code-geometric-operator
+    to: zenodo-paper-06
+    type: implements
+
+  - from: code-fusion-ignition
+    to: zenodo-paper-05
+    type: implements
+
+  - from: code-standard-model
+    to: zenodo-paper-11
+    type: implements
+
+  - from: code-w-boson
+    to: zenodo-paper-12
+    type: implements
+
+  - from: code-hardware-test
+    to: zenodo-paper-24
+    type: implements
+
+  - from: code-three-generations-hw
+    to: zenodo-paper-29
+    type: validates
+
+  # ─── Papers 35, 36 (2026-05) — Matter-Antimatter / Fifth Face ──────────
+  - from: zenodo-paper-35
+    to: zenodo-paper-14
+    type: builds_on
+
+  - from: zenodo-paper-35
+    to: zenodo-paper-07
+    type: builds_on
+
+  - from: zenodo-paper-35
+    to: zenodo-paper-06
+    type: builds_on
+
+  - from: zenodo-paper-36
+    to: zenodo-paper-35
+    type: builds_on
+
+  - from: zenodo-paper-36
+    to: zenodo-paper-09b
+    type: synthesises
+
+  - from: zenodo-paper-36
+    to: zenodo-paper-16
+    type: synthesises
+
+  - from: zenodo-paper-36
+    to: zenodo-paper-10
+    type: builds_on
+
+  - from: zenodo-paper-36
+    to: zenodo-paper-06
+    type: builds_on

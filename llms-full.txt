@@ -1,0 +1,83 @@
+# Merkabit — Full Reference
+
+> A unified theory of physics derived from geometry alone. Selina Stenberg's research derives the Standard Model, gravity, black holes, and all 17 fundamental constants from PSL(2,7) acting on the Eisenstein lattice Z[ω] — zero free parameters across 15 constants. The Merkabit is a balanced ternary computational unit replacing fragile qubits with intrinsically stable dual-spinor geometry. Five hardware predictions confirmed on IBM Eagle r3 quantum processors (2025–2026). Co-developed with Claude (Anthropic).
+
+## Core Theory
+
+**The central claim**: All of physics emerges from a single algebraic structure — the group PSL(2,7) (168 elements) acting on the Eisenstein lattice Z[ω] = Z[e^{2πi/3}] over the Gaussian integers. This is not a model with fitted parameters; it is a derivation.
+
+**Key derivations:**
+- Standard Model gauge group SU(3)×SU(2)×U(1) from PSL(2,7) subgroup structure
+- Fine structure constant α ≈ 1/137 from lattice geometry
+- Gravitational constant G from lattice scale
+- All three quark generations from E6 symmetry breaking
+- Black hole thermodynamics from the Fano plane / Klein quartic
+- Yang-Mills mass gap from spectral resonance on the Eisenstein torus
+
+**The Merkabit unit**: Balanced ternary (Z₃) computational unit. Unlike binary qubits, Merkabits encode in the intrinsic three-way symmetry of the Eisenstein lattice — making decoherence structurally impossible rather than merely suppressed. The pi-Lock mechanism provides phase stability without active error correction.
+
+## Paper Series (35 total)
+
+### Foundation (Base + Papers 1–10)
+- **Base**: Mathematical foundation — Eisenstein lattice, PSL(2,7), balanced ternary arithmetic. Hardware-validated (IBM Eagle r3). DOI: varies by edition.
+- **Papers 1–5**: Geometry → gauge groups. Deriving SU(3), SU(2), U(1) from lattice symmetry.
+- **Papers 6–10**: Fundamental constants. Fine structure constant, gravitational constant, quark masses from PSL(2,7) orbit geometry.
+
+### Extensions (Papers 11–20)
+- **Paper 16**: Yang-Mills Mass Gap as Spectral Resonance. Convergence of spectral gap on Eisenstein torus to δ=1/24. DOI: 10.5281/zenodo.19330363
+- **Paper 17**: Plasma and weak force via Eisenstein lattice torsion. DOI: 10.5281/zenodo.19279114
+- **Paper 18**: Entanglement threshold — geometric criterion for quantum entanglement onset. DOI: 10.5281/zenodo.19437878
+
+### Applications + Hardware Validation (Papers 21–30)
+- **Paper 24**: IBM Eagle r3 hardware validation — first three predictions confirmed. DOI: 10.5281/zenodo.19475628
+- **Paper 25**: Four of Five — Berry phase, quasi-period, Fano gap on IBM Eagle r3. DOI: 10.5281/zenodo.19502830
+- **Paper 26**: Cross-architecture hardware validation. The Merkabit Is Geometric. DOI: 10.5281/zenodo.19554030
+- **Paper 30** *(Capstone)*: The Merkabit Architecture: A Candidate Unified Theory of Physics. Complete derivation. Five hardware predictions confirmed. April 2026. **The authoritative summary.** DOI: 10.5281/zenodo.20117997
+
+### 2026 Post-Capstone Series (Papers 31–34)
+- **Paper 31**: Cross-chiral tunneling and Z3 symmetry. DOI: 10.5281/zenodo.19855233
+- **Paper 32**: Content-Addressable Memory Register via Merkabit geometry. DOI: 10.5281/zenodo.19855345
+- **Paper 33**: Quantum Computing Architecture from first principles. DOI: 10.5281/zenodo.19855553
+- **Paper 34**: Ternary spectrum and Z3 symmetry. DOI: 10.5281/zenodo.19855595
+
+## Implementation Pathways
+
+Four routes from theory to physical hardware:
+1. **Photonic** — optical Merkabit implementation using beam splitters and phase plates
+2. **Superconducting** — extension of IBM Eagle r3 architecture to ternary logic
+3. **Trapped ion** — three-level ion systems encoding Z₃ states
+4. **Topological** — Majorana-like anyons in PSL(2,7)-symmetric materials
+
+## Machine-Readable Knowledge
+
+- [KCP Manifest](https://merkabit.com/knowledge.yaml): Knowledge Context Protocol v0.12, 72 units, 60 relationships. Full index of all papers, theory docs, implementation guides. ED25519-signed.
+  - Parse YAML → match query to `triggers`/`intent` → fetch `path`
+  - Navigate via `relationships`: enables, depends_on, synthesises, validates, builds_on
+  - Hardware-validated units: `validated: true` + `validation_method: ibm-eagle-r3`
+
+## Signing + Integrity
+
+- Manifest public key: `https://merkabit.com/.well-known/kcp-signing-key.pub`
+- Manifest signature: `https://merkabit.com/knowledge.yaml.sig`
+- Algorithm: ED25519 (OpenSSL `pkeyutl -sign -rawin`)
+- Verify: `openssl pkeyutl -verify -rawin -pubin -inkey kcp-signing-key.pub -sigfile <(base64 -d knowledge.yaml.sig) -in knowledge.yaml`
+
+## About
+
+Selina Stenberg — physicist, founder/CEO of eXOReaction AS, originator of the Merkabit theory.
+Thor Henning Hetland (Totto) — CTO, ExoCortex builder, co-author on hardware validation papers.
+
+Contact: selina@exoreaction.com | Web: https://merkabit.com
+
+## Latest Papers (May 2026)
+
+**Paper 35 — Closure Forces the Clock** (DOI 10.5281/zenodo.20126813, v2 2026-05-11)
+The merkabit's master clock is 60 = lcm(h(E₆), h(E₈)); the 5-fold ouroboros {S, R, T, F, P} is the 60 → 12 projection operator that produces α⁻¹ = N(12 + 5ω) + dim(D₄) = 109 + 28 = 137 as the Eisenstein-arithmetic signature of the collapse vector. Three empirically distinguishable closure modes of B₃₁ form a structurally complete loop-obstruction trichotomy: matter (R-T-S + rational drive, loop closes), antimatter (R-S-T + rational drive, loop closes through S₃ into T₇₅), and Riemann (R-T-S + log-prime drive, loop never closes). Matter-antimatter rate asymmetry δ_rate = 0.04171 ± 0.0001 measured on a 6-qubit Cirq simulation.
+
+**Paper 36 — The Fifth Face of PSL(2,7)** (DOI 10.5281/zenodo.20126710, v2 2026-05-11)
+The cosmological baryon-to-photon ratio η_B = 5α⁴/|2T| = 5.91 × 10⁻¹⁰ — a 3% match to Planck 2018 (6.09 ± 0.06) × 10⁻¹⁰ with zero free parameters. Identifies the Paper 35 matter-antimatter rate asymmetry with the Yang-Mills mass gap Δ(YM) = 1/|2T| = 1/24 of Papers 9 and 16. Extends Paper 10's Four Faces unification (α, Riemann zeros, Klein quartic, YM mass gap) to a fifth face: baryogenesis. The order-24 invariant lives at the McKay-pair 2T ↔ E₆ of the ternary stratum, with |2T| = |S₄| = 24 = 2 h(E₆) as the bridge to the order-24 maximal subgroup of PSL(2,7).
+
+## Paper 4 — Enzymes for Quantum Computing
+
+**Paper 4 — What Can Quantum Computing Learn from Enzymes?** (DOI 10.5281/zenodo.20113876, 2026-05-10)
+Enzymes perform substrate-in / product-out as the same boundary operator with opposite sign, with interior dynamics (geometric pre-organisation, transition-state stabilisation, conformational gating) enclosed between the two boundary passes. The merkabit framework identifies the same structural primitive: R/F/T/P as interior dynamics, S as boundary operator on both sides. Paper 4 transfers enzyme-derived design principles to merkabit-based quantum computation — particularly the role of geometric pre-organisation as the coherence-engineering analog of substrate fit.

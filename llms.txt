@@ -1,0 +1,26 @@
+# Merkabit
+
+> A unified theory of physics derived from geometry alone. Selina Stenberg's research derives the Standard Model, gravity, black holes, and all 17 fundamental constants from PSL(2,7) acting on the Eisenstein lattice Z[ω] — zero free parameters across 15 constants. The Merkabit is a balanced ternary computational unit replacing fragile qubits with intrinsically stable dual-spinor geometry. Five hardware predictions confirmed on IBM Eagle r3 quantum processors (2025–2026).
+
+## Research Papers
+
+- [Full Paper Series](https://merkabit.com/papers.html): 34 published papers + base paper on Zenodo. DOI prefix: 10.5281/zenodo.*
+- [Capstone — Paper 30 (v2)](https://zenodo.org/records/20117997): The Merkabit Architecture: A Candidate Unified Theory of Physics (v2, May 2026). Complete derivation of Standard Model + gravity + fundamental constants. v2 incorporates matter-antimatter asymmetry as Fifth Face (Papers 35, 36).
+- [Paper 4 — Enzymes for Quantum Computing](https://zenodo.org/records/20113876): What quantum computing can learn from enzyme catalysis. Substrate-in / product-out as the boundary operator with opposite sign — the same R/F/T/P-interior-with-S-boundary primitive the merkabit framework identifies.
+- [Hardware Validation — Paper 26](https://zenodo.org/records/19554030): Cross-architecture IBM Eagle r3 validation. The Merkabit Is Geometric.
+- [Yang-Mills Mass Gap — Paper 16](https://zenodo.org/records/19330363): The Yang-Mills Mass Gap as Spectral Resonance on the Eisenstein Torus.
+- [Closure Forces the Clock — Paper 35](https://zenodo.org/records/20126813): Three obstruction modes of B₃₁ loop closure (matter, antimatter, Riemann). Master clock 60 = lcm(h(E₆), h(E₈)); 5-fold ouroboros as the 60 → 12 collapse operator; matter-antimatter rate asymmetry δ_rate = 0.0417 measured on a 6-qubit binary triangle.
+- [The Fifth Face of PSL(2,7) — Paper 36](https://zenodo.org/records/20126710): Cosmological baryon-to-photon ratio η_B = 5α⁴/|2T| = 5.91 × 10⁻¹⁰. 3% match to Planck 2018 (6.09 ± 0.06) × 10⁻¹⁰ with zero free parameters. Identifies Paper 35's measured matter-antimatter rate asymmetry with the Yang-Mills mass gap of Papers 9 and 16.
+
+## Machine-Readable Knowledge
+
+- [KCP Manifest](https://merkabit.com/knowledge.yaml): Structured knowledge index in Knowledge Context Protocol v0.12. 72 units, 60 relationships. Covers all 35 papers, theory docs, implementation guides, and code. AI agents: parse this manifest and match queries against unit `triggers` and `intent` fields.
+
+## About
+
+- [About Merkabit](https://merkabit.com): Selina Stenberg (founder/CEO, physicist) + Thor Henning Hetland (CTO, ExoCortex builder). Services: Coherence Training, Talks, Workshops, Advisory, Research Rig, Knowledge Infrastructure.
+
+## Optional
+
+- [llms-full.txt](https://merkabit.com/llms-full.txt): Extended content with paper abstracts, theory descriptions, and implementation details
+- [KCP Signing Key](https://merkabit.com/.well-known/kcp-signing-key.pub): ED25519 public key for verifying knowledge.yaml integrity
