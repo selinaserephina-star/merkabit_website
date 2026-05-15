@@ -1295,6 +1295,143 @@ units:
       - paper 36
       - planck 2018 baryon ratio match
 
+
+  - id: zenodo-paper-37
+    path: assets/pdfs/Paper_37_Hilbert_Polya_Tunnel.pdf
+    title: "Paper 37 — A Simulation-Verified, Hardware-Pre-Registered Hilbert-Pólya Candidate from the Merkabit Architecture"
+    doi: "10.5281/zenodo.20205429"
+    intent: >
+      Positions Paper 31's Z3 x Z3 iSWAP^J tunnel as the third operator in a
+      three-operator decomposition of PSL(2,7) on the Eisenstein lattice: Paper 7's
+      binary transfer matrix on B31 (Riemann zeros directly), Paper 6's bounded
+      ternary operator on T75 (R-infinity = 1.479, explicitly not Berry-Keating),
+      and this paper's cross-stratum tunnel at Z62 (realises both at once). Proves
+      the K-modulus theorem |K_L(s)| = 1 iff Re(s) = 1/2 rigorously. Empirical
+      anchors: destructive identity at 35,100 cached Riemann zeros; mixing-model
+      confirmation at 0.9% across 756 IBM Eagle r3 runs.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 35000
+      priority: primary
+    triggers:
+      - hilbert-polya candidate merkabit
+      - riemann hypothesis tunnel operator
+      - K-modulus theorem
+      - cross-stratum operator
+      - paper 37
+      - three-operator decomposition PSL(2,7)
+      - Z3 Z3 iSWAP tunnel
+      - destructive identity Riemann zeros
+
+  - id: zenodo-paper-38
+    path: assets/pdfs/Paper_38_First_Uplift.pdf
+    title: "Paper 38 — The First Uplift: Axis-Genesis as the Architectural Origin of Rotational Structure"
+    doi: "10.5281/zenodo.20205440"
+    intent: >
+      Axis is not primitive but derived: axes are created at first uplift events
+      (transits from the 0-point NEUTRAL state into WRITE or READ). The substrate
+      has three coherent states (WRITE, READ, NEUTRAL); NEUTRAL = |RRR> is uniquely
+      sigma-fixed. The sigma-fixed-pivot theorem (rigorous): sigma-equivariance of
+      R forces the unique chirality-balanced pivot to |RRR>, verified to machine
+      precision across 10^4 Haar-random sigma-equivariant unitaries on C^27.
+      Hardware-validated by Paper 33's Z3 cyclic clock alpha->gamma->beta->alpha
+      at +39.7 sigma ideal, +3.34 sigma Heron, +3.48 sigma Eagle r3.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 30000
+      priority: primary
+    triggers:
+      - first uplift axis-genesis
+      - sigma-fixed-pivot theorem
+      - WRITE READ NEUTRAL three states
+      - rotational structure derived
+      - paper 38
+      - architectural origin of rotation
+
+  - id: zenodo-paper-39
+    path: assets/pdfs/Paper_39_Genesis_Sequence.pdf
+    title: "Paper 39 — The Architectural Genesis Sequence: From Two-Flow Uplift to Tesseract Self-Sustainment"
+    doi: "10.5281/zenodo.20205477"
+    intent: >
+      Stage-by-stage audit of the 13-stage genesis chain: two flows -> triangle ->
+      SU(2) -> three triangles -> SU(3) -> Fano flag -> Z7 tunnel -> bipartite vacuum
+      on Spin(4) -> tetrahedron -> stella octangula -> cube -> tesseract self-sustainment
+      -> 24-cell = D4 root system -> E6 via McKay. Every item tagged [FORCED],
+      [EMPIRICAL], or [CONJECTURED]. Formalises eta_B = 5 alpha^4 / |2T| (3% to
+      Planck 2018) and Lambda ~ 2.876e-122 (0.2% match) as compatible exponential
+      suppressions from the same architectural rigidity.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 28000
+      priority: primary
+    triggers:
+      - genesis sequence audit
+      - forced vs conjectured
+      - 13-stage build chain
+      - tesseract self-sustainment
+      - E6 McKay correspondence
+      - paper 39
+
+  - id: zenodo-paper-40
+    path: assets/pdfs/Paper_40_Riemann_Resolution_Part_1.pdf
+    title: "Paper 40 — The Resolution to the Riemann Hypothesis (Part 1): Riemann Zeros as Fano-Cycle Closures of a sigma-Equivariant Operator System"
+    doi: "10.5281/zenodo.20205599"
+    intent: >
+      Empirical resolution of the Riemann Hypothesis at the closure-counting level.
+      N_arch(T) = (T/2pi) log(T/2pi e) + 7/8 + S_arch(T) with S_arch(T) = -(1/pi)
+      Sum_p (1/sqrt p) sin(T log p) — zero free parameters. Five independent
+      observables across 2000 cached Riemann zeros: density < 0.5%, GUE Wigner
+      spacings, cumulative N(T) exact at T=100, sub-leading S(T) at Pearson r=0.974
+      (94.4% pointwise variance), specific gamma_n timestamps at <1% local zero
+      spacing. Paper 7 binary + Paper 6 ternary + Paper 37 cross-stratum tunnel
+      measured simultaneously. Public code at SelinaAliens/Riemanns_resolution.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 32000
+      priority: primary
+    triggers:
+      - riemann hypothesis empirical
+      - closure-counting Riemann zeros
+      - five observables 2000 zeros
+      - Fano-cycle closure timestamps
+      - N_arch equals N_RvM
+      - paper 40
+
+  - id: zenodo-paper-41
+    path: assets/pdfs/Paper_41_Riemann_Resolution_Part_2.pdf
+    title: "Paper 41 — The Resolution of the Riemann Hypothesis from the Merkabit Architecture (Part 2): A Synthesis"
+    doi: "10.5281/zenodo.20205552"
+    intent: >
+      Synthesis paper combining the K-modulus theorem (Paper 37, rigorous), the
+      sigma-fixed-pivot theorem (Paper 38, rigorous, machine-precision verified),
+      and the five-observable empirical match (Paper 40) into a single chain
+      reducing RH. STT theorem: N_arch(T) = N_RvM(T) exactly, with primes indexing
+      primitive hyperbolic orbits in X(7) = H/Gamma(7) via Z[zeta_7]+ and the
+      theta(T)/pi + 1 contribution identified with Connes' adele-class
+      Plancherel-propagator phase at the archimedean place. Reduces remaining
+      work to four bookkeeping verifications in standard machinery.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 38000
+      priority: primary
+    triggers:
+      - STT theorem
+      - substrate-trajectory-to-timestamp
+      - synthesis riemann hypothesis
+      - Selberg trace Klein quartic
+      - Connes adele-class
+      - paper 41
+
   # ══════════════════════════════════════════════════════════════════════════
   # EXPLAINER VIDEO
   # ══════════════════════════════════════════════════════════════════════════
@@ -2014,4 +2151,49 @@ relationships:
 
   - from: zenodo-paper-36
     to: zenodo-paper-06
+    type: builds_on
+
+  # ─── Papers 37, 38, 39, 40, 41 (2026-05) — Riemann Resolution chain ────
+  - from: zenodo-paper-37
+    to: zenodo-paper-06
+    type: builds_on
+
+  - from: zenodo-paper-37
+    to: zenodo-paper-07
+    type: builds_on
+
+  - from: zenodo-paper-37
+    to: zenodo-paper-31
+    type: builds_on
+
+  - from: zenodo-paper-38
+    to: zenodo-paper-37
+    type: builds_on
+
+  - from: zenodo-paper-38
+    to: zenodo-paper-33
+    type: validates
+
+  - from: zenodo-paper-39
+    to: zenodo-paper-30-capstone
+    type: synthesises
+
+  - from: zenodo-paper-40
+    to: zenodo-paper-37
+    type: builds_on
+
+  - from: zenodo-paper-40
+    to: zenodo-paper-38
+    type: builds_on
+
+  - from: zenodo-paper-41
+    to: zenodo-paper-40
+    type: synthesises
+
+  - from: zenodo-paper-41
+    to: zenodo-paper-37
+    type: builds_on
+
+  - from: zenodo-paper-41
+    to: zenodo-paper-38
     type: builds_on
