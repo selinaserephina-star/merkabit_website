@@ -9,7 +9,7 @@ Status of the site at handoff. Use this as a starting backlog.
 - Genesis page: animated 17-rung engine + static reference ladder.
 - Five Faces of PSL(2,7): interactive selector with five views.
 - Falsifiability: live status board (open / confirmed / refuted).
-- 15 Constants wall.
+- 15 Constants wall — removed Oct 2026; `constants.html` is now a redirect stub.
 - Animated Merkaba on the homepage hero.
 - Timeline component in three variants (full / compact / highlights), shared across home, about, journey.
 - Footer: GitHub, Zenodo, LinkedIn, contact email.
