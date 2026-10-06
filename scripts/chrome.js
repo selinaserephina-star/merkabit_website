@@ -6,7 +6,6 @@
     { key: 'science',  label: 'Science',  href: 'science.html' },
     { key: 'quantum',  label: 'Quantum',  href: 'quantum.html' },
     { key: 'journey',  label: 'Journey',  href: 'journey.html' },
-    { key: 'services', label: 'Services', href: 'services.html' },
     { key: 'about',    label: 'About',    href: 'about.html' },
   ];
 
@@ -56,7 +55,7 @@
               <span class="wordmark">Merkabit</span>
             </div>
             <p class="txt-dim" style="font-size:14px;max-width:34ch;">
-              A unified theory of physics, derived from geometry alone. Fifteen constants. Zero parameters. One geometry.
+              A research programme on a mathematical object: the merkabit, a ternary unit on the Eisenstein lattice with the symmetry of PSL(2,7).
             </p>
           </div>
           <div>
@@ -65,7 +64,7 @@
               <li><a href="papers.html">Papers</a></li>
               <li><a href="hardware.html">Hardware</a></li>
               <li><a href="falsifiability.html">Falsifiability</a></li>
-              <li><a href="constants.html">15 Constants</a></li>
+              <li><a href="constants.html">Constants</a></li>
               <li><a href="five-faces.html">Five Faces</a></li>
             </ul>
           </div>
@@ -76,15 +75,6 @@
               <li><a href="genesis.html">Genesis Sequence</a></li>
               <li><a href="journey.html#book">Scaling Buddha</a></li>
               <li><a href="collaboration.html">Tunnel Collaboration</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Services</h4>
-            <ul>
-              <li><a href="services.html#workshops">Workshops</a></li>
-              <li><a href="services.html#talks">Talks</a></li>
-              <li><a href="services.html#book">Book</a></li>
-              <li><a href="services.html#consulting">Consulting</a></li>
             </ul>
           </div>
           <div>

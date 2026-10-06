@@ -53,7 +53,7 @@ The site speaks in four distinct voices. **Do not bleed copy across registers.**
 | **Science** | `science.html`, `papers.html`, `falsifiability.html`, `constants.html`, `five-faces.html`, `hardware.html`, `genesis.html` | Disciplined, terse, mathematical. No interpretive content. Predictions are pre-registered, signed, dated. |
 | **Quantum** | `quantum.html` | Engineering register. Concrete primitives, gate counts, platform comparisons. Slightly cooler accent. |
 | **Journey** | `journey.html` | First-person, contemplative, narrative. The book lives here. |
-| **Services / About** | `services.html`, `about.html` | Plain professional. Five service paths; one founder. No "we" — the company is one person. |
+| **About** | `about.html` | Plain professional. One founder. No "we" — the programme is one person. |
 
 The homepage (`index.html`) is the only place all four registers sit alongside each other, deliberately.
 
@@ -72,7 +72,7 @@ journey.html            personal/contemplative arc + book + timeline
 papers.html             papers index
 quantum.html            quantum stack (architecture, primitives, roadmap)
 science.html            science register landing
-services.html           five service paths
+services.html           redirect stub → about.html#contact (services removed Oct 2026)
 
 scripts/chrome.js       shared header + footer — every page mounts this
 scripts/geometry.js     MerkabitGeo SVG library — single source of truth for figures

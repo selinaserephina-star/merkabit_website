@@ -93,7 +93,7 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-    .section-cards .grid-4 { gap: 0; border-left: 1px solid var(--line); }
+    .section-cards .grid-3 { gap: 0; border-left: 1px solid var(--line); }
     .scard {
       padding: 40px 32px 36px;
       border-right: 1px solid var(--line);
@@ -180,7 +180,7 @@
       .hero-art { aspect-ratio: 1 / 1; max-width: 280px; margin: 0 auto; width: 100%; }
       .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; padding-top: 22px; }
       .hero-stats .n { font-size: 32px; }
-      .section-cards .grid-4, .latest-grid { grid-template-columns: 1fr; }
+      .section-cards .grid-3, .latest-grid { grid-template-columns: 1fr; }
       .scard { border-bottom: 1px solid var(--line); padding: 28px 22px; }
       .scard h3 { font-size: 22px; }
       .latest-item { padding: 24px 22px; }
@@ -235,7 +235,7 @@
     <!-- SECTION CARDS -->
     <section class="section-cards" style="padding:0;">
       <div class="wrap wrap--wide" style="padding:0;">
-        <div class="grid-4">
+        <div class="grid-3">
           <a class="scard" href="science.html">
             <span class="scard-icon" id="ic-science"></span>
             <h3>The Science</h3>
@@ -249,14 +249,6 @@
             <h3>The Journey</h3>
             <p class="txt-mid" style="font-size:15px;line-height:1.55;">
               From crop circles to derived constants. The year-long human-AI collaboration.
-            </p>
-            <span class="scard-meta">Enter <span class="arrow">→</span></span>
-          </a>
-          <a class="scard" href="services.html">
-            <span class="scard-icon" id="ic-services"></span>
-            <h3>Services</h3>
-            <p class="txt-mid" style="font-size:15px;line-height:1.55;">
-              Workshops, talks, the book, and bespoke advisory engagements.
             </p>
             <span class="scard-meta">Enter <span class="arrow">→</span></span>
           </a>
@@ -354,7 +346,7 @@
             <span class="stamp">Forthcoming · 2026 · Journey</span>
             <h4>Scaling Buddha — first edition, forthcoming</h4>
             <p class="txt-dim" style="font-size:14.5px; line-height:1.55;">A human and systemic orientation to the Merkabit framework, with chapters on the tower from octonions to matter, the algebra of family, and the human-AI partnership that produced the work.</p>
-            <span class="meta"><a href="services.html#book" style="color:var(--gold);">/journey/book/ →</a></span>
+            <span class="meta"><a href="journey.html#book" style="color:var(--gold);">/journey/book/ →</a></span>
           </div>
           <div class="latest-item">
             <span class="stamp">Feb 2026 · Method</span>
@@ -391,7 +383,6 @@
     // Section icons
     document.getElementById('ic-science').innerHTML  = MerkabitGeo.fano({ size: 56 });
     document.getElementById('ic-journey').innerHTML  = MerkabitGeo.merkabit({ size: 56 });
-    document.getElementById('ic-services').innerHTML = MerkabitGeo.pentachoron({ size: 56 });
     document.getElementById('ic-about').innerHTML    = MerkabitGeo.tesseract({ size: 56 });
     if (window.MerkabitTimeline) MerkabitTimeline.renderStrip(document.getElementById('home-strip'), 'journey.html');
   </script>

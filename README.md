@@ -50,7 +50,7 @@ merkabit-site/
 ├── papers.html             papers index
 ├── quantum.html            quantum stack landing
 ├── science.html            science register landing
-├── services.html           talks · workshops · advisory · book · audit
+├── services.html           redirect stub → about.html#contact
 ├── scripts/
 │   ├── chrome.js           shared header + footer (loaded on every page)
 │   ├── geometry.js         MerkabitGeo SVG library — all geometric figures

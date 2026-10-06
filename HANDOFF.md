@@ -21,12 +21,11 @@ Status of the site at handoff. Use this as a starting backlog.
 
 These work as visual placeholders but the underlying integration isn't there.
 
-- **Buy on Amazon** buttons in `services.html` and `journey.html` — currently `href="#"`. Drop in the live ASIN URL when ready.
+- **Buy on Amazon** buttons in `journey.html` — currently `href="#"`. Drop in the live ASIN URL when ready.
 - **Read sample chapter** button on `journey.html` — needs a PDF link or modal.
 - **IngramSpark** button on `journey.html` — needs the live URL.
 - **Papers** entries on `papers.html` — titles and summaries are populated, but each "Read paper" link points at `#`. Hook each up to its Zenodo DOI when the paper is uploaded.
-- **Contact / enquiry** on `services.html` and `about.html` — currently `mailto:selinastenberg@gmail.com`. Fine for v1; if volume grows, swap to a form (Formspree, Basin, or self-hosted).
-- **Audit intake** on `services.html` Coherence Audit tier — currently the same mailto. Long-term this wants a structured form with payment, but that's out of scope for the static site.
+- **Contact / enquiry** on `about.html` — currently `mailto:selinastenberg@gmail.com`. Fine for v1; if volume grows, swap to a form (Formspree, Basin, or self-hosted).
 
 ## Queued — copy/content edits the user mentioned
 
@@ -39,7 +38,6 @@ These work as visual placeholders but the underlying integration isn't there.
   > The next leap for humanity is learning how to remain coherent while operating systems of unprecedented complexity.
 
   Locations to update:
-  - `services.html` (h2, body paragraph, editions panel)
   - `journey.html` (h2, two narrative paragraphs, book-cover overlay text)
   - `index.html` (the "Latest" entry currently says "v2 — second edition published")
   - `scripts/timeline.js` (the 2026-Q1 event mentions "second edition")
