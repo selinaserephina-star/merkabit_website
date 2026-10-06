@@ -25,7 +25,7 @@ These work as visual placeholders but the underlying integration isn't there.
 - **Read sample chapter** button on `journey.html` — needs a PDF link or modal.
 - **IngramSpark** button on `journey.html` — needs the live URL.
 - **Papers** entries on `papers.html` — titles and summaries are populated, but each "Read paper" link points at `#`. Hook each up to its Zenodo DOI when the paper is uploaded.
-- **Contact / enquiry** on `services.html` and `about.html` — currently `mailto:selina@exoreaction.com`. Fine for v1; if volume grows, swap to a form (Formspree, Basin, or self-hosted).
+- **Contact / enquiry** on `services.html` and `about.html` — currently `mailto:selinastenberg@gmail.com`. Fine for v1; if volume grows, swap to a form (Formspree, Basin, or self-hosted).
 - **Audit intake** on `services.html` Coherence Audit tier — currently the same mailto. Long-term this wants a structured form with payment, but that's out of scope for the static site.
 
 ## Queued — copy/content edits the user mentioned
@@ -45,7 +45,6 @@ These work as visual placeholders but the underlying integration isn't there.
   - `scripts/timeline.js` (the 2026-Q1 event mentions "second edition")
   - `about.html` (the timeline event mentions "second edition")
 
-- **Thor Henning Hetland section.** The user wants to add a section acknowledging Thor Henning Hetland (https://wiki.totto.org/about/) for hardware testing, the Claude Code setup, and access to his ExoCortex rig. Most natural home is the About page collaborator block, possibly mirrored on the Hardware page (he's the operator behind the IBM Eagle r3 verification work). Pull biographical details from his wiki — keep it short (3–4 sentences) and link out.
 
 ## Nice-to-have
 

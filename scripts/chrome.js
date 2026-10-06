@@ -40,7 +40,7 @@
         <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
           <div class="mobile-nav-inner">
             ${NAV.map(n => `<a href="${n.href}" class="${n.key === active ? 'active' : ''}">${n.label}</a>`).join('')}
-            <a class="mobile-nav-cta" href="about.html#contact">selina@exoreaction.com</a>
+            <a class="mobile-nav-cta" href="about.html#contact">selinastenberg@gmail.com</a>
           </div>
         </nav>
       </header>`;
@@ -91,9 +91,8 @@
             <h4>About</h4>
             <ul>
               <li><a href="about.html#selina">Selina Stenberg</a></li>
-              <li><a href="about.html#thor">Thor H. Hetland</a></li>
               <li><a href="about.html#contact">Contact</a></li>
-              <li><a href="mailto:selina@exoreaction.com">selina@exoreaction.com</a></li>
+              <li><a href="mailto:selinastenberg@gmail.com">selinastenberg@gmail.com</a></li>
               <li><a href="https://github.com/SelinaAliens?tab=repositories" target="_blank" rel="noopener">GitHub ↗</a></li>
               <li><a href="https://www.linkedin.com/in/selinas/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
               <li><a href="https://zenodo.org" target="_blank" rel="noopener">Zenodo ↗</a></li>

@@ -15,16 +15,15 @@ description: >
   full paper series, code repositories, theory documents, strategic assessments,
   and implementation pathways.
 
-maintainer: totto@exoreaction.com
-updated: "2026-05-11"
+maintainer: selinastenberg@gmail.com
+updated: "2026-10-06"
 
 # ─── TRUST ───────────────────────────────────────────────────────────────────
 trust:
   provenance:
     publisher: eXOReaction AS / Merkabit
     contact:
-      - selina@exoreaction.com
-      - totto@exoreaction.com
+      - selinastenberg@gmail.com
 
 # ─── AUTHORITY ───────────────────────────────────────────────────────────────
 authority:
@@ -1296,35 +1295,6 @@ units:
       - planck 2018 baryon ratio match
 
 
-  - id: zenodo-paper-37
-    path: assets/pdfs/Paper_37_Hilbert_Polya_Tunnel.pdf
-    title: "Paper 37 — A Simulation-Verified, Hardware-Pre-Registered Hilbert-Pólya Candidate from the Merkabit Architecture"
-    doi: "10.5281/zenodo.20205429"
-    intent: >
-      Positions Paper 31's Z3 x Z3 iSWAP^J tunnel as the third operator in a
-      three-operator decomposition of PSL(2,7) on the Eisenstein lattice: Paper 7's
-      binary transfer matrix on B31 (Riemann zeros directly), Paper 6's bounded
-      ternary operator on T75 (R-infinity = 1.479, explicitly not Berry-Keating),
-      and this paper's cross-stratum tunnel at Z62 (realises both at once). Proves
-      the K-modulus theorem |K_L(s)| = 1 iff Re(s) = 1/2 rigorously. Empirical
-      anchors: destructive identity at 35,100 cached Riemann zeros; mixing-model
-      confirmation at 0.9% across 756 IBM Eagle r3 runs.
-    scope: paper
-    audience: [researchers]
-    hints:
-      load_strategy: lazy
-      token_estimate: 35000
-      priority: primary
-    triggers:
-      - hilbert-polya candidate merkabit
-      - riemann hypothesis tunnel operator
-      - K-modulus theorem
-      - cross-stratum operator
-      - paper 37
-      - three-operator decomposition PSL(2,7)
-      - Z3 Z3 iSWAP tunnel
-      - destructive identity Riemann zeros
-
   - id: zenodo-paper-38
     path: assets/pdfs/Paper_38_First_Uplift.pdf
     title: "Paper 38 — The First Uplift: Axis-Genesis as the Architectural Origin of Rotational Structure"
@@ -1378,59 +1348,95 @@ units:
       - E6 McKay correspondence
       - paper 39
 
-  - id: zenodo-paper-40
-    path: assets/pdfs/Paper_40_Riemann_Resolution_Part_1.pdf
-    title: "Paper 40 — The Resolution to the Riemann Hypothesis (Part 1): Riemann Zeros as Fano-Cycle Closures of a sigma-Equivariant Operator System"
-    doi: "10.5281/zenodo.20205599"
+  - id: zenodo-paper-42
+    path: assets/pdfs/Paper_42_Conductor_21_L_Function.pdf
+    title: "Paper 42 — The Conductor-21 L-Function: Certified Zeros, Exact Laws, and a Density–Prime Operator"
+    doi: "10.5281/zenodo.22669650"
+    authors: [Stenberg, Balashov]
     intent: >
-      Empirical resolution of the Riemann Hypothesis at the closure-counting level.
-      N_arch(T) = (T/2pi) log(T/2pi e) + 7/8 + S_arch(T) with S_arch(T) = -(1/pi)
-      Sum_p (1/sqrt p) sin(T log p) — zero free parameters. Five independent
-      observables across 2000 cached Riemann zeros: density < 0.5%, GUE Wigner
-      spacings, cumulative N(T) exact at T=100, sub-leading S(T) at Pearson r=0.974
-      (94.4% pointwise variance), specific gamma_n timestamps at <1% local zero
-      spacing. Paper 7 binary + Paper 6 ternary + Paper 37 cross-stratum tunnel
-      measured simultaneously. Public code at SelinaAliens/Riemanns_resolution.
+      Conductor-21 programme, with Ilya Balashov. The degree-8 Artin/Hecke
+      L-function L(s, chi_8) of PSL(2,7) at conductor 21^10 and its rigid
+      six-member family. Abelian reduction RH(chi_8) <=> GRH(psi) for an explicit
+      cubic Hecke character psi by Artin induction; explicit 8x8 monomial
+      realisation; 153 ball-certified zeros on [0, 27.92] with certified Turing
+      counts below T = 6.55. Arithmetic-free finite-section model solved exactly
+      (value laws, Gamma/Mosco scaling limit, Airy caustic envelope with
+      arb-certified constants). Density-prime operator H = D + V reconstructs the
+      spectrum; the one open seam GRH(psi) is displayed as a conditional
+      Hilbert-Polya bridge (Theorem W). Every claim carries an explicit grade.
     scope: paper
     audience: [researchers]
     hints:
       load_strategy: lazy
-      token_estimate: 32000
+      token_estimate: 40000
       priority: primary
     triggers:
-      - riemann hypothesis empirical
-      - closure-counting Riemann zeros
-      - five observables 2000 zeros
-      - Fano-cycle closure timestamps
-      - N_arch equals N_RvM
-      - paper 40
+      - conductor 21 L-function
+      - chi_8 PSL(2,7) Artin L-function
+      - certified zeros arb
+      - GRH psi cubic Hecke character
+      - density prime operator
+      - Theorem W Hilbert-Polya bridge
+      - paper 42
+      - Balashov
 
-  - id: zenodo-paper-41
-    path: assets/pdfs/Paper_41_Riemann_Resolution_Part_2.pdf
-    title: "Paper 41 — The Resolution of the Riemann Hypothesis from the Merkabit Architecture (Part 2): A Synthesis"
-    doi: "10.5281/zenodo.20205552"
+  - id: zenodo-paper-43
+    path: assets/pdfs/Paper_43_Prime_Zero_Statistics_Conductor_21.pdf
+    title: "Paper 43 — Prime and Zero Statistics of a Degree-8 Artin L-Function of Conductor 21¹⁰"
+    doi: "10.5281/zenodo.22849507"
+    authors: [Stenberg, Balashov]
     intent: >
-      Synthesis paper combining the K-modulus theorem (Paper 37, rigorous), the
-      sigma-fixed-pivot theorem (Paper 38, rigorous, machine-precision verified),
-      and the five-observable empirical match (Paper 40) into a single chain
-      reducing RH. STT theorem: N_arch(T) = N_RvM(T) exactly, with primes indexing
-      primitive hyperbolic orbits in X(7) = H/Gamma(7) via Z[zeta_7]+ and the
-      theta(T)/pi + 1 contribution identified with Connes' adele-class
-      Plancherel-propagator phase at the archimedean place. Reduces remaining
-      work to four bookkeeping verifications in standard machinery.
+      Conductor-21 programme, with Ilya Balashov. Statistical companion to
+      Paper 42. From 153 certified zeros and exact Frobenius data for every prime
+      to 10^10: explicit formula as numerical identity (correlation 1.000);
+      Frobenius class independent of prime-pair structure while Hardy-Littlewood
+      singular series reproduced to 0.1%; Chebotarev race biases
+      mu_C = 1 - r_2(C); GUE-consistent low zeros with symmetry type SO(even);
+      Montgomery pair-correlation form factor measured from primes follows the
+      ramp F(alpha) = alpha to ~1% at heights up to gamma ~ 10^4.
     scope: paper
     audience: [researchers]
     hints:
       load_strategy: lazy
-      token_estimate: 38000
+      token_estimate: 30000
       priority: primary
     triggers:
-      - STT theorem
-      - substrate-trajectory-to-timestamp
-      - synthesis riemann hypothesis
-      - Selberg trace Klein quartic
-      - Connes adele-class
-      - paper 41
+      - prime statistics conductor 21
+      - Chebotarev bias
+      - Montgomery form factor ramp
+      - explicit formula numerical identity
+      - Trinks field
+      - Hardy-Littlewood singular series
+      - paper 43
+
+  - id: zenodo-paper-44
+    path: assets/pdfs/Paper_44_Roof_and_Clock_Rowmotion_E7.pdf
+    title: "Paper 44 — The Roof and the Clock: Rowmotion on the E₇ Minuscule Poset, Its Linearity Across the Minuscule Family, and the Weyl Group It Does Not Share"
+    doi: "10.5281/zenodo.22854644"
+    authors: [Stenberg, Balashov]
+    intent: >
+      With Ilya Balashov. Rowmotion R on order ideals of a simply-laced
+      minuscule poset, acting on the weights of the minuscule representation.
+      R is a Weyl group element iff the poset is a chain; the half-turn R^(h/2)
+      is Weyl iff chain or D_n vector representation. Parity law for inner-product
+      preservation on the 56 weights of E_7. W intersect R^k W R^-k equals the
+      centraliser C_W(R^k) on every board of rank <= 7 on which no power of R is
+      linear, with the D_5 half-spin (B_4 spinor board) as the one proven
+      exception. Longest element reverses R; three homomesic label statistics.
+    scope: paper
+    audience: [researchers]
+    hints:
+      load_strategy: lazy
+      token_estimate: 30000
+      priority: primary
+    triggers:
+      - rowmotion E7 minuscule
+      - roof and the clock
+      - minuscule poset Weyl group
+      - Coxeter element rowmotion
+      - homomesy cyclic sieving
+      - 56 weights E7
+      - paper 44
 
   # ══════════════════════════════════════════════════════════════════════════
   # EXPLAINER VIDEO
@@ -2153,47 +2159,29 @@ relationships:
     to: zenodo-paper-06
     type: builds_on
 
-  # ─── Papers 37, 38, 39, 40, 41 (2026-05) — Riemann Resolution chain ────
-  - from: zenodo-paper-37
-    to: zenodo-paper-06
-    type: builds_on
-
-  - from: zenodo-paper-37
-    to: zenodo-paper-07
-    type: builds_on
-
-  - from: zenodo-paper-37
-    to: zenodo-paper-31
-    type: builds_on
-
-  - from: zenodo-paper-38
-    to: zenodo-paper-37
-    type: builds_on
-
+  # ─── Papers 38, 39 (2026-05) ────────────────────────────────────────────
   - from: zenodo-paper-38
     to: zenodo-paper-33
     type: validates
 
   - from: zenodo-paper-39
-    to: zenodo-paper-30-capstone
+    to: paper-30-capstone
     type: synthesises
 
-  - from: zenodo-paper-40
-    to: zenodo-paper-37
+  # ─── Papers 42, 43, 44 (2026-09) — Conductor-21 programme, with Ilya Balashov ─
+  - from: zenodo-paper-42
+    to: zenodo-paper-07
     type: builds_on
 
-  - from: zenodo-paper-40
-    to: zenodo-paper-38
+  - from: zenodo-paper-42
+    to: zenodo-paper-10
     type: builds_on
 
-  - from: zenodo-paper-41
-    to: zenodo-paper-40
-    type: synthesises
-
-  - from: zenodo-paper-41
-    to: zenodo-paper-37
+  - from: zenodo-paper-43
+    to: zenodo-paper-42
     type: builds_on
 
-  - from: zenodo-paper-41
-    to: zenodo-paper-38
+  - from: zenodo-paper-44
+    to: zenodo-paper-08
     type: builds_on
+

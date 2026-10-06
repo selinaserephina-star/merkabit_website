@@ -120,7 +120,7 @@
       time: '2026 — February',
       datetime: '2026-02',
       head: 'Acceleration.',
-      body: 'Adds Claude Code and CTO Thor Henning Hetland\u2019s ExoCortex AI rig — dedicated infrastructure for AI-simulation-driven research. The pace of derivation increases by an order of magnitude. What previously took weeks now takes hours.',
+      body: 'Adds Claude Code and the ExoCortex AI rig — dedicated infrastructure for AI-simulation-driven research. The pace of derivation increases by an order of magnitude. What previously took weeks now takes hours.',
       compact: 'Claude Code and the ExoCortex AI rig come online. Pace of derivation increases by an order of magnitude.',
       icon: 'tess',
     },
