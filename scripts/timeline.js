@@ -138,7 +138,7 @@
       time: '2026 — May',
       datetime: '2026-05',
       head: 'Public surface launches.',
-      body: 'merkabit.com goes live. Papers, hardware confirmation, falsifiability tracker, and the journey made publicly available. Workshops, talks, and consulting open for engagement.',
+      body: 'merkabit.com goes live. Papers, hardware confirmation, falsifiability tracker, and the journey made publicly available.',
       compact: 'merkabit.com launches publicly.',
       icon: 'dot',
     },
