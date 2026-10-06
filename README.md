@@ -40,7 +40,7 @@ The empty `.nojekyll` file in this folder tells GitHub Pages **not** to run the 
 merkabit-site/
 ├── index.html              homepage
 ├── about.html              ·
-├── constants.html          15-constants wall
+├── constants.html          redirect stub → science.html
 ├── falsifiability.html     prediction tracker
 ├── five-faces.html         PSL(2,7) interactive
 ├── genesis.html            Genesis Sequence (animated engine + static ladder)

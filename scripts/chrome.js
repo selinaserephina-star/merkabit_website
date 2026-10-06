@@ -64,7 +64,6 @@
               <li><a href="papers.html">Papers</a></li>
               <li><a href="hardware.html">Hardware</a></li>
               <li><a href="falsifiability.html">Falsifiability</a></li>
-              <li><a href="constants.html">Constants</a></li>
               <li><a href="five-faces.html">Five Faces</a></li>
             </ul>
           </div>

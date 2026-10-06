@@ -50,7 +50,7 @@ The site speaks in four distinct voices. **Do not bleed copy across registers.**
 
 | Register | Pages | Voice |
 |---|---|---|
-| **Science** | `science.html`, `papers.html`, `falsifiability.html`, `constants.html`, `five-faces.html`, `hardware.html`, `genesis.html` | Disciplined, terse, mathematical. No interpretive content. Predictions are pre-registered, signed, dated. |
+| **Science** | `science.html`, `papers.html`, `falsifiability.html`, `five-faces.html`, `hardware.html`, `genesis.html` | Disciplined, terse, mathematical. No interpretive content. Predictions are pre-registered, signed, dated. |
 | **Quantum** | `quantum.html` | Engineering register. Concrete primitives, gate counts, platform comparisons. Slightly cooler accent. |
 | **Journey** | `journey.html` | First-person, contemplative, narrative. The book lives here. |
 | **About** | `about.html` | Plain professional. One founder. No "we" — the programme is one person. |
@@ -62,7 +62,7 @@ The homepage (`index.html`) is the only place all four registers sit alongside e
 ```
 index.html              homepage (hero + four cards + latest)
 about.html              founder bio + contacts + compact timeline
-constants.html          15-constants wall
+constants.html          redirect stub → science.html (constants wall removed Oct 2026)
 falsifiability.html     prediction tracker (status pills)
 five-faces.html         PSL(2,7) interactive
 genesis.html            Genesis Sequence — static ladder + animated engine
