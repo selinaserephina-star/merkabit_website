@@ -41,19 +41,6 @@
     .book-cover .ttl { font-family: var(--font-display); font-size: 28px; line-height: 1.1; color: var(--ink); }
     .book-cover .auth { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-dim); text-transform: uppercase; margin-top: 6px; }
 
-    .resources { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); }
-    @media (max-width: 1100px) { .resources { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px) { .resources { grid-template-columns: 1fr; } }
-    .res {
-      padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
-      display: flex; flex-direction: column; gap: 12px; min-height: 220px;
-    }
-    .res:hover { background: rgba(212,175,55,0.04); }
-    .res .num { font-family: var(--font-display); font-size: 32px; color: var(--gold); }
-    .res h4 { font-family: var(--font-display); font-size: 19px; }
-    .res p { font-size: 14px; color: var(--ink-mid); line-height: 1.55; margin: 0; }
-    .res ol { margin: 8px 0 0; padding-left: 18px; color: var(--ink-mid); font-size: 13.5px; line-height: 1.5; }
-    .res ol li::marker { color: var(--gold); font-family: var(--font-mono); }
   </style>
 </head>
 <body data-nav="journey" data-screen-label="08 Journey">
@@ -194,43 +181,6 @@
         <p class="narr" style="max-width:64ch;">
           Twelve rungs from the Riemann substrate up to the self-sustaining tesseract — an interactive scrollable build of the entire architecture, with one diagram per rung and a brief explanation linking each to the paper that develops it formally.
         </p>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap wrap--wide">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Resources · where to start</div>
-            <h2 style="margin-top:8px;">Pick the path that fits you.</h2>
-          </div>
-        </div>
-        <div class="resources">
-          <a class="res" href="papers.html">
-            <span class="num">01</span>
-            <h4>If you're a scientist</h4>
-            <p>Start with Paper 30 (capstone), then 11, 20, 22, then the hardware confirmations.</p>
-            <ol><li>Paper 30 — Capstone</li><li>Paper 11 — Standard Model from PSL(2,7)</li><li>Paper 22 — Cosmological Λ</li><li>Hardware §</li></ol>
-          </a>
-          <a class="res" href="#">
-            <span class="num">02</span>
-            <h4>If you're a meditator</h4>
-            <p>Start with Scaling Buddha, then the Genesis Sequence, then the Five Faces page.</p>
-            <ol><li>Scaling Buddha — Preface</li><li>Genesis Sequence</li><li>Five Faces of PSL(2,7)</li><li>Origin chapter</li></ol>
-          </a>
-          <a class="res" href="collaboration.html">
-            <span class="num">03</span>
-            <h4>If you're an entrepreneur</h4>
-            <p>Start with the collaboration story, then the books.</p>
-            <ol><li>Collaboration chapter</li><li>Scaling Buddha — Algebra of Family</li><li>Introducing the Merkabit</li></ol>
-          </a>
-          <a class="res" href="#">
-            <span class="num">04</span>
-            <h4>If you're curious</h4>
-            <p>Start at the homepage, walk to the Five Faces, then the Genesis Sequence.</p>
-            <ol><li>Homepage hero</li><li>Five Faces</li><li>Genesis Sequence</li><li>Falsifiability</li></ol>
-          </a>
-        </div>
       </div>
     </section>
 
