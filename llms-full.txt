@@ -1,6 +1,6 @@
 # Merkabit — Full Reference
 
-> A unified theory of physics derived from geometry alone. Selina Stenberg's research derives the Standard Model, gravity, black holes, and all 17 fundamental constants from PSL(2,7) acting on the Eisenstein lattice Z[ω] — zero free parameters across 15 constants. The Merkabit is a balanced ternary computational unit replacing fragile qubits with intrinsically stable dual-spinor geometry. Five hardware predictions confirmed on IBM Eagle r3 quantum processors (2025–2026). Co-developed with Claude (Anthropic).
+> The Merkabit research programme. The merkabit is a mathematical object — a balanced-ternary unit on the Eisenstein lattice Z[ω] with the symmetry of PSL(2,7) (168 elements). Selina Stenberg's programme follows that object into number theory (the conductor-21 L-function programme with Ilya Balashov), quantum hardware (five pre-registered predictions confirmed on IBM Eagle r3), and the geometry beneath both. Papers are published on Zenodo; claims are graded and falsifiable.
 
 ## Core Theory
 
